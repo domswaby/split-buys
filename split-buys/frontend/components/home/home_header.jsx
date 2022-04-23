@@ -11,7 +11,7 @@ const HomeHeader = () => {
             <div className="home-head-wrap">
                 <header>
                     <a href="/" className="logo-link"> 
-                        {/* <img src="/assets/images/split-wise-logo.png" alt="logo" /> */}
+                        {/* <img src={require("./../../../app/assets/images/split-wise-logo.png")} alt="logo" /> */}
                         <span>SplitBuys</span>
                     </a>
                     <div className="header-session-btns-wrap">

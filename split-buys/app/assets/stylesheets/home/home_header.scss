@@ -41,12 +41,14 @@
 .header-session-btns-wrap > a{
     background-color: var(--sw-light-green);
     color: white; 
-    border-radius: 10%;
+    border-radius: 10px;
     box-shadow: 0 2px 0 0 rgba(80, 82, 83, 0.5);
 }
 
 .header-session-btns-wrap > a:hover{
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.53);
+  
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
 
 .header-session-btns-wrap > div{
