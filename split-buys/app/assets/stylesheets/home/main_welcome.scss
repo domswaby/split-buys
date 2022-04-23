@@ -1,0 +1,20 @@
+.main-welcome-wrap{ 
+    
+}
+
+.star-svg, .heart-svg, .house-svg, .airplane-svg{ 
+    width: 30px; 
+    height: 30px;
+}
+
+.heart-svg{
+    fill: var(--sw-red);
+}
+
+.house-svg{
+    fill: var(--sw-purple); 
+}
+
+.airplane-svg{
+    fill: var(--sw-light-green);
+}
