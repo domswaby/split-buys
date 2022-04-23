@@ -1,5 +1,68 @@
 .home-head-wrap{
+    padding: 1em 2em;
+}
+
+.home-head-wrap > header{
     display: flex; 
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.home-head-wrap > header > a { 
+    display: flex; 
+    align-items: center;
+    font-size: 1.5em;
+    color: var(--black-1);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo-link{
+    height: 50px; 
+    width: 50px; 
+    
+}
+
+.header-session-btns-wrap{
+    display: flex;
+}
+
+.header-session-btns-wrap a {
+    padding: 0.5rem 2em;
+    display: flex; 
+    font-size: 0.9em;
+    font-weight: 700;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-session-btns-wrap > a{
+    background-color: var(--sw-light-green);
+    color: white; 
+    border-radius: 10%;
+    box-shadow: 0 2px 0 0 rgba(80, 82, 83, 0.5);
+}
+
+.header-session-btns-wrap > a:hover{
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.53);
+}
+
+.header-session-btns-wrap > div{
+    display: flex; 
+    align-items: center;
+}
+
+.header-session-btns-wrap > div > a { 
+    color: var(--sw-light-green);
+    
+}
+
+@media screen and (min-width: 800px) {
+    /* Styles go here */
+    .home-head-wrap{
+         padding: 1em 10em;
+    }
 }
 

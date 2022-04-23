@@ -10,9 +10,15 @@ const HomeHeader = () => {
         <>
             <div className="home-head-wrap">
                 <header>
-                    <a href="/">Splitwise</a>
-                    <div>
-                        
+                    <a href="/" className="logo-link"> 
+                        {/* <img src="/assets/images/split-wise-logo.png" alt="logo" /> */}
+                        <span>SplitBuys</span>
+                    </a>
+                    <div className="header-session-btns-wrap">
+                        <div>
+                            <a href="">Log in</a>
+                        </div>
+                        <a href="">Sign up</a>
                     </div>
                 </header>
                 
