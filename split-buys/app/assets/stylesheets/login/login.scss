@@ -1,0 +1,71 @@
+.login-wrap{
+    padding: 3em 0;
+    background-color: rgba(136, 132, 132, 5%);
+}
+.login-wrap > .form-wrap button { 
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 5px; 
+    background-color: var(--sw-light-green);
+    text-align: center;
+    color: white;
+    font-weight: 700; 
+    font-size: 1.1em;
+    border: none; 
+    box-shadow: 0 3px 0px 0 rgba(80, 82, 83, 0.5);
+    transition: 0.1s;
+}
+.login-wrap > .form-wrap button:hover {
+    cursor: pointer;
+     transform: translateY(2px);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+.form-wrap{
+    width: 90%; 
+    margin: 0 auto;
+    display: flex; 
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 12%);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.form-wrap > form{
+    padding: 30px 20px; 
+    width: 100%;
+
+}
+
+.form-wrap > form > h1{ 
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.login-field-wrap{
+    margin-bottom: 1em;
+}
+.login-field-wrap > label > p{ 
+    margin-bottom: 5px;
+}
+
+.login-field-wrap > label > input { 
+    width: 100%;
+    height: 3em;
+    border: 2px solid var(--gray-1);
+    box-sizing: border-box;
+}
+.login-field-wrap > label > input:focus { 
+    border: 2px solid var(--sw-light-green);
+    outline: none;
+}
+
+@media screen and (min-width: 800px) {
+    /* Styles go here */
+    .home-head-wrap{
+         padding: 1em 10em;
+    }
+    .form-wrap{
+        width: 40%;
+    }
+}

@@ -33,27 +33,30 @@ class SessionForm extends React.Component {
   render () {
    return (
     <>
+      <HomeHeader />
       <div className="login-wrap">
-        <HomeHeader />
-        <h1>{this.props.formType}</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>Username: 
-            <input type="text" value={this.state.username} onChange={this.update('username')}/>
-          </label>
-          <label>Password: 
-            <input type="password" value={this.state.password} onChange={this.update('password')}/>
-          </label>
-        {
-          this.props.formType === 'signup' ?
-              (<label>Email: 
-                <input type="text" value={this.state.email} onChange={this.update('email')}/>
-              </label>)
-            :  null   
-        }
-
-
-        <button>{this.props.formType}</button>
-        </form>
+        <div className="form-wrap">
+          <form onSubmit={this.handleSubmit}>
+            <h1>Login</h1>
+            <div className="login-field-wrap">
+              <label>
+                <p>
+                  Username
+                </p>
+                <input type="text" value={this.state.username} onChange={this.update('username')}/>
+              </label>
+            </div>
+            <div className="login-field-wrap">
+              <label>
+                <p>
+                    Password 
+                </p> 
+                <input type="password" value={this.state.password} onChange={this.update('password')}/>
+              </label>
+            </div>
+            <button>Login</button>
+          </form>
+        </div>
         <Link to={`/${this.props.formType === "login" ? "signup" : "login"}`}></Link>
           {
             this.props.errors ? 
@@ -61,8 +64,8 @@ class SessionForm extends React.Component {
                 :
               ""
           }
-          <Footer />
        </div>
+       <Footer />
      </>
    )
   }

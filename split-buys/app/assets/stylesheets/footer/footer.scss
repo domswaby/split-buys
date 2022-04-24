@@ -17,7 +17,15 @@
 
 .info-lists > ul { 
     flex: 1;
+}
 
+.info-lists > ul:first-child > li:first-child{
+    color: var(--sw-orange); 
+    font-weight: 700;
+}
+.info-lists > ul:nth-child(2) > li:first-child{
+    color: var(--sw-light-green); 
+    font-weight: 700;
 }
 
 .info-lists > ul > li{
