@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
+
 
 
 
@@ -15,9 +17,9 @@ const HomeHeader = () => {
                     </a>
                     <div className="header-session-btns-wrap">
                         <div>
-                            <a href="">Log in</a>
+                            <Link to="/login">Log in</Link>
                         </div>
-                        <a href="">Sign up</a>
+                        <Link to="/signup">Sign up</Link>
                     </div>
                 </header>
                 

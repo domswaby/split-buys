@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HomeHeader from "../home/home_header";
 
 class SessionForm extends React.Component {
   constructor(props){
@@ -29,6 +30,7 @@ class SessionForm extends React.Component {
   render () {
    return (
     <>
+      <HomeHeader />
       <h1>{this.props.formType}</h1>
       <form onSubmit={this.handleSubmit}>
         <label>Username: 
