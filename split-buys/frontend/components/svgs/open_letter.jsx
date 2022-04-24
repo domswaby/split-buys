@@ -2,7 +2,7 @@ import React from "react";
 
 const OpenLetter = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="21">
+        <svg className="open-letter" xmlns="http://www.w3.org/2000/svg" width="19" height="21">
             <path fill="#1CC29F" d="M18.021 17.105V5.795l-9.01 5.655z" />
             <path fill="#ACE4D6" d="M0 17.1V5.79l9.01 5.655z" />
             <path fill="#ACE4D6" d="M18.02 5.794L9.01.14 0 5.794l9.01 5.656z" />
