@@ -11,12 +11,23 @@ class SignupForm extends React.Component {
             email: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoSubmit = this.demoSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state)
         this.props.processForm(user).then((res) => {
+            this.props.history.push('/test');
+        });
+    }
+    demoSubmit(e) {
+        e.preventDefault();
+        const user = {
+            username: "Demo User",
+            password: "starwars"            
+        }
+        this.props.login(user).then((res) => {
             this.props.history.push('/test');
         });
     }
@@ -60,6 +71,7 @@ class SignupForm extends React.Component {
                         </div>
        
                         <button>Sign me up!</button>
+                        <a onClick={this.demoSubmit}>Login as demo user</a>
                     </form>
                 </div>
                 {

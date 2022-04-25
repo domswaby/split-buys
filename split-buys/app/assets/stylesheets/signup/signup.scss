@@ -17,6 +17,16 @@
     flex: 3;
 }
 
+.signup-comp-wrap > form a {
+    display: block;
+    margin: 5px auto; 
+    cursor: pointer;
+}
+
+.signup-comp-wrap > form a:hover {
+    text-decoration: underline;    
+}
+
 .signup-logo-wrap > a > img{
     height: 200px; 
     width: 200px; 

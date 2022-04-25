@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
       email: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoSubmit = this.demoSubmit.bind(this);
   }
 
   handleSubmit(e){
@@ -20,6 +21,18 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then((res) => {
       this.props.history.push('/test'); 
     });
+  }
+
+  demoSubmit(e) {
+    e.preventDefault();
+    const user = {
+      username: "Demo User",
+      password: "starwars"
+    }
+    this.props.processForm(user).then((res) => {
+      this.props.history.push('/test');
+    });
+   
   }
 
   update(field) {
@@ -55,6 +68,7 @@ class SessionForm extends React.Component {
               </label>
             </div>
             <button>Login</button>
+            <a onClick={this.demoSubmit}>Login as demo user</a>
           </form>
         </div>
         <Link to={`/${this.props.formType === "login" ? "signup" : "login"}`}></Link>
