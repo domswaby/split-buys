@@ -6,6 +6,7 @@ import BenchIndexContainer from './bench/bench_index_container';
 import Home from "./home/home";
 import AppHeader from "./app_header/app_header";
 import AppHeaderContainer from "./app_header/app_header_container"; 
+import AppContainer from "./app_container/app_container";
 import { Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
@@ -15,7 +16,7 @@ const App = () => (
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path="/" component={AppHeaderContainer} />
-    <ProtectedRoute path="/test" component={Test} />
+    <ProtectedRoute path="/dashboard" component={AppContainer} />
 
     {/* <Route exact path="/" component={BenchIndexContainer} /> */}
   </div>

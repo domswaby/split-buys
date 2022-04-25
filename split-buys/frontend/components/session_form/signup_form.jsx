@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state)
         this.props.processForm(user).then((res) => {
-            this.props.history.push('/test');
+            this.props.history.push('/dashboard');
         });
     }
     demoSubmit(e) {
@@ -28,7 +28,7 @@ class SignupForm extends React.Component {
             password: "starwars"            
         }
         this.props.login(user).then((res) => {
-            this.props.history.push('/test');
+            this.props.history.push('/dashboard');
         });
     }
 
