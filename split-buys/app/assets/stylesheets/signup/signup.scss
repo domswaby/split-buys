@@ -1,0 +1,80 @@
+.signup-comp-wrap{
+    display: flex; 
+    margin: 6em auto; 
+    width: 50%; 
+}
+.signup-comp-wrap > form > h1{
+    color: rgba(133, 131, 131, 0.8); 
+    font-weight: 600;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+.signup-logo-wrap > a > img{
+    height: 200px; 
+    width: 200px; 
+    margin-right: 3em;
+}
+
+.signup-comp-wrap > form button{ 
+    padding: 0.5em 0.75em; 
+    font-size: 1.5em; 
+    color: white;
+    background-color: var(--sw-orange); 
+    border-radius: 8px;
+    border: 1px solid rgba(133, 131, 131, 0.8); 
+    cursor: pointer;
+}
+
+.signup-comp-wrap > form button:hover{ 
+    background-color:  rgba(236, 101, 52, 1)
+}
+.signup-input-wrap{
+    margin-bottom: 2em;
+}
+
+.signup-input-wrap > p{
+    margin-bottom: 5px;
+    font-weight: 400; 
+}
+.signup-input-wrap > p > span{
+    font-weight: 600; 
+}
+
+.signup-input-wrap > input{
+    border: 1px solid rgba(128, 126, 126, 0.5); 
+    border-radius: 4px;
+    width: 100%;
+    outline: none; 
+    transition: 0.3s;
+}
+.signup-input-wrap > input:focus{
+    border: 1px solid rgb(127, 198, 226);
+    box-shadow: 0px 0px 2px 2px rgba(127, 198, 226, 0.4);
+}
+
+.signup-input-wrap:first-of-type > p{
+    font-size: 1.8em;
+
+}
+.signup-input-wrap:first-of-type > input{
+    font-size: 2em;
+    padding: 0.1em;
+
+}
+.signup-input-wrap:not(:first-of-type) > p{
+    font-size: 1.2em;
+}
+.signup-input-wrap:not(:first-of-type) > input{
+    font-size: 1.4em;
+    padding: 0.1em;
+
+}
+
+
+@media screen and (max-width: 600px) {
+    /* Styles go here */
+    .signup-logo-wrap{
+        display: none;
+    }
+}

@@ -30,32 +30,36 @@ class SignupForm extends React.Component {
     render() {
         return (
             <>
-                <div>
-                    <a href="/" className="logo-link">
-                        <img className="logo-link" src={logo} alt="logo" />
-                        <span>SplitBuys</span>
-                    </a>
+                <div className="signup-comp-wrap">
+                    <div className="signup-logo-wrap">
+                        <a href="/">
+                            <img src={logo} alt="logo" />
+                        </a>
+                    </div>
+                    <form onSubmit={this.handleSubmit}>
+                        <h1>INTRODUCE YOURSELF</h1>
+                        <div className="signup-input-wrap">
+                            <p>
+                                Hi there! My name is
+                            </p>
+                            <input type="text" value={this.state.username} onChange={this.update('username')} />
+                        </div>
+                        <div className="signup-input-wrap">
+                            <p>
+                                Here's my <span>email address</span>:
+                            </p>
+                            <input type="text" value={this.state.email} onChange={this.update('email')} />
+                        </div>
+                        <div className="signup-input-wrap">
+                            <p>
+                                And here's my <span>password</span>:
+                            </p>
+                            <input type="password" value={this.state.password} onChange={this.update('password')} />
+                        </div>
+       
+                        <button>Sign me up!</button>
+                    </form>
                 </div>
-                <h1>{this.props.formType}</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Username:
-                        <input type="text" value={this.state.username} onChange={this.update('username')} />
-                    </label>
-                    <label>Password:
-                        <input type="password" value={this.state.password} onChange={this.update('password')} />
-                    </label>
-                    {
-                        this.props.formType === 'signup' ?
-                            (<label>Email:
-                                <input type="text" value={this.state.email} onChange={this.update('email')} />
-                            </label>)
-                            : null
-                    }
-
-
-                    <button>{this.props.formType}</button>
-                </form>
-                <Link to={`/${this.props.formType === "login" ? "signup" : "login"}`}></Link>
                 {
                     this.props.errors ?
                         this.props.errors.map(error => <p>{error}</p>)
