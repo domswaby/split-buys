@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state)
     this.props.processForm(user).then((res) => {
-      this.props.history.push('/test'); 
+        this.props.history.push('/test'); 
     });
   }
 
@@ -44,6 +44,7 @@ class SessionForm extends React.Component {
   }
   
   render () {
+    
    return (
     <>
       <HomeHeader />
@@ -69,15 +70,18 @@ class SessionForm extends React.Component {
             </div>
             <button>Login</button>
             <a onClick={this.demoSubmit}>Login as demo user</a>
+            <div className="session-errors">
+              {
+                
+                this.props.errors ? 
+                  this.props.errors.map( error => <p>{error}</p>)
+                    :
+                  ""
+              }
+            </div>
           </form>
         </div>
         <Link to={`/${this.props.formType === "login" ? "signup" : "login"}`}></Link>
-          {
-            this.props.errors ? 
-              this.props.errors.map( error => <p>{error}</p>)
-                :
-              ""
-          }
        </div>
        <Footer />
      </>

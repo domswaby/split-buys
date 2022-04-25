@@ -72,14 +72,16 @@ class SignupForm extends React.Component {
        
                         <button>Sign me up!</button>
                         <a onClick={this.demoSubmit}>Login as demo user</a>
+                        <div className="session-errors">
+                            {
+                                this.props.errors ?
+                                    this.props.errors.map(error => <p>{error}</p>)
+                                    :
+                                    ""
+                            }
+                        </div>
                     </form>
                 </div>
-                {
-                    this.props.errors ?
-                        this.props.errors.map(error => <p>{error}</p>)
-                        :
-                        ""
-                }
             </>
         )
     }
