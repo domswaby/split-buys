@@ -9,6 +9,13 @@
     margin-bottom: 1em;
     font-size: 1.1em;
 }
+.signup-logo-wrap{
+    flex: 1;
+}
+
+.signup-comp-wrap > form{
+    flex: 3;
+}
 
 .signup-logo-wrap > a > img{
     height: 200px; 
@@ -77,4 +84,29 @@
     .signup-logo-wrap{
         display: none;
     }
+}
+@media screen and (max-width: 800px) {
+    /* Styles go here */
+    .signup-comp-wrap{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    /* Styles go here */
+    .signup-comp-wrap{
+        width: 80%;
+    }
+    .signup-logo-wrap > a > img{
+        height: 100px; 
+        width: 100px; 
+        margin-right: 3em;
+    }
+}
+@media screen and (max-width: 1200px) {
+    /* Styles go here */
+    .signup-comp-wrap{
+        width: 70%;
+    }
+    
 }
