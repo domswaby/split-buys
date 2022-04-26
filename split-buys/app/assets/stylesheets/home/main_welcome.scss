@@ -1,11 +1,69 @@
-.main-welcome-wrap{ 
-    background-image: image-url('facets_black.png'); 
-    height: 200px;
+.main-welcome-wrap{
+    
+    padding: 5em 2em 2em 2em; 
+    background-image: image-url('facets_white.png'); 
+    
+}
+.main-welcome-wrap > div{
+    display: flex; 
+    width: 60%; 
+    margin: 0 auto; 
+}
+.main-info-wrap{
+    flex: 1;
+}
+.main-picture-wrap{
+    flex: 1;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.main-info-wrap > h1{
+    font-size: 2.5em; 
+    line-height: 1.3em;
+    font-weight: 600; 
+    margin-bottom: 25px;
+}
+.main-info-wrap > h1 > span { 
+    color: var(--sw-purple); 
+}
+.main-picture-wrap > img{
+    height: 25em; 
+    width: 25em; 
 }
 
+.main-welcome-description{
+    margin-bottom: 25px;
+    font-size: 1.2em;
+    line-height: 1.1em;
+}
+.big-signup-wrap{
+    margin-bottom: 25px;
+}
+.big-signup-wrap > button{
+    border: none; 
+    background-color: var(--sw-light-green);
+    color: white; 
+    font-weight: 700; 
+    font-size: 1em;
+    padding: 1.2em 5em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 0 0 rgba(80, 82, 83, 0.5);
+}
+.big-signup-wrap > button:hover{  
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+.welcome-icons{
+    margin-bottom: 25px;
+}
 .star-svg, .heart-svg, .house-svg, .airplane-svg{ 
-    width: 30px; 
-    height: 30px;
+    width: 3em; 
+    height: 3em;
+    margin-right: 1em;
+    margin-left: 0; 
 }
 
 .heart-svg{
@@ -20,7 +78,26 @@
     fill: var(--sw-light-green);
 }
 
-.test-text-wrap{
-    // background-image: url("./../../assets/images/facets_black.png");
-    // background-color: rgba(197, 193, 193, 0.7);
+.main-welcome-icons > p{
+    font-size: 0.8em;
+    display: flex; 
+    align-items: center;
+}
+.main-welcome-icons > p > svg {
+    width: 17px; 
+    height: 17px;
+}
+
+
+@media screen and (max-width: 1500px) {
+    /* Styles go here */
+   .main-welcome-wrap > div{
+       width: 80%; 
+   }
+}
+@media screen and (max-width: 1000px) {
+    /* Styles go here */
+   .main-welcome-wrap > div{
+       width: 100%; 
+   }
 }
