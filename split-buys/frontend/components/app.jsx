@@ -9,6 +9,8 @@ import { Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import DashboardContainer from "./dashboard/dashboard_container";
 import ActivityContainer from "./activity/activity_container";
+import ExpensesContainer from "./expenses/expenses_container";
+import FriendContainer from "./friend/friend_container";
 
 const App = () => (
   <div>
@@ -18,6 +20,8 @@ const App = () => (
     <ProtectedRoute path="/" component={AppHeaderContainer} />
     <ProtectedRoute path="/dashboard" component={DashboardContainer} />
     <ProtectedRoute path="/activity" component={ActivityContainer} />
+    <ProtectedRoute path="/all" component={ExpensesContainer} />
+    <ProtectedRoute path="/friend" component={FriendContainer} />
     
     {/* <Route exact path="/" component={BenchIndexContainer} /> */}
   </div>

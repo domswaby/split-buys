@@ -1,12 +1,12 @@
 import React from "react";
 
 
-const Activity = () => {
+const Friend = () => {
   return (
     <div className="dashboard-wrap">
-      <h1>Activity</h1>
+      <h1>Friend</h1>
     </div>
   )
 }
 
-export default Activity; 
+export default Friend; 

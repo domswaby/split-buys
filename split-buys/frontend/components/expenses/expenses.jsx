@@ -1,12 +1,12 @@
 import React from "react";
 
 
-const Activity = () => {
+const Expenses = () => {
   return (
     <div className="dashboard-wrap">
-      <h1>Activity</h1>
+      <h1>Expenses</h1>
     </div>
   )
 }
 
-export default Activity; 
+export default Expenses; 

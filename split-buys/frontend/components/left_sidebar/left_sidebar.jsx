@@ -13,7 +13,7 @@ const LeftSidebar = () => {
           <Link to="/dashboard"><img src={logo} alt="" />Dashboard</Link>
         </div>
         <div className="activity-tab">
-          <Link to="/activity"><FaFlag class="activity-flag" />Recent activity</Link>
+          <Link to="/activity"><FaFlag className="activity-flag" />Recent activity</Link>
         </div>
         <div>
           <div className="expenses-tab">
@@ -22,17 +22,15 @@ const LeftSidebar = () => {
           <div className="friends-list-wrap">
             <h3> <span>FRIENDS</span> <span>+ add</span> </h3>
             <ul>
-              <li>
-                  
-                <a href=""><GoPerson className="friend-icon" />Friend 1</a>
+              <li>   
+                <Link to="/friend"><GoPerson className="friend-icon" />Friend 1</Link>
               </li>
               <li>
                   
-                <a href=""><GoPerson className="friend-icon" />Friend 2</a>
+                <Link to="/friend"><GoPerson className="friend-icon" />Friend 2</Link>
               </li>
               <li>
-                
-                <a href=""><GoPerson className="friend-icon" />Friend 3</a>
+                <Link to="/friend"><GoPerson className="friend-icon" />Friend 3</Link>
                 </li>
             </ul>
           </div>
