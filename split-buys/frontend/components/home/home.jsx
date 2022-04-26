@@ -14,7 +14,6 @@ class Home extends React.Component {
                 <HomeHeader />
                 <MainWelcome />
                 <ScreenshotContainer /> 
-                <FeatureSection /> 
                 <Endorsements /> 
                 <Footer /> 
             </>
