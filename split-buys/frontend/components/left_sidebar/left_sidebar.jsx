@@ -20,7 +20,7 @@ const LeftSidebar = () => {
             <Link to="/all"><GoListUnordered className="expenses-list-icon" />All expenses</Link>
           </div>
           <div className="friends-list-wrap">
-            <h3> <span>FRIENDS</span> <span>+ add</span> </h3>
+            <h3> <span>FRIENDS</span> <span onClick={() => console.log("clicked the span")} className="add-friend-span">+ add</span> </h3>
             <ul>
               <li>   
                 <Link to="/friend"><GoPerson className="friend-icon" />Friend 1</Link>
