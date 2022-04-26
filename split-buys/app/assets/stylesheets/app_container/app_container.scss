@@ -1,4 +1,15 @@
-.app-container{
-  min-height: 100%; 
-  border: 2px solid red; 
+.app-container { 
+  border: 2px solid black;
+  box-sizing: border-box; 
+  
 }
+
+.app-container > div{
+  display: flex;
+  min-height: calc(100vh - 44px);
+  border: 2px solid black; 
+  margin: 0 auto; 
+  width: 80%; 
+  box-sizing: border-box;
+}
+

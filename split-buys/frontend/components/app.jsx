@@ -4,11 +4,10 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import BenchIndexContainer from './bench/bench_index_container';
 import Home from "./home/home";
-import AppHeader from "./app_header/app_header";
 import AppHeaderContainer from "./app_header/app_header_container"; 
-import AppContainer from "./app_container/app_container";
 import { Route } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import DashboardContainer from "./dashboard/dashboard_container";
 
 const App = () => (
   <div>
@@ -16,8 +15,8 @@ const App = () => (
     <AuthRoute path="/login" component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path="/" component={AppHeaderContainer} />
-    <ProtectedRoute path="/dashboard" component={AppContainer} />
-
+    <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+    
     {/* <Route exact path="/" component={BenchIndexContainer} /> */}
   </div>
 );

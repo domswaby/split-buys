@@ -5,8 +5,9 @@
 .app-header-wrap > header{
     display: flex; 
     justify-content: space-between;
-    padding: 0 4em;
+    width: 80%;
     align-items: center;
+    margin: 0 auto;
     
 }
 .app-logo-link{
@@ -38,6 +39,6 @@
 @media screen and (min-width: 800px) {
     /* Styles go here */
     .app-header-wrap > header{
-         padding: 0 7em;
+         
     }
 }
