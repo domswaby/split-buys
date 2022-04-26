@@ -11,9 +11,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url('favicons/favicon-32x32.png') %>">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url('favicons/favicon-16x16.png') %>">
     <link rel="manifest" href="<%= image_url('favicons/site.webmanifest') %>">
+
+    <script type="text/javascript">
+      window.app_store_pic = "<%= image_url('right_sidebar/app_store_pic') %>"
+      window.google_play_pic = "<%= image_url('right_sidebar/google_play_pic') %>"
+    </script>
   </head>
 
   <body>
     <%= yield %>
   </body>
 </html>
+

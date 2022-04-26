@@ -1,3 +1,49 @@
 .right-sidebar-ads-wrap{
   flex: 1; 
+  box-sizing: border-box;
+}
+.right-sidebar-ads-wrap > div { 
+  padding: 1em 1.5em;
+}
+.right-sidebar-ads-wrap img{
+  padding: 0;
+  margin: 0;
+}
+.apple-store-wrap > img, .google-store-wrap > img{
+  margin-bottom: 0.5em;
+}
+.apple-store-wrap > img{
+  width: 160px; 
+  height: 52px;
+}
+
+.google-store-wrap > img{
+  width: 172px; 
+  height: 60px;
+}
+
+.right-sidebar-ads-wrap h1{
+  color: rgb(151, 150, 150); 
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.right-sidebar-ads-wrap p:first-of-type{
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+.right-sidebar-ads-wrap p:not(:first-of-type){
+  color: rgba(151, 150, 150, 0.7); 
+  font-size: 0.8em;
+  margin-bottom: 0.2em; 
+}
+.right-sidebar-ads-wrap p:not(:first-of-type) > a{
+  color: #0186c9; 
+  text-decoration: none;
+}
+.right-sidebar-ads-wrap p:not(:first-of-type)> a:hover {
+  text-decoration: underline;
 }
