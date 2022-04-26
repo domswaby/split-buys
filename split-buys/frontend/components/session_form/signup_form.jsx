@@ -45,9 +45,9 @@ class SignupForm extends React.Component {
             <>
                 <div className="signup-comp-wrap">
                     <div className="signup-logo-wrap">
-                        <a href="/">
+                        <Link to="/">
                             <img src={logo} alt="logo" />
-                        </a>
+                        </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <h1>INTRODUCE YOURSELF</h1>

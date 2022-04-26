@@ -11,10 +11,10 @@ const HomeHeader = () => {
         <>
             <div className="home-head-wrap">
                 <header>
-                    <a href="/" className="logo-link"> 
+                    <Link to="/" className="logo-link"> 
                         <img className="logo-link" src={logo} alt="logo" />
                         <span>SplitBuys</span>
-                    </a>
+                    </Link>
                     <div className="header-session-btns-wrap">
                         <div>
                             <Link to="/login">Log in</Link>
