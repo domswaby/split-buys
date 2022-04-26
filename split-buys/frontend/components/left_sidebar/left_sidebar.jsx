@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaFlag } from 'react-icons/fa'; 
 import { GoListUnordered } from 'react-icons/go';
 import { GoPerson } from 'react-icons/go';
@@ -9,29 +10,29 @@ const LeftSidebar = () => {
     <div className="left-sidebar-wrap">
       <div>
         <div className="dashboard-tab">
-          <a href="#/dashboard"> <img src={logo} alt="" />Dashboard</a>
+          <Link to="/dashboard"><img src={logo} alt="" />Dashboard</Link>
         </div>
         <div className="activity-tab">
-          <a href="#/activity"><FaFlag class="activity-flag" />Recent activity</a>
+          <Link to="/activity"><FaFlag class="activity-flag" />Recent activity</Link>
         </div>
         <div>
           <div className="expenses-tab">
-            <a href="#/all"><GoListUnordered className="expenses-list-icon" />All expenses</a>
+            <Link to="/all"><GoListUnordered className="expenses-list-icon" />All expenses</Link>
           </div>
           <div className="friends-list-wrap">
             <h3> <span>FRIENDS</span> <span>+ add</span> </h3>
             <ul>
               <li>
-                  <GoPerson className="friend-icon"/>
-                <a href="">Friend 1</a>
+                  
+                <a href=""><GoPerson className="friend-icon" />Friend 1</a>
               </li>
               <li>
-                  <GoPerson className="friend-icon"/>
-                <a href="">Friend 2</a>
+                  
+                <a href=""><GoPerson className="friend-icon" />Friend 2</a>
               </li>
               <li>
-                <GoPerson className="friend-icon"/>
-                <a href="">Friend 3</a>
+                
+                <a href=""><GoPerson className="friend-icon" />Friend 3</a>
                 </li>
             </ul>
           </div>

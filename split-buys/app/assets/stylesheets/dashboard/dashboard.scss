@@ -1,5 +1,32 @@
 .dashboard-wrap { 
-  border: 2px solid red;
+  
   box-sizing: border-box;
   flex: 3; 
+  position: relative; 
+  border-left: 1px solid var(--gray-5);
+  border-right: 1px solid var(--gray-5);
+}
+
+.dashboard-wrap:before, .dashboard-wrap:after{
+  content: " ";
+  height: 100%; 
+  position: absolute; 
+  top: 0; 
+  width: 15px;
+}
+.dashboard-wrap:before{
+  box-shadow: -15px 0 15px -15px inset;
+  left: -15px;
+}
+.dashboard-wrap::after{
+  box-shadow: 15px 0 15px -15px inset;
+  right: -15px;
+}
+.dashboard-wrap h1{
+  color: black; 
+  font-size: 1.5em; 
+  font-weight: 400; 
+  padding: 0.7em;
+  background-color: var(--gray-6);
+  border-bottom: 1px solid var(--gray-5); 
 }

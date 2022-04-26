@@ -68,9 +68,9 @@
   justify-content: space-between;
   
 }
-.friends-list-wrap li{
-  margin-bottom: 0.2em;
+.friends-list-wrap li > a{
   padding: 3px 3px 3px 5px;
+  display: inline-block;
 }
 .friends-list-wrap li:hover{
   background-color: rgba(226, 222, 222, 0.8);
@@ -78,5 +78,6 @@
 }
 .friend-icon{
   color: var(--gray-4);
+  margin-right: 5px;
 }
 
