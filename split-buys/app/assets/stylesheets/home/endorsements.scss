@@ -1,0 +1,48 @@
+.endorsements-wrap{
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    margin: 3em auto 0 auto; 
+    width: 90%; 
+    box-sizing: border-box;
+    padding: 1em;
+    
+}
+
+.endorsements-wrap > div{
+    width: 30%; 
+    font-size: 1.2em; 
+    font-weight: 300; 
+    min-height: 8em;
+    box-sizing: border-box;
+    padding: 1em;
+    position: relative; 
+    margin-bottom: 2em;
+    border: 1px solid rgba(85, 84, 84, 0.2); 
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 rgba(80, 82, 83, 0.5);
+}
+
+.endorsements-wrap > div:hover{    
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+.endorsements-wrap > div > p:first-child{
+    margin-bottom: 2em;
+}
+
+.endorsements-wrap > div > p:last-child{
+    font-style: italic;
+    font-weight: 500;
+    position: absolute; 
+    bottom: 1em;
+}
+
+@media screen and (max-width: 800px) {
+    .endorsements-wrap > div{ 
+        width: 45%; 
+    }
+
+}
