@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
     font-family: 'Montserrat', sans-serif; 
 	vertical-align: baseline;
+	box-sizing: border-box;
 	
 }
 /* HTML5 display-role reset for older browsers */
@@ -56,6 +57,7 @@ table {
   --sw-orange: #f67240;
   --sw-purple: #8656cd; 
   --sw-red: #a6002f; 
+	--sw-link-blue: #0088cc;
 
   --white-1: rgba(242,242,242, 1);
   --gray-1: rgb(226, 222, 222);

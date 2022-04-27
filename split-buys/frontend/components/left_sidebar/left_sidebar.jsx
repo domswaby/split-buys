@@ -11,9 +11,12 @@ class LeftSidebar extends React.Component{
   constructor(props) { 
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      email: ""
     }
     this.toggleModal = this.toggleModal.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggleModal() {
@@ -21,6 +24,19 @@ class LeftSidebar extends React.Component{
     this.setState({
       showModal: !show
     })
+  }
+
+  update() {
+    return (e) => {
+      console.log(e.currentTarget.value);
+      this.setState( {
+        email: e.currentTarget.value
+      })
+    }
+  }
+
+  handleSubmit() {
+    console.log(this.state.email);
   }
 
   render(){
@@ -55,7 +71,13 @@ class LeftSidebar extends React.Component{
           </div>
         </div>
 
-        <FriendModal toggleModal={this.toggleModal} showModal={this.state.showModal}/>
+        <FriendModal 
+            toggleModal={this.toggleModal} 
+            update={this.update} 
+            showModal={this.state.showModal} 
+            email={this.state.email}
+            handleSubmit={this.handleSubmit}
+        />
 
       </div>
     )
