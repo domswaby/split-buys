@@ -12,6 +12,7 @@ import ActivityContainer from "./activity/activity_container";
 import ExpensesContainer from "./expenses/expenses_container";
 import FriendContainer from "./friend/friend_container";
 
+
 const App = () => (
   <div>
     <AuthRoute exact path="/" component={Home} />
@@ -24,6 +25,8 @@ const App = () => (
     <ProtectedRoute path="/friend" component={FriendContainer} />
     
     {/* <Route exact path="/" component={BenchIndexContainer} /> */}
+
+    
   </div>
 );
 
