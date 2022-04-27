@@ -6,14 +6,14 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token!
 
-  has_many :friends, 
-    through: :friendships, 
-    source: :user
-
   has_many :friendships, 
     primary_key: :id, 
     foreign_key: :user_id, 
     class_name: :Friendship
+
+  has_many :friends, 
+    through: :friendships, 
+    source: :friend
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
