@@ -7,7 +7,7 @@ class Friendship < ApplicationRecord
 
   belongs_to :friend, 
     primary_key: :id, 
-    foreign_key: :friend_id, 
+    foreign_key: :friend_id,
     class_name: :User 
 
 end
