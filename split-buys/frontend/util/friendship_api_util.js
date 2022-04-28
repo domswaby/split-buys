@@ -1,7 +1,7 @@
 export const deleteFriendship = (friendId) => {
   return $.ajax({
     url: `/api/friendships/${friendId}`,
-    method: 'GET',
+    method: 'DELETE',
     error: err => console.log(err),
   });
 };

@@ -4,9 +4,9 @@ export const REMOVE_FRIEND = 'REMOVE_FRIEND'
 export const RECEIVE_FRIENDSHIP_ERRORS = 'RECEIVE_FRIENDSHIP_ERRORS' 
 
 
-const removeFriend = (friendId) => ({
+export const removeFriend = (ids) => ({
   type: REMOVE_FRIEND, 
-  friendId: friendId
+  ids
 }); 
 
 export const receiveFriend = (friend) => ({
@@ -29,7 +29,7 @@ export const createFriend = (friendship) => dispatch => {
 
 export const deleteFriend = (friendId) => dispatch => {
   return deleteFriendship(friendId)
-      .then(friend => dispatch(removeFriend(friend.id)))
+      .then(ids => dispatch(removeFriend(ids)))
       .fail(err => dispatch(receiveErrors(err.responseJSON))); 
 }; 
 

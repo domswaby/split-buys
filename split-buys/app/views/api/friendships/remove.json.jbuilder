@@ -1,5 +1,8 @@
-json.extract! @friend_id, :id
+json.friend_id @friend_id
+json.user_id @user_id 
 
-{
-    "id": 7
-}
+
+# {
+#     friend_id: ...
+#     user_id: ....
+# }

@@ -10,6 +10,7 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
       return  Object.assign({}, state, { [action.user.id]: action.user }); 
 
     case RECEIVE_FRIEND: 
+    
       newState[action.friend.friend.id] = action.friend.friend;
       // if(!newState[action.friend.user_id].friend_ids){
       //   newState[action.friend.user_id].friend_ids = [];
@@ -18,7 +19,9 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
       return newState;
       
     case REMOVE_FRIEND: 
-
+      delete newState[action.ids.friend_id]; 
+      newState[action.ids.user_id].friend_ids = newState[action.ids.user_id].friend_ids.filter(ele => ele !== action.ids.friend_id);       
+      return newState;
     default: 
       return state; 
   }

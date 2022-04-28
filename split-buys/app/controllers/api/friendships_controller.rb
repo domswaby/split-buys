@@ -18,7 +18,8 @@ class Api::FriendshipsController < ApplicationController
   end
 
   def destroy 
-    @friend_id = {id: params[:id].to_i}
+    @user_id = 6
+    @friend_id = params[:id].to_i
     @friendship = Friendship.find_by(user_id: 6, friend_id: params[:id])
     @reverse_friendship = Friendship.find_by(user_id: params[:id], friend_id: 6)
     if @friendship && @reverse_friendship && @friendship.destroy && @reverse_friendship.destroy
