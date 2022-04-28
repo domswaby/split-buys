@@ -15,7 +15,7 @@ const MainWelcome = () => {
             <div>
                 <div className="main-info-wrap">
                     <h1>Less stress when sharing expenses with <span>everyone</span></h1>
-                    <div class="welcome-icons">
+                    <div className="welcome-icons">
                         <Airplane /> 
                         <House />
                         <Heart /> 
@@ -26,7 +26,7 @@ const MainWelcome = () => {
                             Keep track of your shared expenses and balances with housemates, trips, groups, friends, and family.
                         </p>
                     </div>
-                    <div class="big-signup-wrap">
+                    <div className="big-signup-wrap">
                         <Link to="/signup">
                             <button>Sign up</button>
                         </Link>

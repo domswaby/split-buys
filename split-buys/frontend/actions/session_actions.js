@@ -11,8 +11,6 @@ const receiveCurrentUser = (user) => {
   };
 };
 
-
-
 const logoutCurrentUser = () => {
   return {
     type: LOGOUT_CURRENT_USER,

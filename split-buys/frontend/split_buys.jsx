@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./components/root";
 import { signup, login, logout } from './actions/session_actions';
+import { deleteFriend, createFriend } from "./actions/friendship_actions";
+import { receiveFriend } from "./actions/friendship_actions";
+
 // import { fetchBenches } from "./actions/bench_actions";
 import configureStore from './store/store';
 
@@ -9,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.signup = signup;
   window.login = login;
   window.logout = logout;
+  window.createFriend = createFriend;
+  window.deleteFriend = deleteFriend;
+  window.receiveFriend = receiveFriend; 
+  
   // window.fetchBenches = fetchBenches;
 
   let store;
