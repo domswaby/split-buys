@@ -66,9 +66,9 @@ class LeftSidebar extends React.Component{
               <ul>
                 {
                   this.props.friends.map((friend) => {
-                    <li>
-                      <Link to="/friend"><GoPerson className="friend-icon" />Friend 1</Link>
-                    </li>
+                    return (<li>
+                      <Link to="/friend"><GoPerson className="friend-icon" />{friend.username}</Link>
+                    </li>)
                   })
                 }
                 {/* <li>   
