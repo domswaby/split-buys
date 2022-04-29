@@ -23,10 +23,38 @@
   right: -15px;
 }
 .dashboard-wrap h1{
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
   color: black; 
   font-size: 1.5em; 
   font-weight: 400; 
-  padding: 0.7em;
+  padding: 0 10px;
+  height: 60px;
   background-color: var(--gray-6);
   border-bottom: 1px solid var(--gray-5); 
 }
+
+.add-expense, .settle-button{
+    padding: 0.5em;
+    color: white;
+    font-weight: 400;
+    border: 1px solid rgba(133, 131, 131, 0.8);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+.add-expense{
+    background-color: var(--sw-orange);
+}
+.add-expense:hover{
+  background-color: rgba(236, 101, 52, 1); 
+}
+.settle-button{
+    background-color: var(--sw-light-green);
+    margin-left: 10px;
+}
+.settle-button:hover{
+    background-color: var(--sw-dark-green);
+}
+
