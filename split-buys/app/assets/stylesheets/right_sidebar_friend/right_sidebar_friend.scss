@@ -1,0 +1,52 @@
+.right-sidebar-friend-wrap{
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.right-sidebar-friend-wrap > div{
+  padding: 1em 1.5em;
+}
+
+.sidebar-friend-settings{
+  display: flex; 
+  margin-bottom: 1em;
+}
+
+.sidebar-friend-settings button{
+  margin-right: 10px; 
+  border: none; 
+  padding: 5px;
+  cursor: pointer; 
+  font-size: 1.3em;
+  background: none;
+}
+.remove-friend-btn-wrap{
+  display: none;
+}
+.remove-friend-btn-wrap > button{
+  border: 1px solid var(--gray-1);
+  color: white; 
+  font-weight: 600;
+  border-radius: 5px; 
+  padding: 1em 2em;
+  cursor: pointer;
+  background-image: linear-gradient(rgb(229, 221, 221), rgb(121, 119, 119));
+   
+}
+
+.show-remove-settings{
+  display: block;
+}
+
+.friend-balance{
+  display: none; 
+  font-size: 1.2em;
+  font-weight: 600; 
+}
+
+.show-friend-balance{
+  display: block;
+}
+
+
+

@@ -13,25 +13,33 @@ class LeftSidebar extends React.Component{
     this.state = {
       showModal: false,
       email: ""
-    }
+    }; 
     this.toggleModal = this.toggleModal.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(props);
   }
 
+  componentDidMount(){
+    if(this.props.currentUser.friends){
+      this.props.receiveCurrentUser(this.props.currentUser);
+    }
+  }
+
+  
   toggleModal() {
     let show = this.state.showModal;
     this.setState({
       showModal: !show
-    })
+    });
   }
 
   update() {
     return (e) => {
       this.setState( {
         email: e.currentTarget.value
-      })
-    }
+      }); 
+    }; 
   }
 
   handleSubmit() {
@@ -40,7 +48,7 @@ class LeftSidebar extends React.Component{
     let friendship = {
       user_id: this.props.currentUserId,
       friend_email: this.state.email
-    }
+    }; 
     this.props.createFriend(friendship)
       .then((res) => {
           console.log(res); 
@@ -66,22 +74,14 @@ class LeftSidebar extends React.Component{
               <h3> <span>FRIENDS</span> <span onClick={() => this.toggleModal()} className="add-friend-span">+ add</span> </h3>
               <ul>
                 {
+                  
                   this.props.friends.map((friend) => {
                     return (<li key={friend.id}>
-                      <Link to="/friend"><GoPerson className="friend-icon" />{friend.username}</Link>
+                      <Link to={`/friends/${friend.id}`}><GoPerson className="friend-icon" />{friend.username}</Link>
                     </li>)
-                  })
+                  }) 
                 }
-                {/* <li>   
-                  <Link to="/friend"><GoPerson className="friend-icon" />Friend 1</Link>
-                </li>
-                <li>
-                    
-                  <Link to="/friend"><GoPerson className="friend-icon" />Friend 2</Link>
-                </li>
-                <li>
-                  <Link to="/friend"><GoPerson className="friend-icon" />Friend 3</Link>
-                  </li> */}
+          
               </ul>
             </div>
           </div>

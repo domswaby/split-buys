@@ -1,14 +1,20 @@
 <% if logged_in? %>
   <script type="text/javascript">
-    window.currentUser = {
-      "id": <%= current_user.id %>,
-      "username": "<%= current_user.username %>",
-      "friend_ids": <%= current_user.friend_ids %>, 
-      "email": "<%= current_user.email %>"
-
-    }
+    // window.currentUser = {
+    //   "id": <%= current_user.id %>,
+    //   "username": "<%= current_user.username %>",
+    //   "friend_ids": <%= current_user.friend_ids %>, 
+    //   "email": "<%= current_user.email %>", 
+    //   "friends": <%= current_user.friends %>     
+    // }
+    window.currentUser = <%= render(
+      "api/sessions/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
   </script>
 <% end %>
 
 <main id="root"></main>
+
+
 

@@ -10,7 +10,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import DashboardContainer from "./dashboard/dashboard_container";
 import ActivityContainer from "./activity/activity_container";
 import ExpensesContainer from "./expenses/expenses_container";
-import FriendContainer from "./friend/friend_container";
+import FriendShowContainer from "./friend_show/friend_show_container";
 
 
 const App = () => (
@@ -22,7 +22,7 @@ const App = () => (
     <ProtectedRoute path="/dashboard" component={DashboardContainer} />
     <ProtectedRoute path="/activity" component={ActivityContainer} />
     <ProtectedRoute path="/all" component={ExpensesContainer} />
-    <ProtectedRoute path="/friend" component={FriendContainer} />
+    <ProtectedRoute path="/friends/:id" component={FriendShowContainer} />
     
     {/* <Route exact path="/" component={BenchIndexContainer} /> */}
 
