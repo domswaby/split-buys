@@ -23,6 +23,15 @@ class User < ApplicationRecord
   has_many :reverse_friends, 
     through: :reverse_friendships, 
     source: :user
+  
+  has_many :user_expenses, 
+    primary_key: :id, 
+    foreign_key: :user_id, 
+    class_name: :UserExpense
+
+  has_many :expenses, 
+    through: :user_expenses, 
+    source: :expense
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
