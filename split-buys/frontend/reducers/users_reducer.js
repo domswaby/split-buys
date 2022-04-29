@@ -7,7 +7,13 @@ import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
   switch(action.type){
 
     case RECEIVE_CURRENT_USER: 
-      return  Object.assign({}, state, { [action.user.id]: action.user }); 
+      // return Object.assign({}, state, { [action.user.id]: action.user }); 
+      Object.values(action.user.friends).forEach((friend) => {
+        newState[friend.id] = friend
+      })
+      delete action.user.friends; 
+      newState[action.user.id] = action.user
+      return newState;
 
     case RECEIVE_FRIEND: 
     

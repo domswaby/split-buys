@@ -28,7 +28,6 @@ class LeftSidebar extends React.Component{
 
   update() {
     return (e) => {
-      console.log(e.currentTarget.value);
       this.setState( {
         email: e.currentTarget.value
       })
@@ -36,7 +35,16 @@ class LeftSidebar extends React.Component{
   }
 
   handleSubmit() {
+    
     console.log(this.state.email);
+    let friendship = {
+      user_id: this.props.currentUserId,
+      friend_email: this.state.email
+    }
+    this.props.createFriend(friendship)
+      .then((res) => {
+          console.log(res); 
+      });
   }
 
   render(){
@@ -56,7 +64,14 @@ class LeftSidebar extends React.Component{
             <div className="friends-list-wrap">
               <h3> <span>FRIENDS</span> <span onClick={() => this.toggleModal()} className="add-friend-span">+ add</span> </h3>
               <ul>
-                <li>   
+                {
+                  this.props.friends.map((friend) => {
+                    <li>
+                      <Link to="/friend"><GoPerson className="friend-icon" />Friend 1</Link>
+                    </li>
+                  })
+                }
+                {/* <li>   
                   <Link to="/friend"><GoPerson className="friend-icon" />Friend 1</Link>
                 </li>
                 <li>
@@ -65,7 +80,7 @@ class LeftSidebar extends React.Component{
                 </li>
                 <li>
                   <Link to="/friend"><GoPerson className="friend-icon" />Friend 3</Link>
-                  </li>
+                  </li> */}
               </ul>
             </div>
           </div>
