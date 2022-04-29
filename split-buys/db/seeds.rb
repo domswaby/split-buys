@@ -24,34 +24,25 @@ user6 = User.create(username: "nick", password: "starwars", email: "nick@gmail.c
 user7 = User.create(username: "janice", password: "starwars", email: "janice@gmail.com")
 user8 = User.create(username: "joe", password: "starwars", email: "joe@gmail.com")
 
-
-# user1 friendships
-Friendship.create(user_id: user1.id, friend_id: user2.id); 
-Friendship.create(user_id: user1.id, friend_id: user3.id); 
-Friendship.create(user_id: user1.id, friend_id: user4.id); 
-Friendship.create(user_id: user1.id, friend_id: user5.id); 
-Friendship.create(user_id: user1.id, friend_id: user6.id); 
-Friendship.create(user_id: user1.id, friend_id: user7.id); 
-Friendship.create(user_id: user1.id, friend_id: user8.id); 
-Friendship.create(user_id: user1.id, friend_id: demo_user.id); 
-
 # demo_user friendships
-Friendship.create(user_id: demo_user.id, friend_id: user2.id); 
-Friendship.create(user_id: demo_user.id, friend_id: user3.id); 
-Friendship.create(user_id: demo_user.id, friend_id: user4.id); 
-Friendship.create(user_id: demo_user.id, friend_id: user5.id); 
-Friendship.create(user_id: demo_user.id, friend_id: user6.id); 
-Friendship.create(user_id: demo_user.id, friend_id: user7.id); 
-Friendship.create(user_id: demo_user.id, friend_id: user8.id); 
+Friendship.create(user_id: demo_user.id, friend_id: user2.id) 
+Friendship.create(user_id: user2.id, friend_id: demo_user.id) 
 
-# other friendships
+Friendship.create(user_id: demo_user.id, friend_id: user3.id) 
+Friendship.create(user_id: user3.id, friend_id: demo_user.id)
 
-# Friendship.create(user_id: user2.id, friend_id: user3.id)
-# Friendship.create(user_id: user3.id, friend_id: user4.id)
-# Friendship.create(user_id: user4.id, friend_id: user5.id)
-# Friendship.create(user_id: user5.id, friend_id: user6.id)
-# Friendship.create(user_id: user6.id, friend_id: user7.id)
-# Friendship.create(user_id: user7.id, friend_id: user8.id)
+Friendship.create(user_id: demo_user.id, friend_id: user4.id) 
+Friendship.create(user_id: user4.id, friend_id: demo_user.id)
 
-######### if a user doesn't already have a friend relationship, it will throw an error when they try to log in
-######### this also breaks sign in 
+Friendship.create(user_id: demo_user.id, friend_id: user5.id) 
+Friendship.create(user_id: user5.id, friend_id: demo_user.id)
+
+Friendship.create(user_id: demo_user.id, friend_id: user6.id) 
+Friendship.create(user_id: user6.id, friend_id: demo_user.id)
+
+Friendship.create(user_id: demo_user.id, friend_id: user7.id) 
+Friendship.create(user_id: user7.id, friend_id: demo_user.id)
+
+Friendship.create(user_id: demo_user.id, friend_id: user8.id) 
+Friendship.create(user_id: user8.id, friend_id: demo_user.id)
+

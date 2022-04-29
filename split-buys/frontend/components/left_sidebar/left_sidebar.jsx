@@ -44,6 +44,7 @@ class LeftSidebar extends React.Component{
     this.props.createFriend(friendship)
       .then((res) => {
           console.log(res); 
+          this.setState({showModal: false});
       });
   }
 
