@@ -11,9 +11,11 @@ class CreateExpenseModal extends React.Component {
      
         this.state = {
             options: props.friends.concat({username: "You"}),
-            optionTags: [{username: "You"}]
+            optionTags: [{username: "You"}],
+            date: new Date()
         }
         this.onSelect = this.onSelect.bind(this);
+        this.changeDate = this.changeDate.bind(this);
     }
 
     // componentDidMount() {
@@ -30,6 +32,12 @@ class CreateExpenseModal extends React.Component {
             optionTags: e
         }, () => {
             console.log(this.state.optionTags)
+        })
+    }
+
+    changeDate(e){
+        this.setState({
+            date: e.currentTarget.value
         })
     }
     
@@ -92,7 +100,7 @@ class CreateExpenseModal extends React.Component {
                     </div>
                    
                     <div className="expense-date-wrap">
-                        <input type="date" />
+                        <input type="date" value={this.state.date} onChange={this.changeDate}/>
                     </div>
 
                     <div className="save-cancel-wrap">
