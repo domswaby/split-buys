@@ -13,11 +13,16 @@ class CreateExpenseModal extends React.Component {
             options: props.friends.concat({username: "You"}),
             optionTags: [{username: "You"}],
             description: "",
-            date: new Date()
+            payer: "You",
+            amount: 1,
+            date: ""
         }
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);
         this.changeDescription = this.changeDescription.bind(this);
+        this.changeAmount = this.changeAmount.bind(this);
+        this.changePayer = this.changePayer.bind(this);
+        this.onRemove = this.onRemove.bind(this);
     }
 
     // componentDidMount() {
@@ -26,14 +31,16 @@ class CreateExpenseModal extends React.Component {
 
     onRemove(e){
         console.log(e);
+        this.setState({
+            optionTags: e
+        })
     }
 
     onSelect(e){
-        
+        console.log(e);
+
         this.setState({
             optionTags: e
-        }, () => {
-            console.log(this.state.optionTags)
         })
     }
 
@@ -43,10 +50,22 @@ class CreateExpenseModal extends React.Component {
         })
     }
 
+    changeAmount(e){
+        this.setState({
+            amount: e.currentTarget.value
+        })
+    }
+
     changeDescription(e){
-        console.log(e.currentTarget.value); 
         this.setState({
             description: e.currentTarget.value
+        })
+    }
+
+    changePayer(e){
+        console.log(e.currentTarget.value); 
+        this.setState({
+            payer: e.currentTarget.value
         })
     }
     
@@ -74,11 +93,14 @@ class CreateExpenseModal extends React.Component {
                         <Multiselect
                             isObject={true}
                             displayValue="username"
+                            disablePreSelectedValues={true}
+                            selectedValues={[{username: "You"}]}
                             onKeyPressFn={function noRefCheck() { }}
-                            onRemove={(e) => this.onRemove(e) }
+                            onRemove={this.onRemove}
                             onSearch={function noRefCheck() { }}
                             onSelect={this.onSelect}
                             options={this.state.options}
+                            placeholder=" and..."
                         />
                     </div>
                     
@@ -93,7 +115,7 @@ class CreateExpenseModal extends React.Component {
                             </div>
                             <div>
                                 <span>$</span>
-                                <input type="number" placeholder="0.00" min="1"/>
+                                <input type="number" value={this.state.amount} onChange={this.changeAmount} placeholder="0.00" min="1"/>
                             </div>
                         </div>
                     </div>
@@ -101,7 +123,7 @@ class CreateExpenseModal extends React.Component {
                     <div className="paid-by-wrap">
                         <p>
                             <span>Paid by </span> 
-                            <select name="payer" id="payer-select">
+                            <select name="payer" id="payer-select" value={this.state.payer} onChange={this.changePayer}>
                                 {selectContents}
                             </select>
                             <span> and split equally.</span>
