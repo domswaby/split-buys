@@ -10,6 +10,14 @@ class AppHeader extends React.Component {
         
     }
 
+    componentDidMount() {
+        
+        // if (this.props.currentUser.friends) {
+
+        //     this.props.receiveCurrentUser(this.props.currentUser);
+        // }
+    }
+
     render(){
         
         return (

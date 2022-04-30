@@ -8,11 +8,36 @@ class CreateExpenseModal extends React.Component {
 
     constructor(props){
         super(props); 
-        console.log(props); 
+     
+        this.state = {
+            options: props.friends.concat({username: "You"}),
+            optionTags: [{username: "You"}]
+        }
+        this.onSelect = this.onSelect.bind(this);
+    }
 
+    // componentDidMount() {
+    //     this.props.receiveCurrentUser(this.props.currentUser);
+    // }
+
+    onRemove(e){
+        console.log(e);
+    }
+
+    onSelect(e){
+        
+        this.setState({
+            optionTags: e
+        }, () => {
+            console.log(this.state.optionTags)
+        })
     }
     
     render(){
+        const selectContents = this.state.optionTags.map((option) => {
+            return (<option>{option.username}</option>)
+        })
+        
         return (
             <div onClick={() => this.props.toggleModal()}
                 className={'expense-modal-container ' + (this.props.showModal ? 'show' : '')}>
@@ -28,8 +53,16 @@ class CreateExpenseModal extends React.Component {
                             <CgClose />    
                         </button>
                     </h1>
-                    <div className="multi-select">
-                        <Multiselect />
+                    <div className="multi-select-wrap">
+                        <Multiselect
+                            isObject={true}
+                            displayValue="username"
+                            onKeyPressFn={function noRefCheck() { }}
+                            onRemove={(e) => this.onRemove(e) }
+                            onSearch={function noRefCheck() { }}
+                            onSelect={this.onSelect}
+                            options={this.state.options}
+                        />
                     </div>
                     
 
@@ -52,7 +85,7 @@ class CreateExpenseModal extends React.Component {
                         <p>
                             <span>Paid by </span> 
                             <select name="payer" id="payer-select">
-                                <option value="you">You</option>
+                                {selectContents}
                             </select>
                             <span> and split equally.</span>
                         </p>

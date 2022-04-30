@@ -26,7 +26,6 @@ class LeftSidebar extends React.Component{
     }
   }
 
-  
   toggleModal() {
     let show = this.state.showModal;
     this.setState({
