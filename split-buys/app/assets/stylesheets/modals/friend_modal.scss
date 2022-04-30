@@ -23,12 +23,13 @@
 .friend-modal{
     background-color: #fff;
     width: 600px; 
+    position: relative;
     max-width: 100%; 
     padding: 1.5em;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     text-align: center;
-    transform: translateY(-50%);
+    
     box-sizing: border-box; 
     
 }
