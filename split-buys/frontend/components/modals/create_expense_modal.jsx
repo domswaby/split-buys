@@ -1,5 +1,4 @@
 import React from "react";
-import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
 import { CgClose } from 'react-icons/cg';
 import { RiTodoLine } from 'react-icons/ri';
 import Multiselect from 'multiselect-react-dropdown';
