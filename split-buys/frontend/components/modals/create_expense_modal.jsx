@@ -12,10 +12,12 @@ class CreateExpenseModal extends React.Component {
         this.state = {
             options: props.friends.concat({username: "You"}),
             optionTags: [{username: "You"}],
+            description: "",
             date: new Date()
         }
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);
+        this.changeDescription = this.changeDescription.bind(this);
     }
 
     // componentDidMount() {
@@ -38,6 +40,13 @@ class CreateExpenseModal extends React.Component {
     changeDate(e){
         this.setState({
             date: e.currentTarget.value
+        })
+    }
+
+    changeDescription(e){
+        console.log(e.currentTarget.value); 
+        this.setState({
+            description: e.currentTarget.value
         })
     }
     
@@ -80,7 +89,7 @@ class CreateExpenseModal extends React.Component {
                         </div>
                         <div>
                             <div>
-                                <input type="text" placeholder="Description:"/>
+                                <input type="text" value={this.state.description} onChange={this.changeDescription} placeholder="Description:"/>
                             </div>
                             <div>
                                 <span>$</span>
