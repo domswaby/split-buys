@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
         <h1>Dashboard
           <div>
             <button className="add-expense" onClick={() => this.toggleModal()} >Add an expense</button>
-            <button className="settle-button">Settle up</button>
+            <button className="settle-button tooltip"> <span className="tooltiptext">We can settle after the bootcamp ;)</span>Settle up</button>
           </div> 
 
         </h1>
