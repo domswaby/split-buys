@@ -7,6 +7,7 @@ import { receiveFriend, removeFriend } from "./actions/friendship_actions";
 import { createExpense } from "./util/expense_api_util";
 import { deleteExpense } from "./util/expense_api_util";
 import { createUserExpense, deleteUserExpense } from "./util/user_expense_api_util";
+import { makeExpense } from "./actions/expense_actions";
 
 
 // import { fetchBenches } from "./actions/bench_actions";
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.deleteExpense = deleteExpense;
   window.createUserExpense = createUserExpense;
   window.deleteUserExpense = deleteUserExpense;
+  window.makeExpense = makeExpense; 
   
   // window.fetchBenches = fetchBenches;
 

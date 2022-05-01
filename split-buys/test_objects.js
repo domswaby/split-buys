@@ -24,3 +24,14 @@ let user_expense = {
     "user_id": 4,
     "expense_id": 6
 }
+
+// to feed into makeExpense action
+
+let fed_to_makeExpense = {
+    "description": "test description",
+    "amount": 100.0,
+    "split_type": "equal",
+    "date_incurred": "2022-04-20",
+    "payer_id": 2,
+    "expender_ids": [2,3,4]
+}
