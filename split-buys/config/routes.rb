@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :benches, only: [:index, :create]
     resources :friendships, only: [:create, :destroy]
+    resources :expenses
+    resources :user_expenses, only: [:create, :destroy]
   end
 
 end
