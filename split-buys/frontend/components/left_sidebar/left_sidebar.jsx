@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaFlag } from 'react-icons/fa'; 
 import { GoListUnordered } from 'react-icons/go';
 import { GoPerson } from 'react-icons/go';
-import FriendModal from "../modals/friend_modal";
+import FriendModalContainer from "../modals/friend_modal_container";
 import logo from './../../../app/assets/images/split-wise-logo.png'; 
 
 class LeftSidebar extends React.Component{
@@ -12,12 +12,9 @@ class LeftSidebar extends React.Component{
     super(props);
     this.state = {
       showModal: false,
-      email: ""
     }; 
     this.toggleModal = this.toggleModal.bind(this);
-    this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(props);
+
   }
 
   componentDidMount(){
@@ -31,28 +28,6 @@ class LeftSidebar extends React.Component{
     this.setState({
       showModal: !show
     });
-  }
-
-  update() {
-    return (e) => {
-      this.setState( {
-        email: e.currentTarget.value
-      }); 
-    }; 
-  }
-
-  handleSubmit() {
-    
-    console.log(this.state.email);
-    let friendship = {
-      user_id: this.props.currentUserId,
-      friend_email: this.state.email
-    }; 
-    this.props.createFriend(friendship)
-      .then((res) => {
-          console.log(res); 
-          this.setState({showModal: false});
-      });
   }
 
   render(){
@@ -86,12 +61,9 @@ class LeftSidebar extends React.Component{
           </div>
         </div>
 
-        <FriendModal 
+        <FriendModalContainer
             toggleModal={this.toggleModal} 
-            update={this.update} 
             showModal={this.state.showModal} 
-            email={this.state.email}
-            handleSubmit={this.handleSubmit}
         />
 
       </div>
