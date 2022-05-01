@@ -4,6 +4,10 @@ import Root from "./components/root";
 import { signup, login, logout } from './actions/session_actions';
 import { deleteFriend, createFriend } from "./actions/friendship_actions";
 import { receiveFriend, removeFriend } from "./actions/friendship_actions";
+import { createExpense } from "./util/expense_api_util";
+import { deleteExpense } from "./util/expense_api_util";
+import { createUserExpense, deleteUserExpense } from "./util/user_expense_api_util";
+
 
 // import { fetchBenches } from "./actions/bench_actions";
 import configureStore from './store/store';
@@ -16,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.deleteFriend = deleteFriend;
   window.receiveFriend = receiveFriend; 
   window.removeFriend = removeFriend;
+  window.createExpense = createExpense; 
+  window.deleteExpense = deleteExpense;
+  window.createUserExpense = createUserExpense;
+  window.deleteUserExpense = deleteUserExpense;
   
   // window.fetchBenches = fetchBenches;
 
