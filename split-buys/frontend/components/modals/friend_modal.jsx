@@ -32,14 +32,14 @@ class FriendModal extends React.Component{
         this.props.createFriend(friendship)
             .then((res) => {
                 console.log(res);
-                this.props.toggleModal();
+                this.props.toggleFriendModal();
             });
     }
 
     render(){
         return (
-            <div onClick={() => this.props.toggleModal()} 
-                className={'friend-modal-container ' + (this.props.showModal ? 'show' : '')}>
+            <div onClick={() => this.props.toggleFriendModal()} 
+                className={'friend-modal-container ' + (this.props.showFriendModal ? 'show' : '')}>
                 <div onClick={(e) => {
                     e.stopPropagation();
                 }} className="friend-modal">
@@ -56,7 +56,7 @@ class FriendModal extends React.Component{
                             onChange={this.update()}/>
                     </div>
                     <button 
-                        onClick={() => this.props.toggleModal()} 
+                        onClick={() => this.props.toggleFriendModal()} 
                         className="close-friend-modal">
                         <CgClose />
                     </button>

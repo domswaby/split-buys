@@ -11,9 +11,9 @@ class LeftSidebar extends React.Component{
   constructor(props) { 
     super(props);
     this.state = {
-      showModal: false,
+      showFriendModal: false,
     }; 
-    this.toggleModal = this.toggleModal.bind(this);
+    this.toggleFriendModal = this.toggleFriendModal.bind(this);
 
   }
 
@@ -23,10 +23,10 @@ class LeftSidebar extends React.Component{
     }
   }
 
-  toggleModal() {
-    let show = this.state.showModal;
+  toggleFriendModal() {
+    let show = this.state.showFriendModal;
     this.setState({
-      showModal: !show
+      showFriendModal: !show
     });
   }
 
@@ -45,7 +45,7 @@ class LeftSidebar extends React.Component{
               <Link to="/all"><GoListUnordered className="expenses-list-icon" />All expenses</Link>
             </div>
             <div className="friends-list-wrap">
-              <h3> <span>FRIENDS</span> <span onClick={() => this.toggleModal()} className="add-friend-span">+ add</span> </h3>
+              <h3> <span>FRIENDS</span> <span onClick={() => this.toggleFriendModal()} className="add-friend-span">+ add</span> </h3>
               <ul>
                 {
                   
@@ -62,8 +62,8 @@ class LeftSidebar extends React.Component{
         </div>
 
         <FriendModalContainer
-            toggleModal={this.toggleModal} 
-            showModal={this.state.showModal} 
+            toggleFriendModal={this.toggleFriendModal} 
+            showFriendModal={this.state.showFriendModal} 
         />
 
       </div>
