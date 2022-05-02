@@ -96,7 +96,9 @@ class CreateExpenseModal extends React.Component {
             payer_id: payer_id,
             expenders
         }
-        this.props.makeExpense(expenseInfo)
+        this.props.makeExpense(expenseInfo).then((res) => {
+            this.props.toggleModal();
+        })
     }
     
     render(){
