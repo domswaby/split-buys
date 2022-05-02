@@ -20,12 +20,28 @@ class Expenses extends React.Component {
     });
   }
 
+  payer(payer_id){
+    for(let user of this.props.users){
+      if(user.id === payer_id){
+        return user.username
+      }
+    }
+  }
+
+  lent(expense){
+    let numberOfExpenders = expense.expenders.length;
+    let amount = expense.amount
+    return amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders) )
+  }
+
   render(){
       let expenses = this.props.expenses.map((expense) => {
         return (
           <div className="expense-row">
             <p>{expense.date_incurred}</p>
             <p>{expense.description}</p>
+            <p>{this.payer(expense.payer_id)} paid: {expense.amount}</p>
+            <p>{this.payer(expense.payer_id)} lent: {this.lent(expense)}</p>
             
           </div>
         )

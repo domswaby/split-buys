@@ -8,7 +8,7 @@ const mSTP = (state) => ({
     currentUserId: state.session.id,
     currentUser: selectUser(state.entities.users, state.session.id),
     expenses: Object.values(state.entities.expenses),
-    users: state.entities.users
+    users: Object.values(state.entities.users)
 });
 // add current user 
 // add receive current user action to dispatch 

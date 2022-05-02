@@ -81,8 +81,8 @@ class CreateExpenseModal extends React.Component {
                 expenders.push(expender.id)
             }
         }
-        if(!this.state.payer === "You"){
-            for(let user of this.props.users){
+        if(this.state.payer !== "You"){
+            for(let user of Object.values(this.props.users)){
                 if(user.username === this.state.payer){
                     payer_id = user.id
                 }
