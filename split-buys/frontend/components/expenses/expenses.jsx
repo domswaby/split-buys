@@ -36,7 +36,10 @@ class Expenses extends React.Component {
 
   render(){
       let expenses = this.props.expenses.map((expense) => {
+        
+        
         return (
+          
           <div className="expense-row">
             <p>{expense.date_incurred}</p>
             <p>{expense.description}</p>

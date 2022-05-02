@@ -22,7 +22,7 @@ class LeftSidebar extends React.Component{
       this.props.receiveCurrentUser(this.props.currentUser);
     }
   }
-
+  
   toggleFriendModal() {
     let show = this.state.showFriendModal;
     this.setState({

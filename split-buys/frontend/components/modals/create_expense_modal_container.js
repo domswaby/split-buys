@@ -7,6 +7,7 @@ import { receiveCurrentUser } from "../../actions/session_actions";
 import { makeExpense } from "../../actions/expense_actions";
 
 const mSTP = (state) => {
+    
     return {
         currentUserId: state.session.id,
         currentUser: selectUser(state.entities.users, state.session.id),

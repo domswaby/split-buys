@@ -16,6 +16,8 @@ class CreateExpenseModal extends React.Component {
             amount: 1,
             date: ""
         }
+
+        
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);
         this.changeDescription = this.changeDescription.bind(this);
@@ -26,7 +28,9 @@ class CreateExpenseModal extends React.Component {
     }
 
     // componentDidMount() {
+    
     //     this.props.receiveCurrentUser(this.props.currentUser);
+    //         // .then((ele) => this.setState({ options: this.props.friends.concat({ username: "You" }) }));
     // }
 
     onRemove(e){
@@ -131,7 +135,7 @@ class CreateExpenseModal extends React.Component {
                             onRemove={this.onRemove}
                             onSearch={function noRefCheck() { }}
                             onSelect={this.onSelect}
-                            options={this.state.options}
+                            options={this.props.friends.concat({ username: "You" }) }
                             placeholder=" and..."
                         />
                     </div>

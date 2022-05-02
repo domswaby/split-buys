@@ -3,6 +3,7 @@ export const selectBenches = (benchesObject) => {
 }; 
 
 export const selectFriends = (usersSlice, currentUserId) => {
+  
   return Object.values(usersSlice).filter( user => user.id !== currentUserId)
 };
 
