@@ -22,6 +22,7 @@ class CreateExpenseModal extends React.Component {
         this.changeAmount = this.changeAmount.bind(this);
         this.changePayer = this.changePayer.bind(this);
         this.onRemove = this.onRemove.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // componentDidMount() {
@@ -44,6 +45,7 @@ class CreateExpenseModal extends React.Component {
     }
 
     changeDate(e){
+        console.log(e.currentTarget.value);
         this.setState({
             date: e.currentTarget.value
         })
@@ -66,6 +68,35 @@ class CreateExpenseModal extends React.Component {
         this.setState({
             payer: e.currentTarget.value
         })
+    }
+
+    handleSubmit() {
+        let payer_id = this.props.currentUserId
+        let expenders = []
+        
+        for( let expender of this.state.optionTags){
+            if(expender.username === "You"){
+                expenders.push(this.props.currentUserId)
+            }else{
+                expenders.push(expender.id)
+            }
+        }
+        if(!this.state.payer === "You"){
+            for(let user of this.props.users){
+                if(user.username === this.state.payer){
+                    payer_id = user.id
+                }
+            }
+        }
+        let expenseInfo = {
+            description: this.state.description,
+            amount: this.state.amount, 
+            split_type: 'equal', 
+            date_incurred: this.state.date,
+            payer_id: payer_id,
+            expenders
+        }
+        this.props.makeExpense(expenseInfo)
     }
     
     render(){
@@ -134,7 +165,7 @@ class CreateExpenseModal extends React.Component {
                     </div>
 
                     <div className="save-cancel-wrap">
-                        <button className="save-btn">
+                        <button className="save-btn" onClick={() => this.handleSubmit()}>
                             Save
                         </button>
                         <button className="cancel-btn" onClick={() => this.props.toggleModal()}>
