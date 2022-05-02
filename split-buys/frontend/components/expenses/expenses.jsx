@@ -21,6 +21,15 @@ class Expenses extends React.Component {
   }
 
   render(){
+      let expenses = this.props.expenses.map((expense) => {
+        return (
+          <div className="expense-row">
+            <p>{expense.date_incurred}</p>
+            <p>{expense.description}</p>
+            
+          </div>
+        )
+      })
       return (
         <div className="dashboard-wrap">
           <h1>All expenses
@@ -29,6 +38,9 @@ class Expenses extends React.Component {
               <button className="settle-button tooltip"> <span className="tooltiptext">We can settle after the bootcamp ;)</span>Settle up</button>
             </div>
           </h1>
+          <div>
+            {expenses}
+          </div>
           <CreateExpenseModalContainer 
             toggleModal={this.toggleModal}
             showModal={this.state.showModal}

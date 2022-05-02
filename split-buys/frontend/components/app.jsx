@@ -22,11 +22,7 @@ const App = () => (
     <ProtectedRoute path="/dashboard" component={DashboardContainer} />
     <ProtectedRoute path="/activity" component={ActivityContainer} />
     <ProtectedRoute path="/all" component={ExpensesContainer} />
-    <ProtectedRoute path="/friends/:id" component={FriendShowContainer} />
-    
-    {/* <Route exact path="/" component={BenchIndexContainer} /> */}
-
-    
+    <ProtectedRoute path="/friends/:id" component={FriendShowContainer} />    
   </div>
 );
 
