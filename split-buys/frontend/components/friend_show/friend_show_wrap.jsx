@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import FriendShow from "./friend_show";
 import { selectUser } from "../../selectors/selectors";
 import { getFriendInfo } from "../../selectors/selectors";
+import { receiveCurrentUser } from "../../actions/session_actions";
 
 
 const mSTP = (state, ownProps) => {
@@ -21,8 +22,9 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch, ownProps) => {
   
   return {
-    
+    receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user))
   };
+  
 }; 
   
 

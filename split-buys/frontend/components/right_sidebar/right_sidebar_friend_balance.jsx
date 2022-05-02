@@ -12,6 +12,12 @@ class RightSidebarFriendBalance extends React.Component{
     this.handleDeleteFriend = this.handleDeleteFriend.bind(this);
   }
 
+  // componentDidMount() {
+  //   if (this.props.currentUser.friends) {
+  //     this.props.receiveCurrentUser(this.props.currentUser);
+  //   }
+  // }
+
   handleDeleteFriend() {   
      
     this.props.deleteFriend(this.props.friendId)
@@ -24,6 +30,30 @@ class RightSidebarFriendBalance extends React.Component{
     this.setState({
       show: eleName
     }); 
+  }
+
+  getBalance() { 
+    let friendAmount = 0; 
+    let myAmount = 0; 
+    
+    this.props.expenses.forEach((expense) => {
+      if(this.props.currentUserId === expense.payer_id){
+        myAmount += (expense.amount / expense.expenders.length); 
+      }
+      if(this.props.friendId === expense.payer_id){
+        friendAmount += (expense.amount / expense.expenders.length); 
+      }
+    }); 
+    if(friendAmount > myAmount){
+      return (
+        <div>You owe {this.props.friendInfo.username} {friendAmount - myAmount}</div>
+      )
+    }else{
+      return (
+        <div>{this.props.friendInfo.username} owes you {myAmount - friendAmount}</div>
+      )
+    }
+    
   }
 
   render(){
@@ -43,7 +73,8 @@ class RightSidebarFriendBalance extends React.Component{
               <button onClick={this.handleDeleteFriend}>Remove Friend</button>
             </div>
             <div className={ "friend-balance " + (this.state.show === 'balance' ? 'show-friend-balance' : '')}>
-              <h1>Balance:</h1>
+              <h1>Your Balance</h1>
+              {/* {this.getBalance()} */}
             </div>
           </div>
         </div>

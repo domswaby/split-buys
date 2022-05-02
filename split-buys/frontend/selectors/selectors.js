@@ -9,6 +9,7 @@ export const selectFriends = (usersSlice, currentUserId) => {
 
 export const getFriendInfo = (state, friendId) => {
    let users = Object.values(state.entities.users); 
+   
    for(let x = 0; x < users.length; x++){
      if(users[x].id == friendId ){
        return users[x]; 
@@ -24,4 +25,15 @@ export const selectUser = (usersSlice, currentUserId) => {
      }
    }
    return null;
+}; 
+
+export const getMyFriend = (state, friendId) => {
+  let users = Object.values(state.entities.users);
+  
+  for (let x = 0; x < users.length; x++) {
+    if (users[x].id == friendId) {
+      return users[x];
+    }
+  }
+  return null;
 }; 
