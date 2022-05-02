@@ -6,6 +6,14 @@ json.friends do
         end
     end
 end
+json.expenses do 
+    @user.expenses.each do |expense|
+        json.set! expense.id do
+            json.extract! expense, :id, :description, :amount, :split_type, :payer_id, :date_incurred, :expenders
+        end
+    end
+end
+
  
 
 # @user.comments.each do |comment|

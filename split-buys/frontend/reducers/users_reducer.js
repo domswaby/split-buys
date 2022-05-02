@@ -17,6 +17,7 @@ import { RECEIVE_EXPENSE } from "../actions/expense_actions";
         }); 
         delete action.user.friends; 
       }
+      
       newState[action.user.id] = action.user; 
       return newState;
 
@@ -35,11 +36,15 @@ import { RECEIVE_EXPENSE } from "../actions/expense_actions";
       return newState;
 
     case RECEIVE_EXPENSE: 
-      let expense_id = action.expense.expense.id
-      for( let expender of action.expense.expenders) {
+      let expense_id = action.expense.expense.id;
+      
+      for( let expender of action.expense.expenders ) {  
         if(!newState[expender].hasOwnProperty('expenses')) newState[expender].expenses = [] // check to make sure the user has an expenses field
+        if(!Array.isArray(newState[expender].expenses)){
+          newState[expender].expenses = Object.values(newState[expender].expenses);
+        }
         if(!newState[expender].expenses.includes(expense_id)){
-          newState[expender].expenses.push(expense_id)
+          newState[expender].expenses.push(expense_id);
         }
       }
       return newState;
