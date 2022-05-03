@@ -33,7 +33,11 @@ class FriendShow extends React.Component {
   lent(expense) {
     let numberOfExpenders = expense.expenders.length;
     let amount = expense.amount;
-    return amount - (amount * ((numberOfExpenders - 1) / numberOfExpenders));
+    return this.roundIt(amount - (amount * ((numberOfExpenders - 1) / numberOfExpenders)));
+  }
+
+  roundIt(num) {
+    return num.toFixed(2)
   }
 
   getBalance() {
@@ -41,22 +45,28 @@ class FriendShow extends React.Component {
     let myAmount = 0;
 
     this.props.expenses.forEach((expense) => {
+     
+      if(expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))){
+          if (this.props.currentUserId === expense.payer_id) {
+            myAmount += (expense.amount / expense.expenders.length);
+            console.log(`I paid ${myAmount}`) 
+          }
+          if (Number(this.props.friendId) === expense.payer_id) {
+            friendAmount += (expense.amount / expense.expenders.length);
+            console.log(`Friend paid ${friendAmount}`)
+          }
+      }
 
-      if (this.props.currentUserId == expense.payer_id) {
-        myAmount += (expense.amount / expense.expenders.length);
-      }
-      if (this.props.friendId == expense.payer_id) {
-        friendAmount += (expense.amount / expense.expenders.length);
-      }
+      console.log(expense);
     });
     
     if (friendAmount > myAmount) {
       return (
-        <div>You owe {this.props.friendInfo.username} {friendAmount - myAmount}</div>
+        <div>You owe {this.props.friendInfo.username} {this.roundIt(friendAmount - myAmount)}</div>
       )
     } else {
       return (
-        <div>{this.props.friendInfo.username} owes you {myAmount - friendAmount}</div>
+        <div>{this.props.friendInfo.username} owes you {this.roundIt(myAmount - friendAmount)}</div>
       )
     }
   }
@@ -65,7 +75,7 @@ class FriendShow extends React.Component {
     let friendId = this.props.friendId;
     let expenses = this.props.expenses.map((expense) => {
           
-      if(expense.expenders.includes(Number(friendId))){
+      if(expense.expenders.includes(Number(friendId)) && expense.expenders.includes(this.props.currentUserId) && (expense.payer_id === this.props.currentUserId || expense.payer_id === Number(this.props.friendId))){
         
         return (
           <div className="expense-row">

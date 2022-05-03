@@ -31,29 +31,39 @@ class RightSidebarFriendBalance extends React.Component{
       show: eleName
     }); 
   }
+  roundIt(num){
+    return num.toFixed(2)
+  }
 
-  getBalance() { 
-    let friendAmount = 0; 
-    let myAmount = 0; 
-    
+  getBalance() {
+    let friendAmount = 0;
+    let myAmount = 0;
+
     this.props.expenses.forEach((expense) => {
-      if(this.props.currentUserId === expense.payer_id){
-        myAmount += (expense.amount / expense.expenders.length); 
+
+      if (expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))) {
+        if (this.props.currentUserId === expense.payer_id) {
+          myAmount += (expense.amount / expense.expenders.length);
+          console.log(`I paid ${myAmount}`)
+        }
+        if (Number(this.props.friendId) === expense.payer_id) {
+          friendAmount += (expense.amount / expense.expenders.length);
+          console.log(`Friend paid ${friendAmount}`)
+        }
       }
-      if(this.props.friendId === expense.payer_id){
-        friendAmount += (expense.amount / expense.expenders.length); 
-      }
-    }); 
-    if(friendAmount > myAmount){
+
+      console.log(expense);
+    });
+
+    if (friendAmount > myAmount) {
       return (
-        <div>You owe {this.props.friendInfo.username} {friendAmount - myAmount}</div>
+        <div>You owe {this.props.friendInfo.username} {this.roundIt(friendAmount - myAmount)}</div>
       )
-    }else{
+    } else {
       return (
-        <div>{this.props.friendInfo.username} owes you {myAmount - friendAmount}</div>
+        <div>{this.props.friendInfo.username} owes you {this.roundIt(myAmount - friendAmount)}</div>
       )
     }
-    
   }
 
   render(){
@@ -74,7 +84,7 @@ class RightSidebarFriendBalance extends React.Component{
             </div>
             <div className={ "friend-balance " + (this.state.show === 'balance' ? 'show-friend-balance' : '')}>
               <h1>Your Balance</h1>
-              {/* {this.getBalance()} */}
+              {this.props.friendInfo ? this.getBalance() : null}
             </div>
           </div>
         </div>

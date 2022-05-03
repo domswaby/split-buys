@@ -31,7 +31,11 @@ class Expenses extends React.Component {
   lent(expense){
     let numberOfExpenders = expense.expenders.length;
     let amount = expense.amount
-    return amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders) )
+    return this.roundIt(amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders)))
+  }
+
+  roundIt(num) {
+    return num.toFixed(2)
   }
 
   render(){
