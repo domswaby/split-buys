@@ -28462,3 +28462,279 @@ Processing by StaticpagesController#root as HTML
 Completed 200 OK in 2584ms (Views: 2416.7ms | ActiveRecord: 160.1ms)
 
 
+Started GET "/" for ::1 at 2022-05-03 13:50:46 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OlVPcs30egzRCQsANRo7Gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (52.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (4.0ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (190.9ms)
+  Rendered staticpages/root.html.erb within layouts/application (334.8ms)
+Completed 200 OK in 2582ms (Views: 2398.6ms | ActiveRecord: 175.6ms)
+
+
+Started GET "/" for ::1 at 2022-05-03 13:52:21 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OlVPcs30egzRCQsANRo7Gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (6.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (25.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (13.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (215.0ms)
+  Rendered staticpages/root.html.erb within layouts/application (249.8ms)
+Completed 200 OK in 2258ms (Views: 2114.7ms | ActiveRecord: 132.1ms)
+
+
+Started GET "/" for ::1 at 2022-05-03 13:53:56 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OlVPcs30egzRCQsANRo7Gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (24.8ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (33.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (49.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (315.9ms)
+  Rendered staticpages/root.html.erb within layouts/application (338.3ms)
+Completed 200 OK in 2652ms (Views: 2478.0ms | ActiveRecord: 169.0ms)
+
+
+Started GET "/" for ::1 at 2022-05-03 13:54:33 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OlVPcs30egzRCQsANRo7Gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (3.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (31.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (235.7ms)
+  Rendered staticpages/root.html.erb within layouts/application (258.9ms)
+Completed 200 OK in 2156ms (Views: 2035.3ms | ActiveRecord: 113.1ms)
+
+
+Started GET "/" for ::1 at 2022-05-03 13:55:11 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OlVPcs30egzRCQsANRo7Gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (10.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (11.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (140.6ms)
+  Rendered staticpages/root.html.erb within layouts/application (176.2ms)
+Completed 200 OK in 2233ms (Views: 2145.8ms | ActiveRecord: 82.7ms)
+
+
+Started GET "/" for ::1 at 2022-05-03 13:57:25 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (8.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OlVPcs30egzRCQsANRo7Gg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (48.8ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (10.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (41.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (16.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (38.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (36.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (11.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (348.6ms)
+  Rendered staticpages/root.html.erb within layouts/application (423.9ms)
+Completed 200 OK in 2973ms (Views: 2697.9ms | ActiveRecord: 262.1ms)
+
+

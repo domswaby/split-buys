@@ -23,7 +23,11 @@ class Expenses extends React.Component {
   payer(payer_id){
     for(let user of this.props.users){
       if(user.id === payer_id){
-        return user.username
+        if(user.id === this.props.currentUserId){
+          return "you";
+        }else{
+          return user.username; 
+        }
       }
     }
   }
