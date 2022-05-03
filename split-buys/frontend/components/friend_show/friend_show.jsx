@@ -41,9 +41,7 @@ class FriendShow extends React.Component {
     let myAmount = 0;
 
     this.props.expenses.forEach((expense) => {
-      console.log(`current user: ${this.props.currentUserId}`); 
-      console.log(`payer_id: ${expense.payer_id}`); 
-      console.log(`friendId: ${this.props.friendId}`)
+
       if (this.props.currentUserId == expense.payer_id) {
         myAmount += (expense.amount / expense.expenders.length);
       }

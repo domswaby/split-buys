@@ -11,7 +11,7 @@ class FriendModal extends React.Component{
         };
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        console.log(props);
+        
     }
 
     update() {
@@ -24,14 +24,14 @@ class FriendModal extends React.Component{
 
     handleSubmit() {
 
-        console.log(this.state.email);
+        
         let friendship = {
             user_id: this.props.currentUserId,
             friend_email: this.state.email
         };
         this.props.createFriend(friendship)
             .then((res) => {
-                console.log(res);
+                
                 this.props.toggleFriendModal();
             });
     }

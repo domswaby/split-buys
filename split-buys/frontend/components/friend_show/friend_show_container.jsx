@@ -4,7 +4,7 @@ import RightSidebarFriendBalanceContainer from "../right_sidebar/right_sidebar_f
 import FriendShowWrap from "./friend_show_wrap";
 
 const FriendShowContainer = (props) => {
-    console.log(props); 
+    
     return (
       <div className="app-container">
         <div>

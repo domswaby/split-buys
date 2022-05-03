@@ -11,7 +11,7 @@ const sessionReducer = (state = _nullSession, action) => {
   switch(action.type){
     
     case RECEIVE_CURRENT_USER: 
-      console.log("in users's reducer");
+      
       return Object.assign({}, state, { id: action.user.id}); 
 
     case LOGOUT_CURRENT_USER: 

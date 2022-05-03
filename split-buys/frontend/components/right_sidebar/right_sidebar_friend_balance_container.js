@@ -7,7 +7,7 @@ import { getFriendInfo } from "../../selectors/selectors";
 import { deleteFriend } from "../../actions/friendship_actions";
 
 const mSTP = (state, ownProps) => {
-  console.log(ownProps);
+  
   return {
     currentUserId: state.session.id,
     currentUser: selectUser(state.entities.users, state.session.id),

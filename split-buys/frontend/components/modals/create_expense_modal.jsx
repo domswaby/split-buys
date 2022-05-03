@@ -34,14 +34,14 @@ class CreateExpenseModal extends React.Component {
     // }
 
     onRemove(e){
-        console.log(e);
+        
         this.setState({
             optionTags: e
         })
     }
 
     onSelect(e){
-        console.log(e);
+        
 
         this.setState({
             optionTags: e
@@ -49,7 +49,7 @@ class CreateExpenseModal extends React.Component {
     }
 
     changeDate(e){
-        console.log(e.currentTarget.value);
+        
         this.setState({
             date: e.currentTarget.value
         })
@@ -68,7 +68,7 @@ class CreateExpenseModal extends React.Component {
     }
 
     changePayer(e){
-        console.log(e.currentTarget.value); 
+       
         this.setState({
             payer: e.currentTarget.value
         })
