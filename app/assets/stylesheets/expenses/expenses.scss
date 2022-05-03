@@ -1,3 +1,39 @@
 .expense-row{
     display: flex;
+    box-sizing: border-box;
+    padding: 1em 0.5em;
+    margin: 0.5em 0;
+    justify-content: center;
+    border-bottom: 1px solid var(--gray-1);
+}
+
+.expense-row > div{
+    display: flex; 
+    flex-direction: column;
+    
+    justify-content: center;
+    flex: 1;
+    padding: 0 0.3em;
+}
+.expenses-payer > div, .expenses-lender > div{
+    width: 100%;
+}
+.expenses-payer > div:first-child, .expenses-lender > div:first-child{
+    font-size: 0.8em;
+    color: var(--gray-4);
+}
+
+.expenses-payer > div{
+    text-align: right;
+}
+
+.expenses-lender > div{
+    text-align: left;
+}
+
+.payer-green{
+    color: var(--sw-light-green);
+}
+.payer-orange{
+    color: var(--sw-orange);
 }

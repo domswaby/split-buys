@@ -37,6 +37,16 @@ class Expenses extends React.Component {
   roundIt(num) {
     return num.toFixed(2)
   }
+  isPayer(expense){
+    console.log(`payer_id is ${expense.payer_id}`); 
+    console.log(`currentUserId is ${this.props.currentUserId}`)
+    if(expense.payer_id == this.props.currentUserId){
+      console.log("returned true"); 
+      return true; 
+    }else{
+      return false;
+    }
+  }
 
   render(){
       let expenses = this.props.expenses.map((expense) => {
@@ -45,10 +55,16 @@ class Expenses extends React.Component {
         return (
           
           <div className="expense-row">
-            <p>{expense.date_incurred}</p>
-            <p>{expense.description}</p>
-            <p>{this.payer(expense.payer_id)} paid: {expense.amount}</p>
-            <p>{this.payer(expense.payer_id)} lent: {this.lent(expense)}</p>
+            <div className="expenses-date">{expense.date_incurred}</div>
+            <div className="expenses-description">{expense.description}</div>
+            <div className="expenses-payer">
+              <div>{this.payer(expense.payer_id)} paid:</div>
+              <div>{expense.amount}</div>
+            </div>
+            <div className="expenses-lender">
+              <div >{this.payer(expense.payer_id)} lent:</div>
+              <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense)}</div>
+            </div>
             
           </div>
         )
