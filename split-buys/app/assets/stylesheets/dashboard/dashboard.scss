@@ -57,4 +57,30 @@
 .settle-button:hover{
     background-color: var(--sw-dark-green);
 }
+.dashboard-content-wrap{
+  box-sizing: border-box;
+  padding: 0 1em;
+}
+.dashboard-summary-wrap{
+  display: flex; 
+  justify-content: space-evenly; 
+  margin: 1em 0;
+  font-size: 0.8em;
+}
 
+.dashboard-column-titles-wrap{
+  display: flex;
+  font-weight: 600; 
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+
+.dashboard-column-titles-wrap > div{
+  flex: 1;
+}
+.dashboard-people-wrap{
+  display: flex; 
+}
+.dashboard-people-wrap > div{
+  flex: 1;
+}

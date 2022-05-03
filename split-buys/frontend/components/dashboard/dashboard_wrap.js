@@ -8,6 +8,8 @@ import { receiveCurrentUser } from "../../actions/session_actions";
 const mSTP = (state) => ({
     currentUserId: state.session.id,
     currentUser: selectUser(state.entities.users, state.session.id),
+    expenses: Object.values(state.entities.expenses),
+    users: Object.values(state.entities.users),
     friends: selectFriends(state.entities.users, state.session.id)
 });
 // add current user 
