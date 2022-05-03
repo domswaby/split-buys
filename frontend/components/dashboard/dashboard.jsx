@@ -1,5 +1,6 @@
 import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
+import { Link } from "react-router-dom";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -90,10 +91,12 @@ class Dashboard extends React.Component {
     }).map((user) => {
         user.balance = this.getBalance(user.id)
         return (
-          <>
-            <div>{user.username}</div>
-            <div>owes you {user.balance}</div>
-          </>
+          <Link to={`/friends/${user.id}`} className="debtor-link">
+            <div className="debtors">
+              <div>{user.username}</div>
+              <div>owes you {user.balance}</div>
+            </div>
+          </Link>
         ) 
     });
 
@@ -102,10 +105,12 @@ class Dashboard extends React.Component {
     }).map((user) => {
       user.balance = this.getBalance(user.id)
       return (
-        <>
-          <div>{user.username}</div>
-          <div>you owe {user.balance}</div>
-        </>
+        <Link to={`/friends/${user.id}`} className="loaner-link">
+          <div className="loaners">
+            <div>{user.username}</div>
+            <div>you owe {user.balance}</div>
+          </div>
+        </Link>
       )
     });
 
@@ -119,9 +124,18 @@ class Dashboard extends React.Component {
         </h1>
         <div className="dashboard-content-wrap">
           <div className="dashboard-summary-wrap">
-              <div>total balance: {this.totalBalance()}</div>
-              <div>you owe: {this.youOwe()}</div>
-              <div>you are owed {this.youAreOwed()}</div>
+              <div className="dashboard-summary-balance">
+                <div>total balance</div>
+                <div>{this.totalBalance()}</div>
+              </div>
+              <div className="dashboard-summary-owe">
+                <div>you owe:</div>
+                <div>{this.youOwe()}</div>
+              </div>
+              <div className="dashboard-summary-owed">
+                <div>you are owed</div>
+                <div>{this.youAreOwed()}</div>
+              </div>
           </div>
           <div className="dashboard-column-titles-wrap">
               <div>YOU OWE</div>

@@ -74,6 +74,9 @@
   font-size: 1.2em;
   margin: 1em 0;
 }
+.dashboard-summary-wrap{
+  color: var(--gray-4);
+}
 
 .dashboard-column-titles-wrap > div{
   flex: 1;
@@ -83,4 +86,31 @@
 }
 .dashboard-people-wrap > div{
   flex: 1;
+}
+.dashboard-summary-balance > div:last-child, .dashboard-summary-owed > div:last-child{
+  color: var(--sw-light-green);
+}
+.dashboard-summary-owe > div:last-child{
+  color: var(--sw-orange);
+}
+.loaners > div:last-child{
+  color: var(--sw-light-green);
+}
+.debtors >  div:last-child{
+  color: var(--sw-orange);
+}
+
+.loaners, .debtors {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0.5em;
+}
+
+.loaners:hover, .debtors:hover{
+  background-color: var(--gray-5);
+
+}
+.debtor-link, .loaner-link{
+  text-decoration: none; 
+  color: black;
 }
