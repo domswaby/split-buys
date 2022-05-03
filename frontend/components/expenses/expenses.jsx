@@ -62,6 +62,14 @@ class Expenses extends React.Component {
       details.style.display = 'inline';
     }
   }
+  expenderDetails(expense, expender){
+    if(expender === expense.payer_id){
+      return ` paid $${expense.amount} and owes ${this.roundIt(expense.amount / expense.expenders.length)}`;
+    }else{ 
+      return ` owes $${this.roundIt(expense.amount / expense.expenders.length)}`;
+    }
+
+  }
 
   render(){
       let expenses = this.props.expenses.map((expense) => {
@@ -93,7 +101,15 @@ class Expenses extends React.Component {
               </div>
               <div className="expense-details-bottom">
                 <div className="expense-expender-list">
-                  Test
+                  <ul>
+                    {
+                      expense.expenders.map((expender) => {
+                        return (
+                          <li className="expense-expender-list-item"><span>{this.payer(expender)}</span> {this.expenderDetails(expense, expender)}</li>
+                        )
+                      })
+                    }
+                  </ul>
                 </div>
                 <div className="comment-section">
                   Comment Section

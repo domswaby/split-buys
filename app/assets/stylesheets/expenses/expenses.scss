@@ -2,7 +2,7 @@
     display: flex;
     box-sizing: border-box;
     padding: 1em 0.5em;
-    margin: 0.5em 0;
+    
     justify-content: center;
     border-bottom: 1px solid var(--gray-1);
     cursor: pointer;
@@ -40,9 +40,9 @@
 }
 
 .expense-details-wrap{
-    margin: 1em 0;  
-
+    margin: 1em 0 0 0;  
     
+    display: none;
 }
 .expense-details-wrap > div{
     display: flex;
@@ -89,7 +89,16 @@
 .expense-details-bottom{
     padding: 1em; 
     box-sizing: border-box;
+    border-bottom: 1px solid var(--gray-1);
     div{
         flex: 1;
     }
+}
+.expense-expender-list{
+    font-size: 0.8em;
+    color: var(--gray-3);
+}
+.expense-expender-list-item > span{
+    font-size: 1.2em; 
+    color: black;
 }
