@@ -5,6 +5,7 @@
     margin: 0.5em 0;
     justify-content: center;
     border-bottom: 1px solid var(--gray-1);
+    cursor: pointer;
 }
 
 .expense-row > div{
@@ -36,4 +37,59 @@
 }
 .payer-orange{
     color: var(--sw-orange);
+}
+
+.expense-details-wrap{
+    margin: 1em 0;  
+
+    
+}
+.expense-details-wrap > div{
+    display: flex;
+    align-items: center;
+}
+
+.expense-details-todo-icon{
+    font-size: 4em;
+    padding: 10px; 
+    box-sizing: border-box;
+    display: flex; 
+    align-items: center;
+    
+}
+.edit-expense-button{
+    background-color: var(--sw-orange);
+    color: white;
+    border: 1px solid var(--gray1);
+    padding: 3px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.edit-expense-button:hover{
+    background-color: var(--sw-dark-orange);
+}
+.expense-details-top{
+    box-sizing: border-box;
+    padding: 0.5em;
+}
+.expense-details-top > p{
+    margin-bottom: 0.5em;
+
+}
+.expense-small-details{
+    font-size: 0.8em; 
+    color: var(--gray-3);
+
+}
+.expense-details-amount{
+    font-weight: 600; 
+    font-size: 1.2em;
+}
+.expense-details-bottom{
+    padding: 1em; 
+    box-sizing: border-box;
+    div{
+        flex: 1;
+    }
 }

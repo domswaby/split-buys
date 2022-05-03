@@ -1,5 +1,6 @@
 import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
+import { RiTodoLine } from 'react-icons/ri';
 
 
 class Expenses extends React.Component {
@@ -51,26 +52,56 @@ class Expenses extends React.Component {
       return false;
     }
   }
+  toggleDetails(id) {
+    let details = document.getElementById(`${id}`);
+    if(details === null){
+
+    }else if(details.style.display === 'inline'){
+      details.style.display = 'none'; 
+    }else{
+      details.style.display = 'inline';
+    }
+  }
 
   render(){
       let expenses = this.props.expenses.map((expense) => {
-        
-        
         return (
-          
-          <div className="expense-row">
-            <div className="expenses-date">{expense.date_incurred}</div>
-            <div className="expenses-description">{expense.description}</div>
-            <div className="expenses-payer">
-              <div>{this.payer(expense.payer_id)} paid:</div>
-              <div>{expense.amount}</div>
+          <div>
+            <div onClick={() => this.toggleDetails(expense.id)} className="expense-row">
+              <div className="expenses-date">{expense.date_incurred}</div>
+              <div className="expenses-description">{expense.description}</div>
+              <div className="expenses-payer">
+                <div>{this.payer(expense.payer_id)} paid:</div>
+                <div>{expense.amount}</div>
+              </div>
+              <div className="expenses-lender">
+                <div >{this.payer(expense.payer_id)} lent:</div>
+                <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense)}</div>
+              </div>
             </div>
-            <div className="expenses-lender">
-              <div >{this.payer(expense.payer_id)} lent:</div>
-              <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense)}</div>
+            <div id={expense.id} className="expense-details-wrap">
+              <div>
+                <div className="expense-details-todo-icon">
+                  <RiTodoLine />
+                </div>
+                <div className="expense-details-top">
+                  <p >{expense.description}</p>
+                  <p className="expense-details-amount">${expense.amount.toFixed(2)}</p>
+                  <p className="expense-small-details">Paid by {this.payer(expense.payer_id)}</p>
+                  <button className="edit-expense-button">Edit expense</button>
+                </div>
+              </div>
+              <div className="expense-details-bottom">
+                <div className="expense-expender-list">
+                  Test
+                </div>
+                <div className="comment-section">
+                  Comment Section
+                </div>
+
+              </div>
             </div>
-            
-          </div>
+          </div> 
         )
       })
       return (
