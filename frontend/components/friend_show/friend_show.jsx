@@ -71,12 +71,9 @@ class FriendShow extends React.Component {
             
           }
           if (Number(this.props.friendId) === expense.payer_id) {
-            friendAmount += (expense.amount / expense.expenders.length);
-            
+            friendAmount += (expense.amount / expense.expenders.length);     
           }
       }
-
-      
     });
     
     if (friendAmount > myAmount) {
@@ -85,8 +82,34 @@ class FriendShow extends React.Component {
       )
     } else {
       return (
-        <div>{this.props.friendInfo.username} owes you {this.roundIt(myAmount - friendAmount)}</div>
+        <div>{this.props.friendInfo?.username} owes you {this.roundIt(myAmount - friendAmount)}</div>
       )
+    }
+  }
+  getBalanceNumber() {
+    let friendAmount = 0;
+    let myAmount = 0;
+
+    this.props.expenses.forEach((expense) => {
+
+      if (expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))) {
+        if (this.props.currentUserId === expense.payer_id) {
+          myAmount += (expense.amount / expense.expenders.length);
+
+        }
+        if (Number(this.props.friendId) === expense.payer_id) {
+          friendAmount += (expense.amount / expense.expenders.length);
+        }
+      }
+    });
+
+    if (friendAmount > myAmount) {
+      return  this.roundIt(friendAmount - myAmount)
+      
+    } else if (myAmount > friendAmount){
+      return this.roundIt(friendAmount - myAmount)
+    }else{
+        return 0; 
     }
   }
   isPayer(expense) {
@@ -195,7 +218,8 @@ class FriendShow extends React.Component {
         </h1>
         
         <div>
-          {expenses}
+          { this.props.expenses.length > 0 ? ((this.getBalanceNumber() === 0) ? ( <div>All settled</div> ) : expenses) : null }
+          
         </div>
         <CreateExpenseModalContainer
           toggleModal={this.toggleModal}
