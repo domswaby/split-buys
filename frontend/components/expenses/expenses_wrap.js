@@ -16,7 +16,7 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => ({
     receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user))
-
+    
 });
 
 export default connect(mSTP, mDTP)(Expenses);

@@ -1,6 +1,8 @@
 import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
 import { RiTodoLine } from 'react-icons/ri';
+import { ImCross } from 'react-icons/im';
+
 
 
 class Expenses extends React.Component {
@@ -19,6 +21,17 @@ class Expenses extends React.Component {
     this.setState({
       showModal: !show
     });
+  }
+
+  toggleShowDelete(arg){
+    return (e) => {
+      let deleteButton = document.getElementById(`${arg + "a"}`); 
+      if (deleteButton.style.display === 'inline') {
+        deleteButton.style.display = 'none';
+      } else {
+        deleteButton.style.display = 'inline';
+      }
+    }
   }
 
   payer(payer_id){
@@ -43,10 +56,8 @@ class Expenses extends React.Component {
     return num.toFixed(2)
   }
   isPayer(expense){
-    console.log(`payer_id is ${expense.payer_id}`); 
-    console.log(`currentUserId is ${this.props.currentUserId}`)
     if(expense.payer_id == this.props.currentUserId){
-      console.log("returned true"); 
+      
       return true; 
     }else{
       return false;
@@ -70,12 +81,19 @@ class Expenses extends React.Component {
     }
 
   }
+  handleDeleteExpense(expense){
+    return (e) => {
+      e.stopPropagation();
+      console.log(expense)
+
+    }
+  }
 
   render(){
       let expenses = this.props.expenses.map((expense) => {
         return (
           <div>
-            <div onClick={() => this.toggleDetails(expense.id)} className="expense-row">
+            <div onClick={() => this.toggleDetails(expense.id)}  onMouseEnter={this.toggleShowDelete(expense.id)} onMouseLeave={this.toggleShowDelete(expense.id)} className="expense-row">
               <div className="expenses-date">{expense.date_incurred}</div>
               <div className="expenses-description">{expense.description}</div>
               <div className="expenses-payer">
@@ -85,6 +103,10 @@ class Expenses extends React.Component {
               <div className="expenses-lender">
                 <div >{this.payer(expense.payer_id)} lent:</div>
                 <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense)}</div>
+              </div>
+              {/* keep ImCross as last child as styling depends on it */}
+              <div id={expense.id + "a"} onClick={this.handleDeleteExpense(expense)} className="delete-expense-wrap">
+                <ImCross />
               </div>
             </div>
             <div id={expense.id} className="expense-details-wrap">

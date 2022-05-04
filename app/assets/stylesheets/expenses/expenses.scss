@@ -2,20 +2,23 @@
     display: flex;
     box-sizing: border-box;
     padding: 1em 0.5em;
-    
+    position: relative;
     justify-content: center;
     border-bottom: 1px solid var(--gray-1);
     cursor: pointer;
 }
+.expense-row:hover{
+    background-color: var(--gray-6);
+}
 
-.expense-row > div{
+.expense-row > div:not(:last-child){
     display: flex; 
     flex-direction: column;
-    
     justify-content: center;
     flex: 1;
     padding: 0 0.3em;
 }
+
 .expenses-payer > div, .expenses-lender > div{
     width: 100%;
 }
@@ -101,4 +104,20 @@
 .expense-expender-list-item > span{
     font-size: 1.2em; 
     color: black;
+   
+   
+}
+
+.delete-expense-wrap{
+    position: absolute; 
+    right: 2em;
+    color: red;
+    transform: translateY(-50%);
+    top: 50%;
+    font-size: 0.8em;
+    display: none;
+    
+}
+.delete-expense-wrap-show{
+    display: block; 
 }
