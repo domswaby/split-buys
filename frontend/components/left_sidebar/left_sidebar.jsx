@@ -37,9 +37,9 @@ class LeftSidebar extends React.Component{
           <div className="dashboard-tab">
             <Link to="/dashboard"><img src={logo} alt="" />Dashboard</Link>
           </div>
-          <div className="activity-tab">
+          {/* <div className="activity-tab">
             <Link to="/activity"><FaFlag className="activity-flag" />Recent activity</Link>
-          </div>
+          </div> */}
           <div>
             <div className="expenses-tab">
               <Link to="/all"><GoListUnordered className="expenses-list-icon" />All expenses</Link>

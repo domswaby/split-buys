@@ -116,7 +116,11 @@
     top: 50%;
     font-size: 0.8em;
     display: none;
-    
+    box-sizing: border-box;
+}
+.delete-expense-wrap:hover{
+    border-bottom: 2px solid red;
+    text-decoration: underline;
 }
 .delete-expense-wrap-show{
     display: block; 
