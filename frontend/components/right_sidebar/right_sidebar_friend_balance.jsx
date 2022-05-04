@@ -51,11 +51,11 @@ class RightSidebarFriendBalance extends React.Component{
 
     if (friendAmount > myAmount) {
       return (
-        <div>You owe {this.props.friendInfo.username} {this.roundIt(friendAmount - myAmount)}</div>
+        <div className="friend-balance-you-owe">You owe {this.props.friendInfo.username} <p>{this.roundIt(friendAmount - myAmount)}</p></div>
       )
     } else {
       return (
-        <div>{this.props.friendInfo.username} owes you {this.roundIt(myAmount - friendAmount)}</div>
+        <div className="friend-balance-owes">{this.props.friendInfo.username} owes you <p>{this.roundIt(myAmount - friendAmount)}</p></div>
       )
     }
   }
@@ -66,18 +66,18 @@ class RightSidebarFriendBalance extends React.Component{
         <div className="right-sidebar-friend-wrap">
           <div>
             <ul className="sidebar-friend-settings">
-              <li>
-                <button><FaBars onClick={() => this.changeShow('balance')}/></button>
+              <li className="balance-bars">
+                <button ><FaBars onClick={() => this.changeShow('balance')}/></button>
               </li>
-              <li>
-                <button><MdSettings onClick={() => this.changeShow('settings')}/></button>
+              <li className="balance-gear">
+                <button ><MdSettings onClick={() => this.changeShow('settings')}/></button>
               </li>
             </ul>
             <div className={"remove-friend-btn-wrap " + (this.state.show === 'settings' ? 'show-remove-settings' : '')} >
               <button onClick={this.handleDeleteFriend}>Remove Friend</button>
             </div>
             <div className={ "friend-balance " + (this.state.show === 'balance' ? 'show-friend-balance' : '')}>
-              <h1>Your Balance</h1>
+              <h1>YOUR BALANCE</h1>
               {this.props.friendInfo ? this.getBalance() : null}
             </div>
           </div>

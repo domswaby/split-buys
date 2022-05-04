@@ -2,6 +2,7 @@ import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
 import { RiTodoLine } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
+import greenCheck from './../../../app/assets/images/green_check.png'; // with import
 
 
 class FriendShow extends React.Component {
@@ -218,7 +219,9 @@ class FriendShow extends React.Component {
         </h1>
         
         <div>
-          { this.props.expenses.length > 0 ? ((this.getBalanceNumber() === 0) ? ( <div>All settled</div> ) : expenses) : null }
+          { this.props.expenses.length > 0 
+            ? ((this.getBalanceNumber() === 0) 
+            ? ( <div className="green-check-wrap"> <img src={greenCheck} alt="greenCheck" /> <div>You and {this.props.friendInfo.username} are all settled.</div></div> ) : expenses) : null }
           
         </div>
         <CreateExpenseModalContainer

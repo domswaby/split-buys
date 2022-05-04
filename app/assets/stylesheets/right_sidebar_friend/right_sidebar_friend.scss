@@ -13,7 +13,7 @@
 }
 
 .sidebar-friend-settings button{
-  margin-right: 10px; 
+  
   border: none; 
   padding: 5px;
   cursor: pointer; 
@@ -34,6 +34,24 @@
    
 }
 
+.balance-bars, .balance-gear{
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.balance-bars:hover, .balance-gear:hover{
+  background-color: var(--gray-1);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+.balance-bars:hover > button,
+.balance-gear:hover > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 .show-remove-settings{
   display: block;
 }
@@ -43,9 +61,26 @@
   font-size: 1.2em;
   font-weight: 600; 
 }
+.friend-balance > h1{
+  font-size: 0.8em;
+  color: var(--gray-4);
+  margin-bottom: 0.5em;
+}
 
 .show-friend-balance{
   display: block;
+}
+
+.friend-balance-owes, .friend-balance-you-owe{
+  font-size: 0.8em; 
+}
+
+.friend-balance-owes{
+  color: var(--sw-orange);
+}
+
+.friend-balance-you-owe{
+  color: var(--sw-light-green);
 }
 
 
