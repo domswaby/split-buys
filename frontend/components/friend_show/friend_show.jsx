@@ -68,15 +68,15 @@ class FriendShow extends React.Component {
       if(expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))){
           if (this.props.currentUserId === expense.payer_id) {
             myAmount += (expense.amount / expense.expenders.length);
-            console.log(`I paid ${myAmount}`); 
+            
           }
           if (Number(this.props.friendId) === expense.payer_id) {
             friendAmount += (expense.amount / expense.expenders.length);
-            console.log(`Friend paid ${friendAmount}`); 
+            
           }
       }
 
-      console.log(expense);
+      
     });
     
     if (friendAmount > myAmount) {
@@ -90,10 +90,9 @@ class FriendShow extends React.Component {
     }
   }
   isPayer(expense) {
-    console.log(`payer_id is ${expense.payer_id}`);
-    console.log(`currentUserId is ${this.props.currentUserId}`)
+       
     if (expense.payer_id == this.props.currentUserId) {
-      console.log("returned true");
+    
       return true;
     } else {
       return false;
@@ -121,7 +120,7 @@ class FriendShow extends React.Component {
   handleDeleteExpense(expense) {
     return (e) => {
       e.stopPropagation();
-      console.log(expense);
+      
       this.props.destroyExpense(expense.id);
 
     };

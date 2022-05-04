@@ -12,12 +12,6 @@ class RightSidebarFriendBalance extends React.Component{
     this.handleDeleteFriend = this.handleDeleteFriend.bind(this);
   }
 
-  // componentDidMount() {
-  //   if (this.props.currentUser.friends) {
-  //     this.props.receiveCurrentUser(this.props.currentUser);
-  //   }
-  // }
-
   handleDeleteFriend() {   
      
     this.props.deleteFriend(this.props.friendId)
@@ -44,15 +38,15 @@ class RightSidebarFriendBalance extends React.Component{
       if (expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))) {
         if (this.props.currentUserId === expense.payer_id) {
           myAmount += (expense.amount / expense.expenders.length);
-          console.log(`I paid ${myAmount}`)
+          
         }
         if (Number(this.props.friendId) === expense.payer_id) {
           friendAmount += (expense.amount / expense.expenders.length);
-          console.log(`Friend paid ${friendAmount}`)
+          
         }
       }
 
-      console.log(expense);
+      
     });
 
     if (friendAmount > myAmount) {
