@@ -1,6 +1,8 @@
 import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
 import { RiTodoLine } from 'react-icons/ri';
+import { ImCross } from 'react-icons/im';
+
 
 class FriendShow extends React.Component {
   constructor(props) {
@@ -24,6 +26,18 @@ class FriendShow extends React.Component {
       showModal: !show
     });
   }
+
+  toggleShowDelete(arg) {
+    return (e) => {
+      let deleteButton = document.getElementById(`${arg + "a"}`);
+      if (deleteButton.style.display === 'inline') {
+        deleteButton.style.display = 'none';
+      } else {
+        deleteButton.style.display = 'inline';
+      }
+    }
+  }
+
   payer(payer_id) {
     for (let user of this.props.users) {
       if (user.id === payer_id) {
@@ -54,11 +68,11 @@ class FriendShow extends React.Component {
       if(expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))){
           if (this.props.currentUserId === expense.payer_id) {
             myAmount += (expense.amount / expense.expenders.length);
-            console.log(`I paid ${myAmount}`) 
+            console.log(`I paid ${myAmount}`); 
           }
           if (Number(this.props.friendId) === expense.payer_id) {
             friendAmount += (expense.amount / expense.expenders.length);
-            console.log(`Friend paid ${friendAmount}`)
+            console.log(`Friend paid ${friendAmount}`); 
           }
       }
 
@@ -104,6 +118,15 @@ class FriendShow extends React.Component {
     }
   }
 
+  handleDeleteExpense(expense) {
+    return (e) => {
+      e.stopPropagation();
+      console.log(expense);
+      this.props.destroyExpense(expense.id);
+
+    };
+  }
+
   render () {
     let friendId = this.props.friendId;
     let expenses = this.props.expenses.map((expense) => {
@@ -112,7 +135,7 @@ class FriendShow extends React.Component {
         
         return (
           <div>
-            <div onClick={() => this.toggleDetails(expense.id)} className="expense-row">
+            <div onClick={() => this.toggleDetails(expense.id)} onMouseEnter={this.toggleShowDelete(expense.id)} onMouseLeave={this.toggleShowDelete(expense.id)} className="expense-row">
               <div>{expense.date_incurred}</div>
               <div>{expense.description}</div>
               <div className="expenses-payer">
@@ -123,7 +146,9 @@ class FriendShow extends React.Component {
                 <div >{this.payer(expense.payer_id)} lent:</div>
                 <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense)}</div>
               </div>
-
+              <div id={expense.id + "a"} onClick={this.handleDeleteExpense(expense)} className="delete-expense-wrap">
+                <ImCross />
+              </div>
             </div>
             <div id={expense.id} className="expense-details-wrap">
               <div>
