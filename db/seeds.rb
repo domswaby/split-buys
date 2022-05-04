@@ -128,3 +128,25 @@ expense10 = Expense.create(description: "groceries", amount: 50, split_type: "eq
 UserExpense.create(user_id: demo_user.id, expense_id: expense10.id, balance: 25)
 UserExpense.create(user_id: user10.id, expense_id: expense10.id, balance: 25)
 
+expense11 = Expense.create(description: "movies", amount: 30, split_type: "equal", payer_id: demo_user.id, date_incurred: "2021-03-20" ) 
+UserExpense.create(user_id: demo_user.id, expense_id: expense11.id, balance: 15)
+UserExpense.create(user_id: user12.id, expense_id: expense11.id, balance: 15)
+
+expense12 = Expense.create(description: "golf", amount: 500, split_type: "equal", payer_id: demo_user.id, date_incurred: "2022-03-20" ) 
+UserExpense.create(user_id: demo_user.id, expense_id: expense12.id, balance: 125)
+UserExpense.create(user_id: user13.id, expense_id: expense12.id, balance: 125)
+UserExpense.create(user_id: user14.id, expense_id: expense12.id, balance: 125)
+UserExpense.create(user_id: user15.id, expense_id: expense12.id, balance: 125)
+
+expense13 = Expense.create(description: "vacation", amount: 2000, split_type: "equal", payer_id: demo_user.id, date_incurred: "2020-07-20" ) 
+UserExpense.create(user_id: demo_user.id, expense_id: expense13.id, balance: 500)
+UserExpense.create(user_id: user14.id, expense_id: expense13.id, balance: 500)
+UserExpense.create(user_id: user15.id, expense_id: expense13.id, balance: 500)
+UserExpense.create(user_id: user16.id, expense_id: expense13.id, balance: 500)
+
+expense14 = Expense.create(description: "pool party", amount: 800, split_type: "equal", payer_id: demo_user.id, date_incurred: "2020-09-28" ) 
+UserExpense.create(user_id: demo_user.id, expense_id: expense14.id, balance: 200)
+UserExpense.create(user_id: user12.id, expense_id: expense14.id, balance: 200)
+UserExpense.create(user_id: user13.id, expense_id: expense14.id, balance: 200)
+UserExpense.create(user_id: user14.id, expense_id: expense14.id, balance: 200)
+
