@@ -34649,3 +34649,382 @@ puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
 puma (3.12.6) lib/puma/server.rb:476:in `process_client'
 puma (3.12.6) lib/puma/server.rb:334:in `block in run'
 puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-05-04 09:06:18 -0400
+  [1m[35m (13.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/appacademystudent/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.7/lib/active_record/log_subscriber.rb:98
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JseZYdVNw0KYMfdMVZLh_g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (1.5ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (313.9ms)
+  Rendered staticpages/root.html.erb within layouts/application (456.8ms)
+Completed 200 OK in 7061ms (Views: 6954.0ms | ActiveRecord: 94.3ms)
+
+
+  [1m[36mExpense Load (1.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started DELETE "/api/expenses/1" for ::1 at 2022-05-04 09:22:58 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mExpense Load (5.0ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Load (1.5ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (0.8ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (8.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.7ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (11.3ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (13.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (1.4ms)
+Completed 200 OK in 123ms (Views: 26.0ms | ActiveRecord: 68.6ms)
+
+
+  [1m[36mExpense Load (1.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started DELETE "/api/expenses/2" for ::1 at 2022-05-04 09:47:00 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mExpense Load (1.4ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Load (1.1ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (8.6ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.1ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.6ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (5.4ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:2
+  Rendered api/expenses/show.json.jbuilder (11.4ms)
+Completed 200 OK in 70ms (Views: 25.3ms | ActiveRecord: 32.2ms)
+
+
+  [1m[36mExpense Load (1.0ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started DELETE "/api/expenses/3" for ::1 at 2022-05-04 09:50:27 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.4ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 1], ["id", 7], ["id", 5]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (0.7ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 8]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.2ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.1ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (1.2ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (3.3ms)
+Completed 200 OK in 145ms (Views: 17.6ms | ActiveRecord: 44.0ms)
+
+
+Started DELETE "/api/expenses/4" for ::1 at 2022-05-04 09:52:41 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mExpense Load (6.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (1.2ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 4], ["id", 1], ["id", 7]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.4ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.1ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.4ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (1.3ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (1.1ms)
+Completed 200 OK in 44ms (Views: 13.7ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 10:12:33 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JseZYdVNw0KYMfdMVZLh_g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (2.0ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 15]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (126.1ms)
+  Rendered staticpages/root.html.erb within layouts/application (183.2ms)
+Completed 200 OK in 2295ms (Views: 2242.3ms | ActiveRecord: 43.2ms)
+
+
+Started DELETE "/api/expenses/7" for ::1 at 2022-05-04 10:12:45 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"7"}
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.7ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 5], ["id", 1], ["id", 7], ["id", 6]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (0.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.2ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 20]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.3ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 22]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (2.8ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 7]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.9ms)
+Completed 200 OK in 58ms (Views: 14.7ms | ActiveRecord: 19.3ms)
+
+
+Started DELETE "/api/expenses/6" for ::1 at 2022-05-04 10:13:00 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mExpense Load (2.0ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (2.1ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 4], ["id", 7], ["id", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.2ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 16]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.3ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 17]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (3.0ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 18]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (1.7ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.7ms)
+Completed 200 OK in 42ms (Views: 13.7ms | ActiveRecord: 16.6ms)
+
+
+Started DELETE "/api/expenses/5" for ::1 at 2022-05-04 10:13:02 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mExpense Load (7.8ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (2.3ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 1], ["id", 7]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (3.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (5.1ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.6ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 15]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (2.0ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.8ms)
+Completed 200 OK in 61ms (Views: 15.4ms | ActiveRecord: 36.2ms)
+
+
+Started DELETE "/api/expenses/10" for ::1 at 2022-05-04 10:13:04 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"10"}
+  [1m[36mExpense Load (1.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (5.6ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 6], ["id", 8], ["id", 1], ["id", 5]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.1ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 29]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (17.3ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 30]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (5.6ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 31]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (9.2ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 32]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (0.9ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.9ms)
+Completed 200 OK in 74ms (Views: 15.1ms | ActiveRecord: 46.8ms)
+
+
+Started DELETE "/api/expenses/9" for ::1 at 2022-05-04 10:13:55 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mExpense Load (6.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (5.1ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 1], ["id", 4], ["id", 6]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 26]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.2ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 27]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.6ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 28]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (4.5ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.8ms)
+Completed 200 OK in 61ms (Views: 15.0ms | ActiveRecord: 34.2ms)
+
+
+Started DELETE "/api/expenses/12" for ::1 at 2022-05-04 10:13:58 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"12"}
+  [1m[36mExpense Load (4.8ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (2.1ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4)[0m  [["id", 9], ["id", 1], ["id", 4], ["id", 6]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (13.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.0ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (4.0ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 37]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.6ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 38]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (1.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 39]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (8.1ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 12]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.8ms)
+Completed 200 OK in 72ms (Views: 14.8ms | ActiveRecord: 44.6ms)
+
+
+Started DELETE "/api/expenses/11" for ::1 at 2022-05-04 10:14:56 -0400
+Processing by Api::ExpensesController#destroy as JSON
+  Parameters: {"id"=>"11"}
+  [1m[36mExpense Load (7.8ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (2.6ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3)[0m  [["id", 1], ["id", 9], ["id", 4]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (12.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.4ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 33]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (2.7ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 34]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mUserExpense Destroy (5.9ms)[0m  [1m[31mDELETE FROM "user_expenses" WHERE "user_expenses"."id" = $1[0m  [["id", 35]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Destroy (3.1ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (12.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  Rendered api/expenses/show.json.jbuilder (0.9ms)
+Completed 200 OK in 79ms (Views: 16.6ms | ActiveRecord: 51.0ms)
+
+

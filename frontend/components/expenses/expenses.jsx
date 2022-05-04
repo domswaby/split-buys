@@ -84,9 +84,10 @@ class Expenses extends React.Component {
   handleDeleteExpense(expense){
     return (e) => {
       e.stopPropagation();
-      console.log(expense)
+      console.log(expense);
+      this.props.destroyExpense(expense.id); 
 
-    }
+    };
   }
 
   render(){

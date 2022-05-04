@@ -14,7 +14,7 @@ class Api::ExpensesController < ApplicationController
     end
 
     def destroy 
-        @expense = Expense.find(params[:id])
+        @expense = Expense.includes(:expenders).find(params[:id])
         if @expense && @expense.destroy 
             render :show
         else

@@ -17,6 +17,9 @@ const expensesReducer = (oldState = {}, action) => {
             });
             newState = action.user.expenses;
             return newState;
+        case REMOVE_EXPENSE:
+            delete newState[action.expense.id];
+            return newState;
         default:
             return oldState;
     }

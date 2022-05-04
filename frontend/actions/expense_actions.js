@@ -7,12 +7,12 @@ export const RECEIVE_EXPENSE_ERRORS = 'RECEIVE_EXPENSE_ERRORS'
 const receiveExpense = (expense) => ({
     type: RECEIVE_EXPENSE,
     expense
-})
+});
 
-const removeExpense = (expenseId) => ({
+const removeExpense = (expense) => ({
     type: REMOVE_EXPENSE,
-    expenseId: expenseId
-})
+    expense
+}); 
 
 export const makeExpense = (expenseInfo) => dispatch => {
     let expenders = expenseInfo.expenders; 
@@ -40,3 +40,9 @@ export const makeExpense = (expenseInfo) => dispatch => {
                 })
         })
 }; 
+
+export const destroyExpense = (expenseId) => dispatch => {
+    return deleteExpense(expenseId)
+        .then((expense) => dispatch(removeExpense(expense)))
+        .fail(err => dispatch(receiveErrors(err.responseJSON)));
+};

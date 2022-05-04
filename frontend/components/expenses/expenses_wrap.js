@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Expenses from "./expenses";
 import { selectUser } from "../../selectors/selectors";
 import { receiveCurrentUser } from "../../actions/session_actions";
+import { destroyExpense } from "../../actions/expense_actions";
 
 const mSTP = (state) => ({
     currentUserId: state.session.id,
@@ -15,7 +16,8 @@ const mSTP = (state) => ({
 // then in compoent did mount check for currentuser dot friends.  
 
 const mDTP = (dispatch) => ({
-    receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user))
+    receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user)),
+    destroyExpense: (expenseId) => dispatch(destroyExpense(expenseId))
     
 });
 
