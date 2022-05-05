@@ -40548,3 +40548,2011 @@ Processing by StaticpagesController#root as HTML
 Completed 200 OK in 120ms (Views: 115.7ms | ActiveRecord: 2.9ms)
 
 
+Started DELETE "/api/session" for ::1 at 2022-05-04 19:54:07 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YxQiqWCOP2Ak0Fd7IhaUPw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:57
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Demo User"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:57
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "hs2bjQVvZyP4x-CN-Im20A"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:57
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "hs2bjQVvZyP4x-CN-Im20A"], ["updated_at", "2022-05-04 23:54:08.004520"], ["id", 1]]
+  ↳ app/models/user.rb:57
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:57
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/api/session" for ::1 at 2022-05-04 19:56:11 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Demo User", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo User"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mFriendship Load (0.7ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6)[0m  [["id", 4], ["id", 8], ["id", 9], ["id", 5], ["id", 7], ["id", 6]]
+  ↳ app/models/user.rb:37
+  [1m[36mUserExpense Load (0.5ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [["id", 35], ["id", 36], ["id", 37], ["id", 38], ["id", 39], ["id", 40], ["id", 41], ["id", 42], ["id", 43], ["id", 44], ["id", 45]]
+  ↳ app/models/user.rb:37
+  [1m[36mUserExpense Load (0.7ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [["expense_id", 35], ["expense_id", 36], ["expense_id", 37], ["expense_id", 38], ["expense_id", 39], ["expense_id", 40], ["expense_id", 41], ["expense_id", 42], ["expense_id", 43], ["expense_id", 44], ["expense_id", 45]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7)[0m  [["id", 1], ["id", 6], ["id", 5], ["id", 8], ["id", 7], ["id", 9], ["id", 4]]
+  ↳ app/models/user.rb:37
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/sessions/show.json.jbuilder (3.3ms)
+Completed 200 OK in 207ms (Views: 10.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 20:12:51 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hs2bjQVvZyP4x-CN-Im20A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 35]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 37]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 38]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 39]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 40]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 41]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 42]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 43]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 44]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 45]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (18.1ms)
+  Rendered staticpages/root.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 1198ms (Views: 1189.7ms | ActiveRecord: 6.3ms)
+
+
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started PATCH "/api/expenses/36" for ::1 at 2022-05-04 20:38:31 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"description"=>"grub updated", "amount"=>"100", "split_type"=>"equal", "payer_id"=>"1", "date_incurred"=>"2022-05-01"}, "id"=>"36"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.3ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (9.5ms)
+Completed 200 OK in 46ms (Views: 13.9ms | ActiveRecord: 13.5ms)
+
+
+Started PATCH "/api/expenses/36" for ::1 at 2022-05-04 20:42:35 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"description"=>"grub updated", "amount"=>"100", "split_type"=>"equal", "payer_id"=>"1", "date_incurred"=>"2022-05-01"}, "id"=>"36"}
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.2ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (8.0ms)
+Completed 200 OK in 43ms (Views: 14.1ms | ActiveRecord: 8.7ms)
+
+
+Started PATCH "/api/expenses/36" for ::1 at 2022-05-04 20:42:52 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"description"=>"grub updated", "amount"=>"100", "split_type"=>"equal", "payer_id"=>"1", "date_incurred"=>"2022-05-01"}, "id"=>"36"}
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.6ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  Rendering api/expenses/update.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/expenses/update.json.jbuilder:1
+  Rendered api/expenses/update.json.jbuilder (9.5ms)
+Completed 200 OK in 37ms (Views: 14.4ms | ActiveRecord: 9.3ms)
+
+
+Started PATCH "/api/expenses/36" for ::1 at 2022-05-04 20:51:07 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"description"=>"grub updated", "amount"=>"100", "split_type"=>"equal", "payer_id"=>"1", "date_incurred"=>"2022-05-01"}, "id"=>"36"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.3ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  Rendering api/expenses/update.json.jbuilder
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/expenses/update.json.jbuilder:1
+  Rendered api/expenses/update.json.jbuilder (12.3ms)
+Completed 200 OK in 46ms (Views: 16.1ms | ActiveRecord: 15.3ms)
+
+
+Started PATCH "/api/expenses/36" for ::1 at 2022-05-04 20:51:33 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"description"=>"grub updated", "amount"=>"100", "split_type"=>"equal", "payer_id"=>"1", "date_incurred"=>"2022-05-01"}, "id"=>"36"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[36mUserExpense Load (0.2ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  Rendering api/expenses/update.json.jbuilder
+  [1m[35m (32.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/expenses/update.json.jbuilder:1
+  Rendered api/expenses/update.json.jbuilder (34.1ms)
+Completed 200 OK in 44ms (Views: 9.6ms | ActiveRecord: 32.6ms)
+
+
+Started PATCH "/api/expenses/36" for ::1 at 2022-05-04 21:03:29 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"description"=>"grub updated", "amount"=>"100", "split_type"=>"equal", "payer_id"=>"1", "date_incurred"=>"2022-05-01"}, "id"=>"36"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "grub updated"], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Update (0.3ms)[0m  [1m[33mUPDATE "expenses" SET "description" = $1, "updated_at" = $2 WHERE "expenses"."id" = $3[0m  [["description", "grub updated"], ["updated_at", "2022-05-05 01:03:30.004383"], ["id", 36]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 36]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (13.1ms)
+Completed 200 OK in 40ms (Views: 15.8ms | ActiveRecord: 14.2ms)
+
+
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE DATABASE "split-buys_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "split-buys_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35mSQL (4.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (18.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "benches" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (21.4ms)[0m  [1m[35mCREATE TABLE "benches" ("id" bigserial primary key, "description" character varying NOT NULL, "lat" float NOT NULL, "lng" float NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "expenses" CASCADE[0m
+  ↳ db/schema.rb:26
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" bigserial primary key, "description" character varying NOT NULL, "amount" float NOT NULL, "split_type" character varying NOT NULL, "payer_id" integer NOT NULL, "date_incurred" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  ↳ db/schema.rb:36
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer NOT NULL, "friend_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendships_on_user_id_and_friend_id" ON "friendships"  ("user_id", "friend_id")[0m
+  ↳ db/schema.rb:36
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_expenses" CASCADE[0m
+  ↳ db/schema.rb:44
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "user_expenses" ("id" bigserial primary key, "user_id" integer NOT NULL, "expense_id" integer NOT NULL, "balance" float NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:44
+  [1m[35m (3.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "email" character varying NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (1.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (13.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "benches" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "benches" ("id" bigserial primary key, "description" character varying NOT NULL, "lat" float NOT NULL, "lng" float NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "expenses" CASCADE[0m
+  ↳ db/schema.rb:26
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" bigserial primary key, "description" character varying NOT NULL, "amount" float NOT NULL, "split_type" character varying NOT NULL, "payer_id" integer NOT NULL, "date_incurred" date NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:26
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendships" CASCADE[0m
+  ↳ db/schema.rb:36
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "friendships" ("id" bigserial primary key, "user_id" integer NOT NULL, "friend_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:36
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_friendships_on_user_id_and_friend_id" ON "friendships"  ("user_id", "friend_id")[0m
+  ↳ db/schema.rb:36
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_expenses" CASCADE[0m
+  ↳ db/schema.rb:44
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "user_expenses" ("id" bigserial primary key, "user_id" integer NOT NULL, "expense_id" integer NOT NULL, "balance" float NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/schema.rb:44
+  [1m[35m (2.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:52
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "email" character varying NOT NULL)[0m
+  ↳ db/schema.rb:52
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/schema.rb:52
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/schema.rb:52
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220501153111)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-05-05 01:22:19.025280"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-05-05 01:22:19.029754"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mBench Load (0.4ms)[0m  [1m[34mSELECT "benches".* FROM "benches"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mFriendship Load (0.5ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mBench Create (0.9ms)[0m  [1m[32mINSERT INTO "benches" ("description", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "new metal one"], ["lat", 37.782396], ["lng", -122.431373], ["created_at", "2022-05-05 01:22:19.075826"], ["updated_at", "2022-05-05 01:22:19.075826"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mBench Create (0.2ms)[0m  [1m[32mINSERT INTO "benches" ("description", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "big old wooden one"], ["lat", 37.786355], ["lng", -122.386357], ["created_at", "2022-05-05 01:22:19.078271"], ["updated_at", "2022-05-05 01:22:19.078271"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mBench Create (0.2ms)[0m  [1m[32mINSERT INTO "benches" ("description", "lat", "lng", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["description", "tagged metal one"], ["lat", 37.804118], ["lng", -122.411067], ["created_at", "2022-05-05 01:22:19.079535"], ["updated_at", "2022-05-05 01:22:19.079535"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo User"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "Demo User"], ["password_digest", "$2a$12$D1G5F0nr8EWIb4G/QMc.uuWkh6TFceYpLscH86RiILuMKXm93xf.u"], ["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["created_at", "2022-05-05 01:22:19.264539"], ["updated_at", "2022-05-05 01:22:19.264539"], ["email", "demo_user@gmail.com"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jackson"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hBwH8_Meev8-2ttNCuYRKQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "jackson"], ["password_digest", "$2a$12$8mdcRh25HmlszyY4Axg6auJ071nu0vwtZwm.v5V3RkrBuf4XulTby"], ["session_token", "hBwH8_Meev8-2ttNCuYRKQ"], ["created_at", "2022-05-05 01:22:19.445408"], ["updated_at", "2022-05-05 01:22:19.445408"], ["email", "jackson@gmail.com"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "sean"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "z27dY0SU2WRSI_qMgjZIgA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "sean"], ["password_digest", "$2a$12$qW5CASXdUD3qHCI30bUPHO8AOVI0UDBNFC4IUmhxryAicrcpM1TjG"], ["session_token", "z27dY0SU2WRSI_qMgjZIgA"], ["created_at", "2022-05-05 01:22:19.626497"], ["updated_at", "2022-05-05 01:22:19.626497"], ["email", "sean@gmail.com"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "will"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "aTw5E7z-gEjMfRfUrIYrWQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "will"], ["password_digest", "$2a$12$VaUEKbFL7w.WZguEpPuRZ.39s6DdU3BvjM6F0dJhNHoSl1sYCIrzy"], ["session_token", "aTw5E7z-gEjMfRfUrIYrWQ"], ["created_at", "2022-05-05 01:22:19.832939"], ["updated_at", "2022-05-05 01:22:19.832939"], ["email", "will@gmail.com"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kevin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rGxO9-GXCMSikQztLkCIXw"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "kevin"], ["password_digest", "$2a$12$OE1hYVovHtWnscZntkbU/ut5gmKxWeRmXVu.BuP0zCipdOeHDFcpG"], ["session_token", "rGxO9-GXCMSikQztLkCIXw"], ["created_at", "2022-05-05 01:22:20.023685"], ["updated_at", "2022-05-05 01:22:20.023685"], ["email", "kevin@gmail.com"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "naran"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "v65Dy1SPIEBvIL-RnLzj2g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "naran"], ["password_digest", "$2a$12$Olak8h04A/xavq7WoNOwy.GC75ZLHvmiObBfmQcT9M9dSx5wS4J5S"], ["session_token", "v65Dy1SPIEBvIL-RnLzj2g"], ["created_at", "2022-05-05 01:22:20.212580"], ["updated_at", "2022-05-05 01:22:20.212580"], ["email", "naran@gmail.com"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cCn6AlJZCxfKJDS0d0g55g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "nick"], ["password_digest", "$2a$12$NTgJKQW42nnlOlbRQ9W0De7FdduCsfKlJeC4Mgr0vcQNF1EPSIG12"], ["session_token", "cCn6AlJZCxfKJDS0d0g55g"], ["created_at", "2022-05-05 01:22:20.395697"], ["updated_at", "2022-05-05 01:22:20.395697"], ["email", "nick@gmail.com"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "janice"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "LEus0cwTh9vgCEMPZUrl7w"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:24
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "janice"], ["password_digest", "$2a$12$/n9Fr.Fe7N5G/ZoD1hY20eOisNlk5zUi9IREjLpznww5wtG0Inb7q"], ["session_token", "LEus0cwTh9vgCEMPZUrl7w"], ["created_at", "2022-05-05 01:22:20.577936"], ["updated_at", "2022-05-05 01:22:20.577936"], ["email", "janice@gmail.com"]]
+  ↳ db/seeds.rb:24
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:24
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "johnny"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ezQ-ifn3G0gFpv0CyOIv1Q"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "johnny"], ["password_digest", "$2a$12$QdGixI3Uv6aV6XIraSlJ8uxGKvjk6bHsq3TymNSPHmW6uRw.043.G"], ["session_token", "ezQ-ifn3G0gFpv0CyOIv1Q"], ["created_at", "2022-05-05 01:22:20.758702"], ["updated_at", "2022-05-05 01:22:20.758702"], ["email", "johnny@gmail.com"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:26
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "herman"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XYhl__t7eUNsZMKmqzk5-g"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:26
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "herman"], ["password_digest", "$2a$12$kFlh48rz4udignNSukraceS2jiCs4fSJUO9D8ul9Mby6jWsqfqfe."], ["session_token", "XYhl__t7eUNsZMKmqzk5-g"], ["created_at", "2022-05-05 01:22:20.940982"], ["updated_at", "2022-05-05 01:22:20.940982"], ["email", "herman@gmail.com"]]
+  ↳ db/seeds.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:26
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "spencer"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MMyw7grP27aXww58UE1IyA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "spencer"], ["password_digest", "$2a$12$qIIzL4wzDCr7S5EwBOqIc.S61QguY1BZQV4UqDw3Yr37vfVsxqYem"], ["session_token", "MMyw7grP27aXww58UE1IyA"], ["created_at", "2022-05-05 01:22:21.122404"], ["updated_at", "2022-05-05 01:22:21.122404"], ["email", "spencer@gmail.com"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "harry"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nFnUI9PBi3jPIwzOPqxu3w"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "harry"], ["password_digest", "$2a$12$eHlPW.Y4MFq98JONY6S5euD/inJJA7onSnqS0Ny9rptqEtMbY7yLa"], ["session_token", "nFnUI9PBi3jPIwzOPqxu3w"], ["created_at", "2022-05-05 01:22:21.301412"], ["updated_at", "2022-05-05 01:22:21.301412"], ["email", "harry@gmail.com"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "derek"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Wz5-viNpfUrOgE7g9o35Lg"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "derek"], ["password_digest", "$2a$12$46V6HuwZNigNCs7LYaa7uegJ9CnWCv.7OyB1m208cM4O8hT9xr/iW"], ["session_token", "Wz5-viNpfUrOgE7g9o35Lg"], ["created_at", "2022-05-05 01:22:21.480563"], ["updated_at", "2022-05-05 01:22:21.480563"], ["email", "derek@gmail.com"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "chris"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WePcjqsGOVlYOpZpFR2-KA"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "chris"], ["password_digest", "$2a$12$eIhRJ3Kypn9SxJgrjbSIXOWhO7TfY.PMHxjMWTkFubOxiMf/Sppfm"], ["session_token", "WePcjqsGOVlYOpZpFR2-KA"], ["created_at", "2022-05-05 01:22:21.660370"], ["updated_at", "2022-05-05 01:22:21.660370"], ["email", "chris@gmail.com"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:31
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "peter"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Jn-EBbtah5jMZV449oa5uQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "peter"], ["password_digest", "$2a$12$Weh7sGCxty11tbQaAjpfFuzMBJAmWt0G/CR9WY2RHzabg8LN5uuza"], ["session_token", "Jn-EBbtah5jMZV449oa5uQ"], ["created_at", "2022-05-05 01:22:21.840428"], ["updated_at", "2022-05-05 01:22:21.840428"], ["email", "peter@gmail.com"]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:32
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jacob"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4UMcUzgz_0aVReVO5oQ5tQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:32
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "jacob"], ["password_digest", "$2a$12$CKmyRcfLMw.Wvugwu90xQOuc.xTmPOf021BRny2L5t53TLeOjX/7m"], ["session_token", "4UMcUzgz_0aVReVO5oQ5tQ"], ["created_at", "2022-05-05 01:22:22.019173"], ["updated_at", "2022-05-05 01:22:22.019173"], ["email", "jacob@gmail.com"]]
+  ↳ db/seeds.rb:32
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:32
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:33
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dominic"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "a9u0g4tTHuKFIdHGcU70iQ"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "dominic"], ["password_digest", "$2a$12$wYzg5fQ6kpH4HBfSoOSNReSlFHo3k8ZXaXwgDkgQV8bblxY4dnRB2"], ["session_token", "a9u0g4tTHuKFIdHGcU70iQ"], ["created_at", "2022-05-05 01:22:22.201657"], ["updated_at", "2022-05-05 01:22:22.201657"], ["email", "dominic@gmail.com"]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:36
+  [1m[36mFriendship Create (1.5ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 2], ["created_at", "2022-05-05 01:22:22.221242"], ["updated_at", "2022-05-05 01:22:22.221242"]]
+  ↳ db/seeds.rb:36
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:36
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:37
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:37
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.225618"], ["updated_at", "2022-05-05 01:22:22.225618"]]
+  ↳ db/seeds.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:39
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 3], ["created_at", "2022-05-05 01:22:22.228448"], ["updated_at", "2022-05-05 01:22:22.228448"]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:40
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.231256"], ["updated_at", "2022-05-05 01:22:22.231256"]]
+  ↳ db/seeds.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 4], ["created_at", "2022-05-05 01:22:22.234327"], ["updated_at", "2022-05-05 01:22:22.234327"]]
+  ↳ db/seeds.rb:42
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:42
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 4], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.238896"], ["updated_at", "2022-05-05 01:22:22.238896"]]
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 5], ["created_at", "2022-05-05 01:22:22.241592"], ["updated_at", "2022-05-05 01:22:22.241592"]]
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:45
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:46
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mFriendship Create (0.3ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.244604"], ["updated_at", "2022-05-05 01:22:22.244604"]]
+  ↳ db/seeds.rb:46
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:46
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:48
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 6], ["created_at", "2022-05-05 01:22:22.247390"], ["updated_at", "2022-05-05 01:22:22.247390"]]
+  ↳ db/seeds.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:48
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:49
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 6], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.250019"], ["updated_at", "2022-05-05 01:22:22.250019"]]
+  ↳ db/seeds.rb:49
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:49
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:51
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 7], ["created_at", "2022-05-05 01:22:22.252763"], ["updated_at", "2022-05-05 01:22:22.252763"]]
+  ↳ db/seeds.rb:51
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:51
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:52
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 7], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.254537"], ["updated_at", "2022-05-05 01:22:22.254537"]]
+  ↳ db/seeds.rb:52
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:52
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 8], ["created_at", "2022-05-05 01:22:22.256238"], ["updated_at", "2022-05-05 01:22:22.256238"]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:54
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 8], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.258005"], ["updated_at", "2022-05-05 01:22:22.258005"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:57
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 9], ["created_at", "2022-05-05 01:22:22.259753"], ["updated_at", "2022-05-05 01:22:22.259753"]]
+  ↳ db/seeds.rb:57
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:57
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:58
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 9], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.261696"], ["updated_at", "2022-05-05 01:22:22.261696"]]
+  ↳ db/seeds.rb:58
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:58
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:60
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 10], ["created_at", "2022-05-05 01:22:22.263584"], ["updated_at", "2022-05-05 01:22:22.263584"]]
+  ↳ db/seeds.rb:60
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:60
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:61
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 10], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.265602"], ["updated_at", "2022-05-05 01:22:22.265602"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:61
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:63
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 11], ["created_at", "2022-05-05 01:22:22.267471"], ["updated_at", "2022-05-05 01:22:22.267471"]]
+  ↳ db/seeds.rb:63
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:63
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:64
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 11], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.269276"], ["updated_at", "2022-05-05 01:22:22.269276"]]
+  ↳ db/seeds.rb:64
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:64
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:66
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:66
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:66
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 12], ["created_at", "2022-05-05 01:22:22.271084"], ["updated_at", "2022-05-05 01:22:22.271084"]]
+  ↳ db/seeds.rb:66
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:66
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:67
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 12], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.272985"], ["updated_at", "2022-05-05 01:22:22.272985"]]
+  ↳ db/seeds.rb:67
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:67
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:69
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:69
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:69
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 13], ["created_at", "2022-05-05 01:22:22.274769"], ["updated_at", "2022-05-05 01:22:22.274769"]]
+  ↳ db/seeds.rb:69
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:69
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:70
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:70
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:70
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 13], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.276674"], ["updated_at", "2022-05-05 01:22:22.276674"]]
+  ↳ db/seeds.rb:70
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:70
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:72
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:72
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:72
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 14], ["created_at", "2022-05-05 01:22:22.278463"], ["updated_at", "2022-05-05 01:22:22.278463"]]
+  ↳ db/seeds.rb:72
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:72
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:73
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 14], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.280244"], ["updated_at", "2022-05-05 01:22:22.280244"]]
+  ↳ db/seeds.rb:73
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:75
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:75
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:75
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 15], ["created_at", "2022-05-05 01:22:22.281963"], ["updated_at", "2022-05-05 01:22:22.281963"]]
+  ↳ db/seeds.rb:75
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:75
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:76
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:76
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:76
+  [1m[36mFriendship Create (0.2ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 15], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.283715"], ["updated_at", "2022-05-05 01:22:22.283715"]]
+  ↳ db/seeds.rb:76
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:78
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:78
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 16], ["created_at", "2022-05-05 01:22:22.285587"], ["updated_at", "2022-05-05 01:22:22.285587"]]
+  ↳ db/seeds.rb:78
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:78
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:79
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:79
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:79
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 16], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.287397"], ["updated_at", "2022-05-05 01:22:22.287397"]]
+  ↳ db/seeds.rb:79
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:79
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:81
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:81
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:81
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["friend_id", 17], ["created_at", "2022-05-05 01:22:22.289231"], ["updated_at", "2022-05-05 01:22:22.289231"]]
+  ↳ db/seeds.rb:81
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:81
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:82
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:82
+  [1m[36mFriendship Create (0.1ms)[0m  [1m[32mINSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 17], ["friend_id", 1], ["created_at", "2022-05-05 01:22:22.291031"], ["updated_at", "2022-05-05 01:22:22.291031"]]
+  ↳ db/seeds.rb:82
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:82
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:84
+  [1m[36mExpense Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "party"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:84
+  [1m[36mExpense Create (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "party"], ["amount", 160.0], ["split_type", "equal"], ["payer_id", 2], ["date_incurred", "2022-04-20"], ["created_at", "2022-05-05 01:22:22.301357"], ["updated_at", "2022-05-05 01:22:22.301357"]]
+  ↳ db/seeds.rb:84
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:84
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:85
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:85
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:85
+  [1m[36mUserExpense Create (0.4ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 1], ["balance", 80.0], ["created_at", "2022-05-05 01:22:22.312800"], ["updated_at", "2022-05-05 01:22:22.312800"]]
+  ↳ db/seeds.rb:85
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:85
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:86
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:86
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:86
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 1], ["balance", 80.0], ["created_at", "2022-05-05 01:22:22.315326"], ["updated_at", "2022-05-05 01:22:22.315326"]]
+  ↳ db/seeds.rb:86
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:86
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:88
+  [1m[36mExpense Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "breakfast"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:88
+  [1m[36mExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "breakfast"], ["amount", 160.0], ["split_type", "equal"], ["payer_id", 2], ["date_incurred", "2022-03-10"], ["created_at", "2022-05-05 01:22:22.317019"], ["updated_at", "2022-05-05 01:22:22.317019"]]
+  ↳ db/seeds.rb:88
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:88
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:89
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:89
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 2], ["balance", 80.0], ["created_at", "2022-05-05 01:22:22.319272"], ["updated_at", "2022-05-05 01:22:22.319272"]]
+  ↳ db/seeds.rb:89
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:89
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:90
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:90
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:90
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 2], ["balance", 80.0], ["created_at", "2022-05-05 01:22:22.321394"], ["updated_at", "2022-05-05 01:22:22.321394"]]
+  ↳ db/seeds.rb:90
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:90
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:92
+  [1m[36mExpense Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "lunch"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:92
+  [1m[36mExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "lunch"], ["amount", 120.0], ["split_type", "equal"], ["payer_id", 4], ["date_incurred", "2022-05-01"], ["created_at", "2022-05-05 01:22:22.323033"], ["updated_at", "2022-05-05 01:22:22.323033"]]
+  ↳ db/seeds.rb:92
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:92
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:93
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:93
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:93
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 3], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.325221"], ["updated_at", "2022-05-05 01:22:22.325221"]]
+  ↳ db/seeds.rb:93
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:93
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:94
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:94
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 3], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.327252"], ["updated_at", "2022-05-05 01:22:22.327252"]]
+  ↳ db/seeds.rb:94
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:94
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:95
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:95
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:95
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["expense_id", 3], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.329297"], ["updated_at", "2022-05-05 01:22:22.329297"]]
+  ↳ db/seeds.rb:95
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:95
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:97
+  [1m[36mExpense Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "dinner"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:97
+  [1m[36mExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "dinner"], ["amount", 160.0], ["split_type", "equal"], ["payer_id", 4], ["date_incurred", "2022-01-23"], ["created_at", "2022-05-05 01:22:22.330946"], ["updated_at", "2022-05-05 01:22:22.330946"]]
+  ↳ db/seeds.rb:97
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:97
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:98
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:98
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 3], ["expense_id", 4], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.333086"], ["updated_at", "2022-05-05 01:22:22.333086"]]
+  ↳ db/seeds.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:98
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:99
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:99
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:99
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["expense_id", 4], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.334939"], ["updated_at", "2022-05-05 01:22:22.334939"]]
+  ↳ db/seeds.rb:99
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:99
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:100
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:100
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:100
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 5], ["expense_id", 4], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.336768"], ["updated_at", "2022-05-05 01:22:22.336768"]]
+  ↳ db/seeds.rb:100
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:100
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:101
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:101
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:101
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 4], ["balance", 40.0], ["created_at", "2022-05-05 01:22:22.338576"], ["updated_at", "2022-05-05 01:22:22.338576"]]
+  ↳ db/seeds.rb:101
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:101
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:103
+  [1m[36mExpense Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "birthday"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:103
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "birthday"], ["amount", 160.0], ["split_type", "equal"], ["payer_id", 4], ["date_incurred", "2022-02-02"], ["created_at", "2022-05-05 01:22:22.340086"], ["updated_at", "2022-05-05 01:22:22.340086"]]
+  ↳ db/seeds.rb:103
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:103
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:104
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:104
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:104
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 5], ["balance", 80.0], ["created_at", "2022-05-05 01:22:22.342155"], ["updated_at", "2022-05-05 01:22:22.342155"]]
+  ↳ db/seeds.rb:104
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:104
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:105
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:105
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:105
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 4], ["expense_id", 5], ["balance", 80.0], ["created_at", "2022-05-05 01:22:22.344111"], ["updated_at", "2022-05-05 01:22:22.344111"]]
+  ↳ db/seeds.rb:105
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:105
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:107
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "presents"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:107
+  [1m[36mExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "presents"], ["amount", 150.0], ["split_type", "equal"], ["payer_id", 7], ["date_incurred", "2021-02-20"], ["created_at", "2022-05-05 01:22:22.345613"], ["updated_at", "2022-05-05 01:22:22.345613"]]
+  ↳ db/seeds.rb:107
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:107
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:108
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:108
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 6], ["balance", 50.0], ["created_at", "2022-05-05 01:22:22.347573"], ["updated_at", "2022-05-05 01:22:22.347573"]]
+  ↳ db/seeds.rb:108
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:108
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:109
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:109
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:109
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 7], ["expense_id", 6], ["balance", 50.0], ["created_at", "2022-05-05 01:22:22.349518"], ["updated_at", "2022-05-05 01:22:22.349518"]]
+  ↳ db/seeds.rb:109
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:109
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:110
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:110
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:110
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 8], ["expense_id", 6], ["balance", 50.0], ["created_at", "2022-05-05 01:22:22.351456"], ["updated_at", "2022-05-05 01:22:22.351456"]]
+  ↳ db/seeds.rb:110
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:110
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:112
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "christmas clothes"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:112
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "christmas clothes"], ["amount", 300.0], ["split_type", "equal"], ["payer_id", 8], ["date_incurred", "2021-04-25"], ["created_at", "2022-05-05 01:22:22.352942"], ["updated_at", "2022-05-05 01:22:22.352942"]]
+  ↳ db/seeds.rb:112
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:112
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:113
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:113
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:113
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 7], ["balance", 100.0], ["created_at", "2022-05-05 01:22:22.354884"], ["updated_at", "2022-05-05 01:22:22.354884"]]
+  ↳ db/seeds.rb:113
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:113
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:114
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:114
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:114
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 8], ["expense_id", 7], ["balance", 100.0], ["created_at", "2022-05-05 01:22:22.356714"], ["updated_at", "2022-05-05 01:22:22.356714"]]
+  ↳ db/seeds.rb:114
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:114
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:115
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:115
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:115
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 9], ["expense_id", 7], ["balance", 100.0], ["created_at", "2022-05-05 01:22:22.358526"], ["updated_at", "2022-05-05 01:22:22.358526"]]
+  ↳ db/seeds.rb:115
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:115
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:117
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "bootcamp fees"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:117
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "bootcamp fees"], ["amount", 180.0], ["split_type", "equal"], ["payer_id", 9], ["date_incurred", "2022-03-11"], ["created_at", "2022-05-05 01:22:22.359924"], ["updated_at", "2022-05-05 01:22:22.359924"]]
+  ↳ db/seeds.rb:117
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:117
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:118
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:118
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:118
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 8], ["balance", 90.0], ["created_at", "2022-05-05 01:22:22.361835"], ["updated_at", "2022-05-05 01:22:22.361835"]]
+  ↳ db/seeds.rb:118
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:118
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:119
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:119
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:119
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 9], ["expense_id", 8], ["balance", 90.0], ["created_at", "2022-05-05 01:22:22.363674"], ["updated_at", "2022-05-05 01:22:22.363674"]]
+  ↳ db/seeds.rb:119
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:119
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:121
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "rent"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:121
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "rent"], ["amount", 280.0], ["split_type", "equal"], ["payer_id", 10], ["date_incurred", "2022-02-25"], ["created_at", "2022-05-05 01:22:22.365070"], ["updated_at", "2022-05-05 01:22:22.365070"]]
+  ↳ db/seeds.rb:121
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:121
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:122
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:122
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:122
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 9], ["balance", 70.0], ["created_at", "2022-05-05 01:22:22.367050"], ["updated_at", "2022-05-05 01:22:22.367050"]]
+  ↳ db/seeds.rb:122
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:122
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:123
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:123
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:123
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 10], ["expense_id", 9], ["balance", 70.0], ["created_at", "2022-05-05 01:22:22.369002"], ["updated_at", "2022-05-05 01:22:22.369002"]]
+  ↳ db/seeds.rb:123
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:123
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:124
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:124
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:124
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 11], ["expense_id", 9], ["balance", 70.0], ["created_at", "2022-05-05 01:22:22.370838"], ["updated_at", "2022-05-05 01:22:22.370838"]]
+  ↳ db/seeds.rb:124
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:124
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:125
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:125
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:125
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 12], ["expense_id", 9], ["balance", 70.0], ["created_at", "2022-05-05 01:22:22.372825"], ["updated_at", "2022-05-05 01:22:22.372825"]]
+  ↳ db/seeds.rb:125
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:125
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:127
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "groceries"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:127
+  [1m[36mExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "groceries"], ["amount", 50.0], ["split_type", "equal"], ["payer_id", 11], ["date_incurred", "2020-03-20"], ["created_at", "2022-05-05 01:22:22.374324"], ["updated_at", "2022-05-05 01:22:22.374324"]]
+  ↳ db/seeds.rb:127
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:127
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:128
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:128
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:128
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 10], ["balance", 25.0], ["created_at", "2022-05-05 01:22:22.376268"], ["updated_at", "2022-05-05 01:22:22.376268"]]
+  ↳ db/seeds.rb:128
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:128
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:129
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:129
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:129
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 11], ["expense_id", 10], ["balance", 25.0], ["created_at", "2022-05-05 01:22:22.378098"], ["updated_at", "2022-05-05 01:22:22.378098"]]
+  ↳ db/seeds.rb:129
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:129
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:131
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "movies"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:131
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "movies"], ["amount", 30.0], ["split_type", "equal"], ["payer_id", 1], ["date_incurred", "2021-03-20"], ["created_at", "2022-05-05 01:22:22.379517"], ["updated_at", "2022-05-05 01:22:22.379517"]]
+  ↳ db/seeds.rb:131
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:131
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:132
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:132
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:132
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 11], ["balance", 15.0], ["created_at", "2022-05-05 01:22:22.381446"], ["updated_at", "2022-05-05 01:22:22.381446"]]
+  ↳ db/seeds.rb:132
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:132
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:133
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:133
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:133
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["expense_id", 11], ["balance", 15.0], ["created_at", "2022-05-05 01:22:22.383292"], ["updated_at", "2022-05-05 01:22:22.383292"]]
+  ↳ db/seeds.rb:133
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:133
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:135
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "golf"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:135
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "golf"], ["amount", 500.0], ["split_type", "equal"], ["payer_id", 1], ["date_incurred", "2022-03-20"], ["created_at", "2022-05-05 01:22:22.384737"], ["updated_at", "2022-05-05 01:22:22.384737"]]
+  ↳ db/seeds.rb:135
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:135
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:136
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:136
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:136
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 12], ["balance", 125.0], ["created_at", "2022-05-05 01:22:22.386650"], ["updated_at", "2022-05-05 01:22:22.386650"]]
+  ↳ db/seeds.rb:136
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:136
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:137
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:137
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:137
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 14], ["expense_id", 12], ["balance", 125.0], ["created_at", "2022-05-05 01:22:22.388491"], ["updated_at", "2022-05-05 01:22:22.388491"]]
+  ↳ db/seeds.rb:137
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:137
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:138
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:138
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:138
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 15], ["expense_id", 12], ["balance", 125.0], ["created_at", "2022-05-05 01:22:22.390294"], ["updated_at", "2022-05-05 01:22:22.390294"]]
+  ↳ db/seeds.rb:138
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:138
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:139
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:139
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:139
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 16], ["expense_id", 12], ["balance", 125.0], ["created_at", "2022-05-05 01:22:22.392204"], ["updated_at", "2022-05-05 01:22:22.392204"]]
+  ↳ db/seeds.rb:139
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:139
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:141
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "vacation"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:141
+  [1m[36mExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "vacation"], ["amount", 2000.0], ["split_type", "equal"], ["payer_id", 1], ["date_incurred", "2020-07-20"], ["created_at", "2022-05-05 01:22:22.393825"], ["updated_at", "2022-05-05 01:22:22.393825"]]
+  ↳ db/seeds.rb:141
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:141
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:142
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:142
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:142
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 13], ["balance", 500.0], ["created_at", "2022-05-05 01:22:22.395776"], ["updated_at", "2022-05-05 01:22:22.395776"]]
+  ↳ db/seeds.rb:142
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:142
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:143
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:143
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:143
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 15], ["expense_id", 13], ["balance", 500.0], ["created_at", "2022-05-05 01:22:22.397648"], ["updated_at", "2022-05-05 01:22:22.397648"]]
+  ↳ db/seeds.rb:143
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:143
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:144
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:144
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:144
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 16], ["expense_id", 13], ["balance", 500.0], ["created_at", "2022-05-05 01:22:22.399498"], ["updated_at", "2022-05-05 01:22:22.399498"]]
+  ↳ db/seeds.rb:144
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:144
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:145
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:145
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:145
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 17], ["expense_id", 13], ["balance", 500.0], ["created_at", "2022-05-05 01:22:22.401281"], ["updated_at", "2022-05-05 01:22:22.401281"]]
+  ↳ db/seeds.rb:145
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:145
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:147
+  [1m[36mExpense Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 LIMIT $2[0m  [["description", "pool party"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:147
+  [1m[36mExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("description", "amount", "split_type", "payer_id", "date_incurred", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["description", "pool party"], ["amount", 800.0], ["split_type", "equal"], ["payer_id", 1], ["date_incurred", "2020-09-28"], ["created_at", "2022-05-05 01:22:22.402721"], ["updated_at", "2022-05-05 01:22:22.402721"]]
+  ↳ db/seeds.rb:147
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:147
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:148
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:148
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:148
+  [1m[36mUserExpense Create (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 1], ["expense_id", 14], ["balance", 200.0], ["created_at", "2022-05-05 01:22:22.404766"], ["updated_at", "2022-05-05 01:22:22.404766"]]
+  ↳ db/seeds.rb:148
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:148
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:149
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:149
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:149
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 13], ["expense_id", 14], ["balance", 200.0], ["created_at", "2022-05-05 01:22:22.406671"], ["updated_at", "2022-05-05 01:22:22.406671"]]
+  ↳ db/seeds.rb:149
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:149
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:150
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:150
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:150
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 14], ["expense_id", 14], ["balance", 200.0], ["created_at", "2022-05-05 01:22:22.408556"], ["updated_at", "2022-05-05 01:22:22.408556"]]
+  ↳ db/seeds.rb:150
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:150
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:151
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:151
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:151
+  [1m[36mUserExpense Create (0.1ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "balance", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 15], ["expense_id", 14], ["balance", 200.0], ["created_at", "2022-05-05 01:22:22.410425"], ["updated_at", "2022-05-05 01:22:22.410425"]]
+  ↳ db/seeds.rb:151
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:151
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2022-05-04 21:22:46 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hs2bjQVvZyP4x-CN-Im20A"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  Rendered staticpages/root.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 1107ms (Views: 1104.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/session" for ::1 at 2022-05-04 21:22:50 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"Demo User", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo User"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mFriendship Load (0.3ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10], ["id", 11], ["id", 12], ["id", 13], ["id", 14], ["id", 15], ["id", 16], ["id", 17]]
+  ↳ app/models/user.rb:37
+  [1m[36mUserExpense Load (0.4ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/models/user.rb:37
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10], ["id", 11], ["id", 12], ["id", 13], ["id", 14]]
+  ↳ app/models/user.rb:37
+  [1m[36mUserExpense Load (0.3ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses" WHERE "user_expenses"."expense_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["expense_id", 1], ["expense_id", 2], ["expense_id", 3], ["expense_id", 4], ["expense_id", 5], ["expense_id", 6], ["expense_id", 7], ["expense_id", 8], ["expense_id", 9], ["expense_id", 10], ["expense_id", 11], ["expense_id", 12], ["expense_id", 13], ["expense_id", 14]]
+  ↳ app/models/user.rb:37
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)[0m  [["id", 2], ["id", 1], ["id", 4], ["id", 3], ["id", 5], ["id", 7], ["id", 8], ["id", 9], ["id", 10], ["id", 11], ["id", 12], ["id", 13], ["id", 14], ["id", 15], ["id", 16], ["id", 17]]
+  ↳ app/models/user.rb:37
+  Rendering api/sessions/show.json.jbuilder
+  Rendered api/sessions/show.json.jbuilder (5.0ms)
+Completed 200 OK in 229ms (Views: 11.4ms | ActiveRecord: 13.1ms)
+
+
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+Started GET "/" for ::1 at 2022-05-04 21:28:12 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (27.8ms)
+  Rendered staticpages/root.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 1109ms (Views: 1102.2ms | ActiveRecord: 4.5ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 21:31:17 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Update (0.3ms)[0m  [1m[33mUPDATE "expenses" SET "description" = $1, "updated_at" = $2 WHERE "expenses"."id" = $3[0m  [["description", "breakfast updated"], ["updated_at", "2022-05-05 01:31:17.452790"], ["id", 2]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (2.6ms)
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 3.1ms)
+
+
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2022-05-04 21:48:17 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (22.5ms)
+  Rendered staticpages/root.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 1111ms (Views: 1102.1ms | ActiveRecord: 5.9ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 21:50:15 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Update (0.4ms)[0m  [1m[33mUPDATE "expenses" SET "description" = $1, "updated_at" = $2 WHERE "expenses"."id" = $3[0m  [["description", "breakfast updated again"], ["updated_at", "2022-05-05 01:50:15.389341"], ["id", 2]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (3.3ms)
+Completed 200 OK in 17ms (Views: 10.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 21:54:11 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (21.2ms)
+  Rendered staticpages/root.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 101ms (Views: 95.1ms | ActiveRecord: 4.5ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 21:54:37 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (3.1ms)
+Completed 200 OK in 14ms (Views: 8.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 21:57:41 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (20.0ms)
+  Rendered staticpages/root.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 1183ms (Views: 1177.1ms | ActiveRecord: 4.4ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 21:57:54 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.4ms)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 21:59:15 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.5ms)
+Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 22:02:00 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (25.0ms)
+  Rendered staticpages/root.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 1129ms (Views: 1121.3ms | ActiveRecord: 5.5ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 22:02:07 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.5ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.5ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 22:04:26 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (19.5ms)
+  Rendered staticpages/root.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 91ms (Views: 85.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 22:04:30 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (27.0ms)
+  Rendered staticpages/root.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 76ms (Views: 69.6ms | ActiveRecord: 4.8ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 22:04:44 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.8ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.7ms)
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 22:08:53 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (1.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (26.8ms)
+  Rendered staticpages/root.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 1169ms (Views: 1159.1ms | ActiveRecord: 7.9ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 22:09:06 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.6ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 22:10:21 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (23.3ms)
+  Rendered staticpages/root.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 1107ms (Views: 1101.4ms | ActiveRecord: 4.4ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 22:10:32 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.2ms)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2022-05-04 22:11:20 -0400
+Processing by StaticpagesController#root as HTML
+  Rendering staticpages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "stPUBaU3xo5gUKcuJCLemw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/staticpages/root.html.erb:6
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "friendships" ON "users"."id" = "friendships"."friend_id" WHERE "friendships"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:3
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" INNER JOIN "user_expenses" ON "expenses"."id" = "user_expenses"."expense_id" WHERE "user_expenses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 1]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 3]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 4]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 5]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 6]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 7]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 8]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 9]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 10]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 11]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 12]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 13]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 14]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/sessions/_user.json.jbuilder:17
+  Rendered api/sessions/_user.json.jbuilder (22.5ms)
+  Rendered staticpages/root.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 1101ms (Views: 1095.3ms | ActiveRecord: 3.7ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 22:11:28 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.2ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/api/expenses/2" for ::1 at 2022-05-04 22:12:08 -0400
+Processing by Api::ExpensesController#update as JSON
+  Parameters: {"expense"=>{"id"=>"2", "description"=>"breakfast updated again and again", "amount"=>"160", "split_type"=>"equal", "payer_id"=>"2", "date_incurred"=>"2022-03-10"}, "id"=>"2"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:17
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "expenses" WHERE "expenses"."description" = $1 AND "expenses"."id" != $2 LIMIT $3[0m  [["description", "breakfast updated again and again"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[36mExpense Update (0.4ms)[0m  [1m[33mUPDATE "expenses" SET "description" = $1, "updated_at" = $2 WHERE "expenses"."id" = $3[0m  [["description", "breakfast updated again and again"], ["updated_at", "2022-05-05 02:12:08.333985"], ["id", 2]]
+  ↳ app/controllers/api/expenses_controller.rb:18
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/expenses_controller.rb:18
+  Rendering api/expenses/show.json.jbuilder
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" INNER JOIN "user_expenses" ON "users"."id" = "user_expenses"."user_id" WHERE "user_expenses"."expense_id" = $1[0m  [["expense_id", 2]]
+  ↳ app/views/api/expenses/show.json.jbuilder:1
+  Rendered api/expenses/show.json.jbuilder (1.2ms)
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 2.1ms)
+
+
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT  "expenses".* FROM "expenses" WHERE "expenses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]

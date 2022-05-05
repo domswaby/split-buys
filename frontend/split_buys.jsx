@@ -8,6 +8,8 @@ import { createExpense } from "./util/expense_api_util";
 import { deleteExpense } from "./util/expense_api_util";
 import { createUserExpense, deleteUserExpense } from "./util/user_expense_api_util";
 import { makeExpense } from "./actions/expense_actions";
+import { updateExpense } from "./util/expense_api_util";
+import { editExpense } from "./actions/expense_actions";
 
 
 // import { fetchBenches } from "./actions/bench_actions";
@@ -26,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createUserExpense = createUserExpense;
   window.deleteUserExpense = deleteUserExpense;
   window.makeExpense = makeExpense; 
+  window.updateExpense = updateExpense;
+  window.editExpense = editExpense;
   
   // window.fetchBenches = fetchBenches;
 

@@ -15,3 +15,11 @@ export const createExpense = (expense) => {
     });
 };
 
+export const updateExpense = (expense) => {
+    return $.ajax({
+        url: `/api/expenses/${expense.id}`,
+        method: 'PATCH',
+        data: { expense },
+        error: err => console.log(err),
+    });
+};

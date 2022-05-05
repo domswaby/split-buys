@@ -35,3 +35,12 @@ let fed_to_makeExpense = {
     "payer_id": 2,
     "expender_ids": [2,3,4]
 }
+
+let fed_to_updateExpense = {
+    id: 2,
+    description: "breakfast updated",
+    amount: 160.0,
+    split_type: "equal",
+    payer_id: 2,
+    date_incurred: "2022-03-10"
+}

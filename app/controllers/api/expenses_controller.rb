@@ -13,6 +13,15 @@ class Api::ExpensesController < ApplicationController
 
     end
 
+    def update
+        @expense = Expense.find(params[:id])
+        if @expense.update(expense_params)
+            render :show
+        else
+            render json: ['Expense not found'], status: 404
+        end
+    end
+
     def destroy 
         @expense = Expense.includes(:expenders).find(params[:id])
         if @expense && @expense.destroy 

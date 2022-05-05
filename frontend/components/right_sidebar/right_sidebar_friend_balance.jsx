@@ -35,7 +35,7 @@ class RightSidebarFriendBalance extends React.Component{
 
     this.props.expenses.forEach((expense) => {
 
-      if (expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(Number(this.props.friendId))) {
+      if (expense.expenders?.includes(this.props.currentUserId) && expense.expenders?.includes(Number(this.props.friendId))) {
         if (this.props.currentUserId === expense.payer_id) {
           myAmount += (expense.amount / expense.expenders.length);
           

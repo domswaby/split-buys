@@ -1,4 +1,4 @@
-import { RECEIVE_EXPENSE, REMOVE_EXPENSE } from "../actions/expense_actions";
+import { RECEIVE_EXPENSE, REMOVE_EXPENSE, UPDATE_EXPENSE} from "../actions/expense_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 
@@ -20,6 +20,10 @@ const expensesReducer = (oldState = {}, action) => {
         case REMOVE_EXPENSE:
             delete newState[action.expense.id];
             return newState;
+        case UPDATE_EXPENSE:   
+            newState[action.expense.id] = action.expense
+            return newState;
+
         default:
             return oldState;
     }
