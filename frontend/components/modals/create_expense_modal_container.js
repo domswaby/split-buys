@@ -33,7 +33,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => ({
     receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user)),
     makeExpense: (expenseInfo) => dispatch (makeExpense(expenseInfo))
-})
+});
 
 export default connect(mSTP, mDTP)(CreateExpenseModal);
 

@@ -2,24 +2,30 @@ import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
 import { RiTodoLine } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
-
-
+import EditExpenseModalContainer from "../modals/edit_expense_modal_container.js";
 
 class Expenses extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      showEditModal: false
     };
     this.toggleModal = this.toggleModal.bind(this);
-
+    this.toggleEditModal = this.toggleEditModal.bind(this);
   }
 
   toggleModal() {
     let show = this.state.showModal;
     this.setState({
       showModal: !show
+    });
+  }
+  toggleEditModal() {
+    let show = this.state.showEditModal;
+    this.setState({
+      showEditModal: !show
     });
   }
 
@@ -119,7 +125,7 @@ class Expenses extends React.Component {
                   <p >{expense.description}</p>
                   <p className="expense-details-amount">${expense.amount.toFixed(2)}</p>
                   <p className="expense-small-details">Paid by {this.payer(expense.payer_id)}</p>
-                  <button className="edit-expense-button">Edit expense</button>
+                  <button onClick={() => this.toggleEditModal()} className="edit-expense-button">Edit expense</button>
                 </div>
               </div>
               <div className="expense-details-bottom">
@@ -140,6 +146,11 @@ class Expenses extends React.Component {
 
               </div>
             </div>
+            <EditExpenseModalContainer
+              toggleModal={this.toggleEditModal}
+              showModal={this.state.showEditModal}
+              expense={expense}
+            />
           </div> 
         )
       })

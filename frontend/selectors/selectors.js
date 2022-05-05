@@ -54,11 +54,12 @@ export const getPayerName = (payerId, usersSlice, currentUserId) => {
 }
 
 export const getExpenders = (expenderIds, usersSlice) => {
+  
   let users = Object.values(usersSlice);
-  let expenders = {};
+  let expenders = [];
   for(let user of users){
     if(expenderIds.includes(user.id)){
-      expenders[user.id] = user
+      expenders.push(user); 
     }
   } 
   return expenders;

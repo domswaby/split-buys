@@ -19,22 +19,22 @@ const mSTP = (state, ownProps) => {
     //     { username: "You" }
     // ]
     // let payer = "You";
-
+        console.log(ownProps.expense);
     return {
         currentUserId: state.session.id,
         currentUser: selectUser(state.entities.users, state.session.id),
         users: state.entities.users,
         friends: selectFriends(state.entities.users, state.session.id),
         payer: getPayerName(ownProps.expense.payer_id, state.entities.users, state.session.id),
-        optionTags: getExpenders(expense.expenders, state.entities.users),
-        formType: "edit"
+        optionTags: getExpenders(ownProps.expense.expenders, state.entities.users),
+        formType: "edit",
+        expense: ownProps.expense
     }
 }
 
 const mDTP = (dispatch) => ({
     receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user)),
     makeExpense: (expenseInfo) => dispatch(editExpense(expenseInfo))
-})
+});
 
 export default connect(mSTP, mDTP)(CreateExpenseModal);
-

@@ -97,10 +97,13 @@ class CreateExpenseModal extends React.Component {
             date_incurred: this.state.date,
             payer_id: payer_id,
             expenders
+        };
+        if(this.props.formType === 'edit'){
+            expenseInfo.id = this.props.expense.id; 
         }
         this.props.makeExpense(expenseInfo).then((res) => {
             this.props.toggleModal();
-        })
+        });
     }
     
     render(){
@@ -125,6 +128,7 @@ class CreateExpenseModal extends React.Component {
                     </h1>
                     <div className="multi-select-wrap">
                         <Multiselect
+                            disable={this.props.formType === 'edit' ? true : false}
                             isObject={true}
                             displayValue="username"
                             disablePreSelectedValues={true}
