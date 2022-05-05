@@ -37,3 +37,30 @@ export const getMyFriend = (state, friendId) => {
   }
   return null;
 }; 
+
+export const getPayerName = (payerId, usersSlice, currentUserId) => { 
+  let users = Object.values(usersSlice);
+
+  for (let x = 0; x < users.length; x++) {
+    if (users[x].id == payerId) {
+      if(payerId == currentUserId){
+        return "You"
+      }else{
+        return users[x].username;
+      }
+    }
+  }
+  return null;
+}
+
+export const getExpenders = (expenderIds, usersSlice) => {
+  let users = Object.values(usersSlice);
+  let expenders = {};
+  for(let user of users){
+    if(expenderIds.includes(user.id)){
+      expenders[user.id] = user
+    }
+  } 
+  return expenders;
+
+}
