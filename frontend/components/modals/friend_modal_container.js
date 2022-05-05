@@ -7,6 +7,7 @@ import { receiveCurrentUser } from "../../actions/session_actions";
 import FriendModal from "./friend_modal";
 
 const mSTP = (state) => ({
+    errors: state.errors.friendships,
     currentUserId: state.session.id,
     currentUser: selectUser(state.entities.users, state.session.id),
     friends: selectFriends(state.entities.users, state.session.id)

@@ -19,7 +19,7 @@ const mSTP = (state, ownProps) => {
     //     { username: "You" }
     // ]
     // let payer = "You";
-        console.log(ownProps.expense);
+    
     return {
         currentUserId: state.session.id,
         currentUser: selectUser(state.entities.users, state.session.id),
@@ -28,7 +28,7 @@ const mSTP = (state, ownProps) => {
         payer: getPayerName(ownProps.expense.payer_id, state.entities.users, state.session.id),
         optionTags: getExpenders(ownProps.expense.expenders, state.entities.users),
         formType: "edit",
-        expense: ownProps.expense
+        
     }
 }
 

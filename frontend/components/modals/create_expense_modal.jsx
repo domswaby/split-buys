@@ -7,7 +7,7 @@ class CreateExpenseModal extends React.Component {
 
     constructor(props){
         super(props); 
-     
+        
         this.state = {
             optionTags: props.optionTags,
             description: props.expense.description,
@@ -15,10 +15,11 @@ class CreateExpenseModal extends React.Component {
             amount: props.expense.amount,
             date: props.expense.date
         }
+        console.log(props.expense);
 
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);
-        this.changeDescription = this.changeDescription.bind(this);
+        this.changeDescription = this.changeDescription.bind(this);  
         this.changeAmount = this.changeAmount.bind(this);
         this.changePayer = this.changePayer.bind(this);
         this.onRemove = this.onRemove.bind(this);
@@ -26,7 +27,6 @@ class CreateExpenseModal extends React.Component {
     }
 
     // componentDidMount() {
-    
     //     this.props.receiveCurrentUser(this.props.currentUser);
     //         // .then((ele) => this.setState({ options: this.props.friends.concat({ username: "You" }) }));
     // }
@@ -107,12 +107,12 @@ class CreateExpenseModal extends React.Component {
     }
     
     render(){
-        const selectContents = this.state.optionTags.map((option) => {
-            return (<option>{option.username}</option>)
+        const selectContents = this.state.optionTags.map((option, idx) => {
+            return (<option key={idx}>{option.username}</option>)
         })
         
         return (
-            <div onClick={() => this.props.toggleModal()}
+            <div  key={this.props.key1} onClick={() => this.props.toggleModal()}
                 className={'expense-modal-container ' + (this.props.showModal ? 'show' : '')}>
                 {/* end of div     */}
                 <div onClick={(e) => {
@@ -120,6 +120,8 @@ class CreateExpenseModal extends React.Component {
                 }} className="expense-modal">
                 
                     <h1>Add an expense
+                        {this.props.key1} 
+                        
                         <button
                             onClick={() => this.props.toggleModal()}
                             className="close-expense-modal">
@@ -180,6 +182,15 @@ class CreateExpenseModal extends React.Component {
                             Cancel
                         </button>
 
+                    </div>
+                    <div className="session-errors">
+                        {
+
+                            this.props.errors ?
+                                this.props.errors.map(error => <p>{error}</p>)
+                                :
+                                ""
+                        }
                     </div>
                 </div>
             </div>

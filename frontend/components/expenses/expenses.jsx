@@ -97,9 +97,9 @@ class Expenses extends React.Component {
   }
 
   render(){
-      let expenses = this.props.expenses.map((expense) => {
+      let expenses = this.props.expenses.map((expense, idx) => {
         return (
-          <div>
+          <div key={idx}>
             <div onClick={() => this.toggleDetails(expense.id)}  onMouseEnter={this.toggleShowDelete(expense.id)} onMouseLeave={this.toggleShowDelete(expense.id)} className="expense-row">
               <div className="expenses-date">{expense.date_incurred}</div>
               <div className="expenses-description">{expense.description}</div>
@@ -132,9 +132,9 @@ class Expenses extends React.Component {
                 <div className="expense-expender-list">
                   <ul>
                     {
-                      expense.expenders?.map((expender) => {
+                      expense.expenders?.map((expender, idx2) => {
                         return (
-                          <li className="expense-expender-list-item"><span>{this.payer(expender)}</span> {this.expenderDetails(expense, expender)}</li>
+                          <li key={idx2} className="expense-expender-list-item"><span>{this.payer(expender)}</span> {this.expenderDetails(expense, expender)}</li>
                         )
                       })
                     }
@@ -146,11 +146,12 @@ class Expenses extends React.Component {
 
               </div>
             </div>
-            <EditExpenseModalContainer
-              toggleModal={this.toggleEditModal}
-              showModal={this.state.showEditModal}
-              expense={expense}
-            />
+              <EditExpenseModalContainer
+                toggleModal={this.toggleEditModal}
+                showModal={this.state.showEditModal}
+                expense={expense}
+                key1={idx}
+              />
           </div> 
         )
       })
@@ -169,6 +170,7 @@ class Expenses extends React.Component {
             toggleModal={this.toggleModal}
             showModal={this.state.showModal}
           />
+       
         </div>
       )
   }

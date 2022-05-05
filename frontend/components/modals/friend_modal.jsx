@@ -64,6 +64,15 @@ class FriendModal extends React.Component{
                         <p>note: User must already be a member</p>
                         <button onClick={() => this.handleSubmit()}>Add friend</button>
                     </div>
+                    <div className="session-errors">
+                        {
+
+                            this.props.errors ?
+                                this.props.errors.map(error => <p>{error}</p>)
+                                :
+                                ""
+                        }
+                    </div>
                 </div>
             </div>
         )

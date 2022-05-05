@@ -20,6 +20,13 @@ const receiveUpdateExpense = (expense) => ({
     expense
 })
 
+const receiveErrors = (errors) => {
+    return {
+        type: RECEIVE_EXPENSE_ERRORS,
+        errors
+    };
+};
+
 export const makeExpense = (expenseInfo) => dispatch => {
     let expenders = expenseInfo.expenders; 
     let userExpenseCalls = []

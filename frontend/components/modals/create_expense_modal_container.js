@@ -19,6 +19,7 @@ const mSTP = (state) => {
     let payer = "You";
     
     return {
+        errors: state.errors.expenses,
         currentUserId: state.session.id,
         currentUser: selectUser(state.entities.users, state.session.id),
         users: state.entities.users,

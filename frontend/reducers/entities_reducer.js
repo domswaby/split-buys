@@ -6,10 +6,12 @@ import benchesReducer from "./benches_reducer";
 
 
 
+
 const entitiesReducer = combineReducers({
   users: usersReducer,
   expenses: expensesReducer, 
-  benches: benchesReducer
+  benches: benchesReducer, 
+  
   
 });
 
