@@ -10,7 +10,8 @@ class Expenses extends React.Component {
     super(props);
     this.state = {
       showModal: false,
-      showEditModal: false
+      showEditModal: false, 
+      index: null
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
@@ -22,10 +23,12 @@ class Expenses extends React.Component {
       showModal: !show
     });
   }
-  toggleEditModal() {
+  toggleEditModal(index) {
     let show = this.state.showEditModal;
+
     this.setState({
-      showEditModal: !show
+      showEditModal: !show,
+      index: index
     });
   }
 
@@ -125,7 +128,7 @@ class Expenses extends React.Component {
                   <p >{expense.description}</p>
                   <p className="expense-details-amount">${expense.amount.toFixed(2)}</p>
                   <p className="expense-small-details">Paid by {this.payer(expense.payer_id)}</p>
-                  <button onClick={() => this.toggleEditModal()} className="edit-expense-button">Edit expense</button>
+                  <button onClick={() => this.toggleEditModal(idx)} className="edit-expense-button">Edit expense</button>
                 </div>
               </div>
               <div className="expense-details-bottom">
@@ -146,12 +149,14 @@ class Expenses extends React.Component {
 
               </div>
             </div>
-              <EditExpenseModalContainer
-                toggleModal={this.toggleEditModal}
-                showModal={this.state.showEditModal}
-                expense={expense}
-                key1={idx}
-              />
+              {this.state.index === idx &&                   
+                <EditExpenseModalContainer
+                  toggleModal={this.toggleEditModal}
+                  showModal={this.state.showEditModal}
+                  expense={expense}
+                  key1={idx}
+                />
+              }
           </div> 
         )
       })
