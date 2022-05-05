@@ -7,12 +7,26 @@ import { receiveCurrentUser } from "../../actions/session_actions";
 import { makeExpense } from "../../actions/expense_actions";
 
 const mSTP = (state) => {
+    let dummyExpense = {
+        description: "", 
+        payer: "You",
+        amount: 1,
+        date: ""
+    }
+    let optionTags = [
+        { username: "You" }
+    ]
+    let payer = "You";
     
     return {
         currentUserId: state.session.id,
         currentUser: selectUser(state.entities.users, state.session.id),
         users: state.entities.users,
-        friends: selectFriends(state.entities.users, state.session.id)
+        friends: selectFriends(state.entities.users, state.session.id),
+        expense: dummyExpense,
+        payer: payer,
+        optionTags: optionTags,
+        formType: "create"
     }
 }
 

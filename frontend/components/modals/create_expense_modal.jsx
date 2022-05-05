@@ -9,15 +9,13 @@ class CreateExpenseModal extends React.Component {
         super(props); 
      
         this.state = {
-            options: props.friends.concat({username: "You"}),
-            optionTags: [{username: "You"}],
-            description: "",
-            payer: "You",
-            amount: 1,
-            date: ""
+            optionTags: props.optionTags,
+            description: props.expense.description,
+            payer: props.payer,
+            amount: props.expense.amount,
+            date: props.expense.date
         }
 
-        
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);
         this.changeDescription = this.changeDescription.bind(this);

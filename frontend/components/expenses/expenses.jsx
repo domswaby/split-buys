@@ -47,7 +47,7 @@ class Expenses extends React.Component {
   }
 
   lent(expense){
-    let numberOfExpenders = expense.expenders.length;
+    let numberOfExpenders = expense.expenders?.length;
     let amount = expense.amount
     return this.roundIt(amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders)))
   }
@@ -126,7 +126,7 @@ class Expenses extends React.Component {
                 <div className="expense-expender-list">
                   <ul>
                     {
-                      expense.expenders.map((expender) => {
+                      expense.expenders?.map((expender) => {
                         return (
                           <li className="expense-expender-list-item"><span>{this.payer(expender)}</span> {this.expenderDetails(expense, expender)}</li>
                         )
