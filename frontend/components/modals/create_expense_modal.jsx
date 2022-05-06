@@ -13,7 +13,7 @@ class CreateExpenseModal extends React.Component {
             description: props.expense.description,
             payer: props.payer,
             amount: props.expense.amount,
-            date: props.expense.date
+            date: props.expense.date_incurred
         }
         console.log(props.expense);
 
@@ -112,7 +112,7 @@ class CreateExpenseModal extends React.Component {
         })
         
         return (
-            <div  key={this.props.key1} onClick={() => this.props.toggleModal()}
+            <div   onClick={() => this.props.toggleModal()}
                 className={'expense-modal-container ' + (this.props.showModal ? 'show' : '')}>
                 {/* end of div     */}
                 <div onClick={(e) => {
@@ -120,8 +120,7 @@ class CreateExpenseModal extends React.Component {
                 }} className="expense-modal">
                 
                     <h1>Add an expense
-                        {this.props.key1} 
-                        
+                                                
                         <button
                             onClick={() => this.props.toggleModal()}
                             className="close-expense-modal">
@@ -171,7 +170,7 @@ class CreateExpenseModal extends React.Component {
                     </div>
                    
                     <div className="expense-date-wrap">
-                        <input type="date" value={this.state.date} onChange={this.changeDate}/>
+                        <input type="date" defaultValue={this.state.date} onChange={this.changeDate}/>
                     </div>
 
                     <div className="save-cancel-wrap">

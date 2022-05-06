@@ -1,5 +1,6 @@
 import React from "react";
 import logo from './../../../app/assets/images/split-wise-logo.png'; 
+// import swLogo from './../../../app/assets/images/sw-svg-logo.svg'; 
 import { Link } from "react-router-dom";
 import MainDropDownContainer from "./main_dropdown/main_dropdown_container";
 
@@ -26,6 +27,8 @@ class AppHeader extends React.Component {
                     <header>
                         <a href="/" className="app-logo-link">
                             <img className="" src={logo} alt="logo" />
+                            {/* <img src={swLogo} alt="logo" /> */}
+                            
                             <span>SplitBuys</span>
                         </a>
                         

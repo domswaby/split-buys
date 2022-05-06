@@ -58,7 +58,8 @@ export const getExpenders = (expenderIds, usersSlice) => {
   let users = Object.values(usersSlice);
   let expenders = [];
   for(let user of users){
-    if(expenderIds.includes(user.id)){
+    
+    if(expenderIds?.includes(user.id)){
       expenders.push(user); 
     }
   } 

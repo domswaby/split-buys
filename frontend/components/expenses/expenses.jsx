@@ -32,17 +32,6 @@ class Expenses extends React.Component {
     });
   }
 
-  toggleShowDelete(arg){
-    return (e) => {
-      let deleteButton = document.getElementById(`${arg + "a"}`); 
-      if (deleteButton.style.display === 'inline') {
-        deleteButton.style.display = 'none';
-      } else {
-        deleteButton.style.display = 'inline';
-      }
-    }
-  }
-
   payer(payer_id){
     for(let user of this.props.users){
       if(user.id === payer_id){
@@ -103,7 +92,7 @@ class Expenses extends React.Component {
       let expenses = this.props.expenses.map((expense, idx) => {
         return (
           <div key={idx}>
-            <div onClick={() => this.toggleDetails(expense.id)}  onMouseEnter={this.toggleShowDelete(expense.id)} onMouseLeave={this.toggleShowDelete(expense.id)} className="expense-row">
+            <div onClick={() => this.toggleDetails(expense.id)}  className="expense-row">
               <div className="expenses-date">{expense.date_incurred}</div>
               <div className="expenses-description">{expense.description}</div>
               <div className="expenses-payer">
@@ -112,7 +101,7 @@ class Expenses extends React.Component {
               </div>
               <div className="expenses-lender">
                 <div >{this.payer(expense.payer_id)} lent:</div>
-                <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense)}</div>
+                <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense) ? this.lent(expense) : null}</div>
               </div>
               {/* keep ImCross as last child as styling depends on it */}
               <div id={expense.id + "a"} onClick={this.handleDeleteExpense(expense)} className="delete-expense-wrap">
@@ -154,7 +143,7 @@ class Expenses extends React.Component {
                   toggleModal={this.toggleEditModal}
                   showModal={this.state.showEditModal}
                   expense={expense}
-                  key1={idx}
+                  
                 />
               }
           </div> 
