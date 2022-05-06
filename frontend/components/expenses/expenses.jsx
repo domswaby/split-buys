@@ -2,6 +2,7 @@ import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
 import { RiTodoLine } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
+import { FaComment } from 'react-icons/fa';
 import EditExpenseModalContainer from "../modals/edit_expense_modal_container.js";
 
 class Expenses extends React.Component {
@@ -133,7 +134,17 @@ class Expenses extends React.Component {
                   </ul>
                 </div>
                 <div className="comment-section">
-                  Comment Section
+                  <h4>
+                    <span>
+                      <FaComment />
+                    </span>
+                    <span>
+                      NOTES AND COMMENTS:
+                    </span>
+                  </h4>
+                  <div>
+                    <textarea name="comment-field" id="comment-field" cols="30" rows="5" placeholder="Add a comment"></textarea>
+                  </div>
                 </div>
 
               </div>

@@ -126,3 +126,21 @@
 .expense-row:hover .delete-expense-wrap{ 
     display: inline-block; 
 }
+
+#comment-field{
+    width: 100%;
+}
+
+.comment-section > h4{
+    margin-bottom: 1em;
+    font-size: 0.8em;
+    color: var(--gray-4);
+    font-weight: 600;
+    display: flex; 
+    
+    align-items: center;
+}
+
+.comment-section > h4 > span:first-child{
+    margin-right: 3px;
+}

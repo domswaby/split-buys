@@ -10,13 +10,16 @@ const expensesReducer = (oldState = {}, action) => {
         case RECEIVE_EXPENSE:
             newState[action.expense.expense.id] = action.expense.expense
             return newState;
-        case RECEIVE_CURRENT_USER:            
-            let keys = Object.keys(action.user.expenses); 
-            keys.forEach((key) => {
-                action.user.expenses[key].expenders = action.user.expenses[key].expenders.map(ele => ele.id);
-            });
-            newState = action.user.expenses;
-            return newState;
+        case RECEIVE_CURRENT_USER:   
+            if(action.user.expenses){         
+                let keys = Object.keys(action.user.expenses); 
+                keys.forEach((key) => {
+                    action.user.expenses[key].expenders = action.user.expenses[key].expenders.map(ele => ele.id);
+                });
+                newState = action.user.expenses;
+                return newState;
+            }else 
+                return newState;
         case REMOVE_EXPENSE:
             delete newState[action.expense.id];
             return newState;
