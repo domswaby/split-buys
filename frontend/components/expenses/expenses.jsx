@@ -46,8 +46,10 @@ class Expenses extends React.Component {
   }
 
   lent(expense){
+
     let numberOfExpenders = expense.expenders?.length;
     let amount = expense.amount
+    // console.log(this.roundIt(amount - (amount * ((numberOfExpenders - 1) / numberOfExpenders))));
     return this.roundIt(amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders)))
   }
 
@@ -90,6 +92,7 @@ class Expenses extends React.Component {
   }
 
   render(){
+    
       let expenses = this.props.expenses.map((expense, idx) => {
         return (
           <div key={idx}>
@@ -102,7 +105,7 @@ class Expenses extends React.Component {
               </div>
               <div className="expenses-lender">
                 <div >{this.payer(expense.payer_id)} lent:</div>
-                <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense) ? this.lent(expense) : null}</div>
+                <div className={this.isPayer(expense) ? "payer-green" : "payer-orange"}>{this.lent(expense) ? this.lent(expense) : "test"}</div>
               </div>
               {/* keep ImCross as last child as styling depends on it */}
               <div id={expense.id + "a"} onClick={this.handleDeleteExpense(expense)} className="delete-expense-wrap">

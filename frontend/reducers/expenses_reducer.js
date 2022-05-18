@@ -25,6 +25,8 @@ const expensesReducer = (oldState = {}, action) => {
             return newState;
         case UPDATE_EXPENSE:   
             newState[action.expense.id] = action.expense
+            newState[action.expense.id].expenders = newState[action.expense.id].expender_ids.map((ele) => ele)
+            delete newState[action.expense.id].expender_ids;
             return newState;
 
         default:
