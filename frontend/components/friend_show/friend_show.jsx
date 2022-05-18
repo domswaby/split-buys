@@ -22,6 +22,7 @@ class FriendShow extends React.Component {
   // }
 
   toggleModal() {
+    
     let show = this.state.showModal;
     this.setState({
       showModal: !show
@@ -78,8 +79,9 @@ class FriendShow extends React.Component {
     });
     
     if (friendAmount > myAmount) {
+      console.log(`friendInfo is ${this.props.friendInfo}`)
       return (
-        <div>You owe {this.props.friendInfo.username} {this.roundIt(friendAmount - myAmount)}</div>
+        <div>You owe {this.props.friendInfo?.username} {this.roundIt(friendAmount - myAmount)}</div>
       )
     } else {
       return (
@@ -211,7 +213,7 @@ class FriendShow extends React.Component {
     return (
       <div className="dashboard-wrap">
         <h1>
-          {this.props.friendInfo? (this.props.friendInfo.username.slice(0,1).toUpperCase() + this.props.friendInfo.username.slice(1).toLowerCase()) : null }
+          {this.props.friendInfo? (this.props.friendInfo?.username.slice(0,1).toUpperCase() + this.props.friendInfo?.username.slice(1).toLowerCase()) : null }
           <div>
             <button onClick={() => this.toggleModal()} className="add-expense">Add an expense</button>
             <button className="settle-button tooltip"> <span className="tooltiptext">We can settle after the bootcamp ;)</span>Settle up</button>
@@ -219,9 +221,17 @@ class FriendShow extends React.Component {
         </h1>
         
         <div>
-          { this.props.expenses.length > 0 
+          { 
+          this.props.expenses.length > 0 
             ? ((this.getBalanceNumber() === 0) 
-            ? ( <div className="green-check-wrap"> <img src={greenCheck} alt="greenCheck" /> <div>You and {this.props.friendInfo.username} are all settled.</div></div> ) : expenses) : null }
+            ? ( 
+            <div> 
+              {console.log(this.props.friendInfo)}
+              <div className="green-check-wrap"> <img src={greenCheck} alt="greenCheck" /> <div>You and {this.props.friendInfo?.username} are all settled.</div></div> 
+              </div>
+              
+              ) : expenses) : null }
+
           
         </div>
         <CreateExpenseModalContainer

@@ -107,10 +107,13 @@ class CreateExpenseModal extends React.Component {
     }
     
     render(){
-        const selectContents = this.state.optionTags.map((option, idx) => {
-            return (<option key={idx}>{option.username}</option>)
-        })
-        
+        let selectContents = null;
+        if(this.props){
+            selectContents = this.state.optionTags.map((option, idx) => {
+                debugger;
+                return (<option key={idx}>{option.username}</option>)
+            })
+        }
         return (
             <div   onClick={() => this.props.toggleModal()}
                 className={'expense-modal-container ' + (this.props.showModal ? 'show' : '')}>

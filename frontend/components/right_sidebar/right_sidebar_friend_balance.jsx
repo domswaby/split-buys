@@ -13,7 +13,6 @@ class RightSidebarFriendBalance extends React.Component{
   }
 
   handleDeleteFriend() {   
-     
     this.props.deleteFriend(this.props.friendId)
       .then((res) => {
         this.props.history.push('/dashboard'); 

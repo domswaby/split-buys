@@ -11,5 +11,6 @@ class Expense < ApplicationRecord
   has_many :expenders, 
     through: :user_expenses, 
     source: :user
-
 end
+
+
