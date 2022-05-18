@@ -11,6 +11,12 @@ class Expense < ApplicationRecord
   has_many :expenders, 
     through: :user_expenses, 
     source: :user
+
+  has_many :comments, 
+    primary_key: :id, 
+    foreign_key: :expense_id, 
+    class_name: :Comment,
+    dependent: :destroy
 end
 
 
