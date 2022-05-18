@@ -187,11 +187,10 @@ class CreateExpenseModal extends React.Component {
                     </div>
                     <div className="session-errors">
                         {
-
                             this.props.errors ?
                                 this.props.errors.map(error => <p>{error}</p>)
                                 :
-                                ""
+                                "test"
                         }
                     </div>
                 </div>

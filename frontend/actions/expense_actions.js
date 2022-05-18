@@ -51,7 +51,7 @@ export const makeExpense = (expenseInfo) => dispatch => {
                     }
                     dispatch(receiveExpense(newExpense))                    
                 })
-        })
+        }).fail(err => dispatch(receiveErrors(err.responseJSON)));
 }; 
 
 export const destroyExpense = (expenseId) => dispatch => {

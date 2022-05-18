@@ -28,6 +28,7 @@ const mSTP = (state, ownProps) => {
         payer: getPayerName(ownProps.expense.payer_id, state.entities.users, state.session.id),
         optionTags: getExpenders(ownProps.expense.expenders, state.entities.users),
         formType: "edit",
+        errors: state.errors.expenses
         
     }
 }
