@@ -8,7 +8,8 @@ class FriendModal extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            email: ""
+            email: "", 
+            showFriendSuggestions: false
         };
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +38,24 @@ class FriendModal extends React.Component{
             });
     }
 
+    toggleFriendSuggestions() {
+        this.setState({
+            showFriendSuggestions: !this.state.showFriendSuggestions
+        }); 
+    }
+
+    selectFriendSuggestion(e) { 
+        this.setState({
+            email: e.target.innerText
+        }, () => {
+            this.toggleFriendSuggestions();
+        })
+    }
+
     render(){
+
+        const friendSuggestions = ["will@gmail.com", "sean@gmail.com", "nick@gmail.com", "naran@gmail.com", "joe@gmail.com"]
+
         return (
             <div onClick={() => this.props.toggleFriendModal()} 
                 className={'friend-modal-container ' + (this.props.showFriendModal ? 'show' : '')}>
@@ -49,17 +67,20 @@ class FriendModal extends React.Component{
                             <img src={logo} alt="" /> 
                         </div> 
                         Invite friends</h1>
-                    <div id="friend-suggestion-wrap">
-                        <ul>
-                            <li>Jackson</li>
-                            <li>Sean</li>
-                            <li>Kin Ka</li>
-                            <li>Nick</li>
-                            <li>Naran</li>
-                            <li>Kyle</li>
-                            <li>Jim</li>
-                            <li>Raz</li>
-                        </ul>
+                    <div id="friend-suggestion-wrap" className={ this.state.showFriendSuggestions ? "show" : "" }>
+                        <CgClose className="close-suggestions-icon" onClick={() => this.toggleFriendSuggestions()}/>
+                        <div className="pick-one-wrap">
+                            <p>Try one of these:</p>
+                        </div>
+                        <ol>
+                            {
+                                friendSuggestions.map((email) => { 
+                                    return (
+                                        <li onClick={(e) => this.selectFriendSuggestion(e)}>{email}</li>
+                                    )
+                                })
+                            }                                                     
+                        </ol>
                     </div>
                     <div className="friend-modal-email">
                         <input 
@@ -67,7 +88,7 @@ class FriendModal extends React.Component{
                             placeholder="Enter a user email address" 
                             value={this.state.email} 
                             onChange={this.update()}/>
-                        <BsFillPatchQuestionFill className="flower-question-mark"/>
+                        <BsFillPatchQuestionFill className="flower-question-mark" onClick={() => this.toggleFriendSuggestions()}/>
                     </div>
                     <button 
                         onClick={() => this.props.toggleFriendModal()} 
