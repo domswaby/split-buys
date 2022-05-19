@@ -1,5 +1,6 @@
 import { RECEIVE_EXPENSE, REMOVE_EXPENSE, UPDATE_EXPENSE} from "../actions/expense_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_COMMENT, REMOVE_COMMENT } from "../actions/comment_actions";
 
 
 const expensesReducer = (oldState = {}, action) => {
@@ -28,7 +29,14 @@ const expensesReducer = (oldState = {}, action) => {
             newState[action.expense.id].expenders = newState[action.expense.id].expender_ids.map((ele) => ele)
             delete newState[action.expense.id].expender_ids;
             return newState;
-
+        case RECEIVE_COMMENT:
+            if(!newState[action.comment.expense_id].comments) newState[action.comment.expense_id].comments = [];
+            newState[action.comment.expense_id].comments.push(action.comment.id); 
+            return newState;
+        case REMOVE_COMMENT:
+            let newComments = newState[action.comment.expense_id].comments.filter((id) => id !== action.comment.id)
+            newState[action.comment.expense_id].comments = newComments;
+            return newState; 
         default:
             return oldState;
     }

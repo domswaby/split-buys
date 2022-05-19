@@ -10,6 +10,10 @@ import { createUserExpense, deleteUserExpense } from "./util/user_expense_api_ut
 import { makeExpense } from "./actions/expense_actions";
 import { updateExpense } from "./util/expense_api_util";
 import { editExpense } from "./actions/expense_actions";
+import { deleteComment } from "./util/comment_api_util";
+import { createComment } from "./util/comment_api_util";
+import { makeComment } from "./actions/comment_actions";
+import { destroyComment } from "./actions/comment_actions";
 
 
 // import { fetchBenches } from "./actions/bench_actions";
@@ -30,6 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
   window.makeExpense = makeExpense; 
   window.updateExpense = updateExpense;
   window.editExpense = editExpense;
+  window.deleteComment = deleteComment;
+  window.createComment = createComment;
+  window.makeComment = makeComment;
+  window.destroyComment = destroyComment;
+
+
   
   // window.fetchBenches = fetchBenches;
 
