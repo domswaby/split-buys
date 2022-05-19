@@ -1,6 +1,7 @@
 import React from "react";
 import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
 import { CgClose  } from 'react-icons/cg'; 
+import { BsFillPatchQuestionFill  } from 'react-icons/bs'; 
 
 class FriendModal extends React.Component{
 
@@ -48,12 +49,25 @@ class FriendModal extends React.Component{
                             <img src={logo} alt="" /> 
                         </div> 
                         Invite friends</h1>
+                    <div id="friend-suggestion-wrap">
+                        <ul>
+                            <li>Jackson</li>
+                            <li>Sean</li>
+                            <li>Kin Ka</li>
+                            <li>Nick</li>
+                            <li>Naran</li>
+                            <li>Kyle</li>
+                            <li>Jim</li>
+                            <li>Raz</li>
+                        </ul>
+                    </div>
                     <div className="friend-modal-email">
                         <input 
                             type="text" 
                             placeholder="Enter a user email address" 
                             value={this.state.email} 
                             onChange={this.update()}/>
+                        <BsFillPatchQuestionFill className="flower-question-mark"/>
                     </div>
                     <button 
                         onClick={() => this.props.toggleFriendModal()} 

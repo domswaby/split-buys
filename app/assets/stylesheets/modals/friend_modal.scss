@@ -61,6 +61,7 @@
 }
 .friend-modal-email{
     box-sizing: border-box;
+    position: relative;
 }
 
 .friend-modal-email > input{ 
@@ -72,6 +73,14 @@
     border: 1px solid var(--gray-4);
     
 }
+.flower-question-mark{
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    right: 15px;
+    height: 100%;
+}
+
 
 .add-friend-button-wrap{
     padding: 2em 0;

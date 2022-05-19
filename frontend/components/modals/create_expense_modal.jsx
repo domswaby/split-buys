@@ -110,7 +110,7 @@ class CreateExpenseModal extends React.Component {
         let selectContents = null;
         if(this.props){
             selectContents = this.state.optionTags.map((option, idx) => {
-                debugger;
+                
                 return (<option key={idx}>{option.username}</option>)
             })
         }
