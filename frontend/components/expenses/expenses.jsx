@@ -90,6 +90,10 @@ class Expenses extends React.Component {
 
     };
   }
+  handleSubmitComment(index){
+    let comment = document.getElementById(index).value; 
+    console.log(comment);
+  }
 
   render(){
     
@@ -146,7 +150,12 @@ class Expenses extends React.Component {
                     </span>
                   </h4>
                   <div>
-                    <textarea name="comment-field" id="comment-field" cols="30" rows="5" placeholder="Add a comment"></textarea>
+                    <textarea name="comment-field" id={"comment-field-" + idx.toString()} cols="30" rows="5" placeholder="Add a comment">
+
+                    </textarea>
+                    <div className="post-comment-btn-wrap">
+                      <button onClick={() => this.handleSubmitComment(`comment-field-${idx}`)}>Post</button>
+                    </div>
                   </div>
                 </div>
 

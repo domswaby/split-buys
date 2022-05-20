@@ -144,3 +144,19 @@
 .comment-section > h4 > span:first-child{
     margin-right: 3px;
 }
+
+.post-comment-btn-wrap > button {
+    padding: 0.3rem 2rem;
+    color: white;
+    font-weight: 400;
+    border: 1px solid rgba(133, 131, 131, 0.8);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8em;
+    background-color: var(--sw-orange);
+    transition: 0.3s;
+}
+
+.post-comment-btn-wrap > button:hover{
+    background-color: rgba(236, 101, 52, 1);
+}
