@@ -167,13 +167,17 @@ class Expenses extends React.Component {
                     <ul>
                       {
                         this.props.comments.map((comment) => {
-                          return (
-                            <li className="comment-item">
-                              <p className="comment-item-username">{this.props.currentUser.username}</p>
-                              <p className="comment-item-body">{comment.body}</p>  
-                              <ImCross onClick={() => this.handleDeleteComment(comment.id)} className="comment-cross"/>
-                            </li>
-                          )
+                            debugger;
+                          if(comment.expense_id === expense.id){
+
+                            return (
+                              <li className="comment-item">
+                                <p className="comment-item-username">{this.props.currentUser.username}</p>
+                                <p className="comment-item-body">{comment.body}</p>  
+                                <ImCross onClick={() => this.handleDeleteComment(comment.id)} className="comment-cross"/>
+                              </li>
+                            )
+                          }
                         })
                       }
                     </ul>
