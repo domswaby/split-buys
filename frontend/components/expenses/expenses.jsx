@@ -168,8 +168,9 @@ class Expenses extends React.Component {
                       {
                         this.props.comments.map((comment) => {
                           return (
-                            <li className="comment-item">{comment.body}
-                            
+                            <li className="comment-item">
+                              <p className="comment-item-username">{this.props.currentUser.username}</p>
+                              <p className="comment-item-body">{comment.body}</p>  
                               <ImCross onClick={() => this.handleDeleteComment(comment.id)} className="comment-cross"/>
                             </li>
                           )
@@ -179,7 +180,7 @@ class Expenses extends React.Component {
                   </div>
 
                   <div>
-                    <textarea name="comment-field" id={"comment-field-" + idx.toString()} cols="30" rows="5" placeholder="Add a comment">
+                    <textarea name="comment-field" id={"comment-field-" + idx.toString()} className="comment-field" cols="30" rows="5" placeholder="Add a comment">
 
                     </textarea>
                     <div className="post-comment-btn-wrap">
