@@ -90,9 +90,22 @@ class Expenses extends React.Component {
 
     };
   }
-  handleSubmitComment(index){
-    let comment = document.getElementById(index).value; 
-    console.log(comment);
+  handleSubmitComment(index, id){
+    let comment_value = document.getElementById(index).value; 
+
+    let comment = {
+      body: comment_value,
+      expense_id: id,
+      author_id: this.props.currentUserId
+    }
+    this.props.makeComment(comment).then((res) => {
+        document.getElementById(index).value = ""
+    }); 
+  }
+  handleDeleteComment(commentId){
+    this.props.destroyComment(commentId).then((res) => {
+      console.log("comment deleted"); 
+    })
   }
 
   render(){
@@ -149,12 +162,28 @@ class Expenses extends React.Component {
                       NOTES AND COMMENTS:
                     </span>
                   </h4>
+
+                  <div className="comments-wrap">
+                    <ul>
+                      {
+                        this.props.comments.map((comment) => {
+                          return (
+                            <li className="comment-item">{comment.body}
+                            
+                              <ImCross onClick={() => this.handleDeleteComment(comment.id)} className="comment-cross"/>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
+                  </div>
+
                   <div>
                     <textarea name="comment-field" id={"comment-field-" + idx.toString()} cols="30" rows="5" placeholder="Add a comment">
 
                     </textarea>
                     <div className="post-comment-btn-wrap">
-                      <button onClick={() => this.handleSubmitComment(`comment-field-${idx}`)}>Post</button>
+                      <button onClick={() => this.handleSubmitComment(`comment-field-${idx}`, expense.id)}>Post</button>
                     </div>
                   </div>
                 </div>

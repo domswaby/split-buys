@@ -160,3 +160,17 @@
 .post-comment-btn-wrap > button:hover{
     background-color: rgba(236, 101, 52, 1);
 }
+
+.comments-wrap{
+    border: 2px solid red;
+}
+.comment-item{
+    position: relative; 
+}
+.comment-cross{
+    position: absolute; 
+    right: 5px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    cursor: pointer;
+}
