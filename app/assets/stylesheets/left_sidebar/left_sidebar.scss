@@ -35,6 +35,9 @@
 .activity-tab { 
   margin-bottom: 1em;
 }
+.dashboard-tab > a {
+  width: 100%;
+}
 
 .dashboard-tab > a > img{
   width: 16px; 
@@ -49,6 +52,10 @@
 
 .expenses-tab{
   margin-bottom: 0.7em;
+}
+
+.expenses-tab > a{
+  width: 100%;
 }
 
 .expenses-list-icon{
