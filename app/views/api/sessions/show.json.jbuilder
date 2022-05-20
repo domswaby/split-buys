@@ -13,6 +13,15 @@ json.expenses do
         end
     end
 end
+json.comments do 
+    @user.expenses.each do |expense|
+        expense.comments.each do |comment|
+            json.set! comment.id do
+                json.extract! comment, :id, :body, :expense_id, :author_id
+            end
+        end
+    end
+end
 
  
 

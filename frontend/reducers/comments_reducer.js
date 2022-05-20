@@ -18,6 +18,12 @@ const commentsReducer = (oldState = {}, action) => {
     // case REMOVE_EXPENSE:
     //   delete newState[action.expense.id];
     //   return newState;
+    case RECEIVE_CURRENT_USER:
+      if (action.user.comments) {
+        newState = action.user.comments;
+        return newState;
+      } else
+        return newState;
     
     default:
       return oldState;
