@@ -167,7 +167,7 @@ class Expenses extends React.Component {
                     <ul>
                       {
                         this.props.comments.map((comment) => {
-                            debugger;
+                          
                           if(comment.expense_id === expense.id){
 
                             return (

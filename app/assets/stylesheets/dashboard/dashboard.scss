@@ -15,11 +15,11 @@
   width: 15px;
 }
 .dashboard-wrap:before{
-  box-shadow: -15px 0 15px -15px inset;
+  box-shadow: -10px 0 10px -10px inset;
   left: -15px;
 }
 .dashboard-wrap::after{
-  box-shadow: 15px 0 15px -15px inset;
+  box-shadow: 10px 0 10px -10px inset;
   right: -15px;
 }
 .dashboard-wrap h1{
