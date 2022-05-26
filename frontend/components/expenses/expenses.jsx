@@ -32,7 +32,6 @@ class Expenses extends React.Component {
       index: index
     });
   }
-
   payer(payer_id){
     for(let user of this.props.users){
       if(user.id === payer_id){
@@ -44,7 +43,6 @@ class Expenses extends React.Component {
       }
     }
   }
-
   lent(expense){
 
     let numberOfExpenders = expense.expenders?.length;
@@ -52,7 +50,6 @@ class Expenses extends React.Component {
     // console.log(this.roundIt(amount - (amount * ((numberOfExpenders - 1) / numberOfExpenders))));
     return this.roundIt(amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders)))
   }
-
   roundIt(num) {
     return num.toFixed(2)
   }
@@ -80,14 +77,11 @@ class Expenses extends React.Component {
     }else{ 
       return ` owes $${this.roundIt(expense.amount / expense.expenders.length)}`;
     }
-
   }
   handleDeleteExpense(expense){
     return (e) => {
       e.stopPropagation();
-      console.log(expense);
       this.props.destroyExpense(expense.id); 
-
     };
   }
   handleSubmitComment(index, id){

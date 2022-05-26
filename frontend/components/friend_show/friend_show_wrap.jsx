@@ -5,6 +5,8 @@ import { selectUser } from "../../selectors/selectors";
 import { getFriendInfo } from "../../selectors/selectors";
 import { receiveCurrentUser } from "../../actions/session_actions";
 import { destroyExpense } from "../../actions/expense_actions";
+import { makeComment } from "../../actions/comment_actions";
+import { destroyComment } from "../../actions/comment_actions";
 
 
 const mSTP = (state, ownProps) => {
@@ -15,7 +17,8 @@ const mSTP = (state, ownProps) => {
     expenses: Object.values(state.entities.expenses),
     users: Object.values(state.entities.users),
     friendId: ownProps.friendId,
-    friendInfo: getFriendInfo(state, ownProps.friendId)
+    friendInfo: getFriendInfo(state, ownProps.friendId),
+    comments: Object.values(state.entities.comments)
   };
 
 }; 
@@ -24,7 +27,9 @@ const mDTP = (dispatch, ownProps) => {
   
   return {
     receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user)),
-    destroyExpense: (expenseId) => dispatch(destroyExpense(expenseId))
+    destroyExpense: (expenseId) => dispatch(destroyExpense(expenseId)),
+    makeComment: (commentInfo) => dispatch(makeComment(commentInfo)),
+    destroyComment: (commentId) => dispatch(destroyComment(commentId))
   };
   
 }; 

@@ -2,33 +2,38 @@ import React from "react";
 import CreateExpenseModalContainer from "../modals/create_expense_modal_container";
 import { RiTodoLine } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
+import { FaComment } from 'react-icons/fa';
 import greenCheck from './../../../app/assets/images/green_check.png'; // with import
+import EditExpenseModalContainer from "../modals/edit_expense_modal_container.js";
 
 
 class FriendShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false, 
+      showEditModal: false,
+      index: null
     };
     this.toggleModal = this.toggleModal.bind(this);
+    this.toggleEditModal = this.toggleEditModal.bind(this);
 
   }
 
-  // componentDidMount() {
-  //   if (this.props.currentUser.friends) {
-  //     this.props.receiveCurrentUser(this.props.currentUser);
-  //   }
-  // }
-
   toggleModal() {
-    
     let show = this.state.showModal;
     this.setState({
       showModal: !show
     });
   }
+  toggleEditModal(index) {
+    let show = this.state.showEditModal;
 
+    this.setState({
+      showEditModal: !show,
+      index: index
+    });
+  }
   toggleShowDelete(arg) {
     return (e) => {
       let deleteButton = document.getElementById(`${arg + "a"}`);
@@ -52,15 +57,13 @@ class FriendShow extends React.Component {
     }
   }
   lent(expense) {
-    let numberOfExpenders = expense.expenders.length;
+    let numberOfExpenders = expense.expenders?.length;
     let amount = expense.amount;
     return this.roundIt(amount - (amount * ((numberOfExpenders - 1) / numberOfExpenders)));
   }
-
   roundIt(num) {
     return num.toFixed(2)
   }
-
   getBalance() {
     let friendAmount = 0;
     let myAmount = 0;
@@ -115,8 +118,7 @@ class FriendShow extends React.Component {
         return 0; 
     }
   }
-  isPayer(expense) {
-       
+  isPayer(expense) {  
     if (expense.payer_id == this.props.currentUserId) {
     
       return true;
@@ -142,27 +144,39 @@ class FriendShow extends React.Component {
       details.style.display = 'inline';
     }
   }
-
   handleDeleteExpense(expense) {
     return (e) => {
       e.stopPropagation();
-      
       this.props.destroyExpense(expense.id);
-
     };
+  }
+  handleSubmitComment(index, id){
+    let comment_value = document.getElementById(index).value; 
+
+    let comment = {
+      body: comment_value,
+      expense_id: id,
+      author_id: this.props.currentUserId
+    }
+    this.props.makeComment(comment).then((res) => {
+        document.getElementById(index).value = ""
+    }); 
+  }
+  handleDeleteComment(commentId){
+    this.props.destroyComment(commentId).then((res) => {
+      console.log("comment deleted"); 
+    })
   }
 
   render () {
     let friendId = this.props.friendId;
-    let expenses = this.props.expenses.map((expense) => {
-          
-      if(expense.expenders?.includes(Number(friendId)) && expense.expenders?.includes(this.props.currentUserId) && (expense.payer_id === this.props.currentUserId || expense.payer_id === Number(this.props.friendId))){
-        
+    let expenses = this.props.expenses.map((expense, idx) => {  
+      if(expense.expenders?.includes(Number(friendId)) && expense.expenders?.includes(this.props.currentUserId) && (expense.payer_id === this.props.currentUserId || expense.payer_id === Number(this.props.friendId))){ 
         return (
           <div>
-            <div onClick={() => this.toggleDetails(expense.id)} onMouseEnter={this.toggleShowDelete(expense.id)} onMouseLeave={this.toggleShowDelete(expense.id)} className="expense-row">
-              <div>{expense.date_incurred}</div>
-              <div>{expense.description}</div>
+            <div onClick={() => this.toggleDetails(expense.id)}  className="expense-row">
+              <div className="expenses-date">{expense.date_incurred}</div>
+              <div className="expenses-description">{expense.description}</div>
               <div className="expenses-payer">
                 <div>{this.payer(expense.payer_id)} paid:</div>
                 <div>{expense.amount}</div>
@@ -184,27 +198,71 @@ class FriendShow extends React.Component {
                   <p >{expense.description}</p>
                   <p className="expense-details-amount">${expense.amount.toFixed(2)}</p>
                   <p className="expense-small-details">Paid by {this.payer(expense.payer_id)}</p>
-                  <button className="edit-expense-button">Edit expense</button>
+                  <button onClick={() => this.toggleEditModal(idx)} className="edit-expense-button">Edit expense</button>
                 </div>
               </div>
               <div className="expense-details-bottom">
                 <div className="expense-expender-list">
                   <ul>
                     {
-                      expense.expenders.map((expender) => {
+                      expense.expenders?.map((expender, idx2) => {
                         return (
-                          <li className="expense-expender-list-item"><span>{this.payer(expender)}</span> {this.expenderDetails(expense, expender)}</li>
+                          <li key={idx2} className="expense-expender-list-item"><span>{this.payer(expender)}</span> {this.expenderDetails(expense, expender)}</li>
                         )
                       })
                     }
                   </ul>
                 </div>
                 <div className="comment-section">
-                  Comment Section
+                  <h4>
+                    <span>
+                      <FaComment />
+                    </span>
+                    <span>
+                      NOTES AND COMMENTS:
+                    </span>
+                  </h4>
+
+                  <div className="comments-wrap">
+                    <ul>
+                      {
+                        this.props.comments.map((comment) => {
+                          
+                          if(comment.expense_id === expense.id){
+
+                            return (
+                              <li className="comment-item">
+                                <p className="comment-item-username">{this.props.currentUser.username}</p>
+                                <p className="comment-item-body">{comment.body}</p>  
+                                <ImCross onClick={() => this.handleDeleteComment(comment.id)} className="comment-cross"/>
+                              </li>
+                            )
+                          }
+                        })
+                      }
+                    </ul>
+                  </div>
+
+                  <div>
+                    <textarea name="comment-field" id={"comment-field-" + idx.toString()} className="comment-field" cols="30" rows="5" placeholder="Add a comment">
+
+                    </textarea>
+                    <div className="post-comment-btn-wrap">
+                      <button onClick={() => this.handleSubmitComment(`comment-field-${idx}`, expense.id)}>Post</button>
+                    </div>
+                  </div>
                 </div>
 
               </div>
             </div>
+            {this.state.index === idx &&                   
+                <EditExpenseModalContainer
+                  toggleModal={this.toggleEditModal}
+                  showModal={this.state.showEditModal}
+                  expense={expense}
+                  
+                />
+              }
           </div>
         )
       }
