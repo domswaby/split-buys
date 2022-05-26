@@ -30,26 +30,27 @@ user12 = User.create(username: "derek", password: "starwars", email: "derek@gmai
 user13 = User.create(username: "chris", password: "starwars", email: "chris@gmail.com")
 user14 = User.create(username: "peter", password: "starwars", email: "peter@gmail.com")
 user15 = User.create(username: "jacob", password: "starwars", email: "jacob@gmail.com")
-user16 = User.create(username: "dominic", password: "starwars", email: "dominic@gmail.com")
+user16 = User.create(username: "joe", password: "starwars", email: "joe@gmail.com")
+user17 = User.create(username: "dominic", password: "starwars", email: "dominic@gmail.com")
 
 # demo_user friendships
 Friendship.create(user_id: demo_user.id, friend_id: user1.id) 
 Friendship.create(user_id: user1.id, friend_id: demo_user.id) 
 
-Friendship.create(user_id: demo_user.id, friend_id: user2.id) 
-Friendship.create(user_id: user2.id, friend_id: demo_user.id) 
+# Friendship.create(user_id: demo_user.id, friend_id: user2.id) 
+# Friendship.create(user_id: user2.id, friend_id: demo_user.id) 
 
-Friendship.create(user_id: demo_user.id, friend_id: user3.id) 
-Friendship.create(user_id: user3.id, friend_id: demo_user.id)
+# Friendship.create(user_id: demo_user.id, friend_id: user3.id) 
+# Friendship.create(user_id: user3.id, friend_id: demo_user.id)
 
 Friendship.create(user_id: demo_user.id, friend_id: user4.id) 
 Friendship.create(user_id: user4.id, friend_id: demo_user.id)
 
-Friendship.create(user_id: demo_user.id, friend_id: user5.id) 
-Friendship.create(user_id: user5.id, friend_id: demo_user.id)
+# Friendship.create(user_id: demo_user.id, friend_id: user5.id) 
+# Friendship.create(user_id: user5.id, friend_id: demo_user.id)
 
-Friendship.create(user_id: demo_user.id, friend_id: user6.id) 
-Friendship.create(user_id: user6.id, friend_id: demo_user.id)
+# Friendship.create(user_id: demo_user.id, friend_id: user6.id) 
+# Friendship.create(user_id: user6.id, friend_id: demo_user.id)
 
 Friendship.create(user_id: demo_user.id, friend_id: user7.id) 
 Friendship.create(user_id: user7.id, friend_id: demo_user.id)
@@ -78,8 +79,8 @@ Friendship.create(user_id: user14.id, friend_id: demo_user.id)
 Friendship.create(user_id: demo_user.id, friend_id: user15.id) 
 Friendship.create(user_id: user15.id, friend_id: demo_user.id)
 
-Friendship.create(user_id: demo_user.id, friend_id: user16.id) 
-Friendship.create(user_id: user16.id, friend_id: demo_user.id)
+Friendship.create(user_id: demo_user.id, friend_id: user17.id) 
+Friendship.create(user_id: user17.id, friend_id: demo_user.id)
 
 expense1 = Expense.create(description: "party", amount: 160, split_type: "equal", payer_id: user1.id, date_incurred: "2022-04-20" ) 
 UserExpense.create(user_id: user1.id, expense_id: expense1.id, balance: 80)
@@ -92,21 +93,21 @@ UserExpense.create(user_id: demo_user.id, expense_id: expense2.id, balance: 80)
 expense3 = Expense.create(description: "lunch", amount: 120, split_type: "equal", payer_id: user3.id, date_incurred: "2022-05-01" ) 
 UserExpense.create(user_id: user1.id, expense_id: expense3.id, balance: 40)
 UserExpense.create(user_id: demo_user.id, expense_id: expense3.id, balance: 40)
-UserExpense.create(user_id: user3.id, expense_id: expense3.id, balance: 40)
+UserExpense.create(user_id: user4.id, expense_id: expense3.id, balance: 40)
 
 expense4 = Expense.create(description: "dinner", amount: 160, split_type: "equal", payer_id: user3.id, date_incurred: "2022-01-23" ) 
-UserExpense.create(user_id: user2.id, expense_id: expense4.id, balance: 40)
-UserExpense.create(user_id: user3.id, expense_id: expense4.id, balance: 40)
+UserExpense.create(user_id: user7.id, expense_id: expense4.id, balance: 40)
+UserExpense.create(user_id: user8.id, expense_id: expense4.id, balance: 40)
 UserExpense.create(user_id: user4.id, expense_id: expense4.id, balance: 40)
 UserExpense.create(user_id: demo_user.id, expense_id: expense4.id, balance: 40)
 
 expense5 = Expense.create(description: "birthday", amount: 160, split_type: "equal", payer_id: user3.id, date_incurred: "2022-02-02" ) 
 UserExpense.create(user_id: demo_user.id, expense_id: expense5.id, balance: 80)
-UserExpense.create(user_id: user3.id, expense_id: expense5.id, balance: 80)
+UserExpense.create(user_id: user7.id, expense_id: expense5.id, balance: 80)
 
 expense6 = Expense.create(description: "presents", amount: 150, split_type: "equal", payer_id: user6.id, date_incurred: "2021-02-20" )
 UserExpense.create(user_id: demo_user.id, expense_id: expense6.id, balance: 50)
-UserExpense.create(user_id: user6.id, expense_id: expense6.id, balance: 50)
+UserExpense.create(user_id: user9.id, expense_id: expense6.id, balance: 50)
 UserExpense.create(user_id: user7.id, expense_id: expense6.id, balance: 50)
 
 expense7 = Expense.create(description: "christmas clothes", amount: 300, split_type: "equal", payer_id: user7.id, date_incurred: "2021-04-25" ) 
@@ -142,7 +143,7 @@ expense13 = Expense.create(description: "vacation", amount: 2000, split_type: "e
 UserExpense.create(user_id: demo_user.id, expense_id: expense13.id, balance: 500)
 UserExpense.create(user_id: user14.id, expense_id: expense13.id, balance: 500)
 UserExpense.create(user_id: user15.id, expense_id: expense13.id, balance: 500)
-UserExpense.create(user_id: user16.id, expense_id: expense13.id, balance: 500)
+UserExpense.create(user_id: user17.id, expense_id: expense13.id, balance: 500)
 
 expense14 = Expense.create(description: "pool party", amount: 800, split_type: "equal", payer_id: demo_user.id, date_incurred: "2020-09-28" ) 
 UserExpense.create(user_id: demo_user.id, expense_id: expense14.id, balance: 200)
