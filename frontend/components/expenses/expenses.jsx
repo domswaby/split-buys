@@ -205,7 +205,7 @@ class Expenses extends React.Component {
           <h1>All expenses
             <div>
               <button onClick={() => this.toggleModal()} className="add-expense">Add an expense</button>
-              <button className="settle-button tooltip"> <span className="tooltiptext">We can settle after the bootcamp ;)</span>Settle up</button>
+              {/* <button className="settle-button tooltip"> <span className="tooltiptext">We can settle after the bootcamp ;)</span>Settle up</button> */}
             </div>
           </h1>
           <div>
