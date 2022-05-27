@@ -25,12 +25,12 @@ class AppHeader extends React.Component {
             <>
                 <div className="app-header-wrap">
                     <header>
-                        <a href="/" className="app-logo-link">
+                        <Link href="/" className="app-logo-link">
                             <img className="" src={window.logo} alt="logo" />
                             {/* <img src={swLogo} alt="logo" /> */}
                             
                             <span>SplitBuys</span>
-                        </a>
+                        </Link>
                         
                         <MainDropDownContainer />
                     </header>

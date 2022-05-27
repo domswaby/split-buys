@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
+// import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
 
 
 
@@ -12,7 +12,7 @@ const HomeHeader = () => {
             <div className="home-head-wrap">
                 <header>
                     <Link to="/" className="logo-link"> 
-                        <img className="logo-link" src={logo} alt="logo" />
+                        <img className="logo-link" src={window.logo} alt="logo" />
                         <span>SplitBuys</span>
                     </Link>
                     <div className="header-session-btns-wrap">
