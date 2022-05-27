@@ -3,7 +3,7 @@ import CreateExpenseModalContainer from "../modals/create_expense_modal_containe
 import { RiTodoLine } from 'react-icons/ri';
 import { ImCross } from 'react-icons/im';
 import { FaComment } from 'react-icons/fa';
-import greenCheck from './../../../app/assets/images/green_check.png'; // with import
+// import greenCheck from './../../../app/assets/images/green_check.png'; // with import
 import EditExpenseModalContainer from "../modals/edit_expense_modal_container.js";
 
 
@@ -285,7 +285,7 @@ class FriendShow extends React.Component {
             ? ( 
             <div> 
               {console.log(this.props.friendInfo)}
-              <div className="green-check-wrap"> <img src={greenCheck} alt="greenCheck" /> <div>You and {this.props.friendInfo?.username} are all settled.</div></div> 
+              <div className="green-check-wrap"> <img src={window.greenCheck} alt="greenCheck" /> <div>You and {this.props.friendInfo?.username} are all settled.</div></div> 
               </div>
               
               ) : expenses) : null }

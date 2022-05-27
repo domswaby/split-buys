@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
+// import logo from './../../../app/assets/images/split-wise-logo.png'; // with import
 import { CgClose  } from 'react-icons/cg'; 
 import { BsFillPatchQuestionFill  } from 'react-icons/bs'; 
 
@@ -64,7 +64,7 @@ class FriendModal extends React.Component{
                 }} className="friend-modal">
                     <h1>
                         <div className="friend-modal-logo-wrap">
-                            <img src={logo} alt="" /> 
+                            <img src={window.logo} alt="" /> 
                         </div> 
                         Invite friends</h1>
                     <div id="friend-suggestion-wrap" className={ this.state.showFriendSuggestions ? "show" : "" }>

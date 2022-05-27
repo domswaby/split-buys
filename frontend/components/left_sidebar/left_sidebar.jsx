@@ -4,7 +4,7 @@ import { FaFlag } from 'react-icons/fa';
 import { GoListUnordered } from 'react-icons/go';
 import { GoPerson } from 'react-icons/go';
 import FriendModalContainer from "../modals/friend_modal_container";
-import logo from './../../../app/assets/images/split-wise-logo.png'; 
+// import logo from './../../../app/assets/images/split-wise-logo.png'; 
 
 class LeftSidebar extends React.Component{
 
@@ -35,7 +35,7 @@ class LeftSidebar extends React.Component{
       <div className="left-sidebar-wrap">
         <div>
           <div className="dashboard-tab">
-            <Link to="/dashboard"><img src={logo} alt="" />Dashboard</Link>
+            <Link to="/dashboard"><img src={window.logo} alt="" />Dashboard</Link>
           </div>
           {/* <div className="activity-tab">
             <Link to="/activity"><FaFlag className="activity-flag" />Recent activity</Link>

@@ -115,11 +115,12 @@
     background-color: var(--orange-1);
     box-shadow: 1px 1px 1px 1px rgba(133, 131, 131, 0.8);
     transition: 0.2s;
+    z-index: 50;
 }
 #friend-suggestion-wrap.show{
     visibility: visible;
     opacity: 1;
-    bottom: 97%;
+    bottom: 20%;
     
 }
 
