@@ -47,7 +47,7 @@ class Expenses extends React.Component {
 
     let numberOfExpenders = expense.expenders?.length;
     let amount = expense.amount
-    // console.log(this.roundIt(amount - (amount * ((numberOfExpenders - 1) / numberOfExpenders))));
+    
     return this.roundIt(amount - ( amount * ((numberOfExpenders - 1) / numberOfExpenders)))
   }
   roundIt(num) {
@@ -98,7 +98,7 @@ class Expenses extends React.Component {
   }
   handleDeleteComment(commentId){
     this.props.destroyComment(commentId).then((res) => {
-      console.log("comment deleted"); 
+      
     })
   }
 

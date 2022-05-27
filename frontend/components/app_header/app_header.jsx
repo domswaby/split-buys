@@ -25,7 +25,7 @@ class AppHeader extends React.Component {
             <>
                 <div className="app-header-wrap">
                     <header>
-                        <Link href="/" className="app-logo-link">
+                        <Link to="/" className="app-logo-link">
                             <img className="" src={window.logo} alt="logo" />
                             {/* <img src={swLogo} alt="logo" /> */}
                             

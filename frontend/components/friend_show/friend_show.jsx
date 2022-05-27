@@ -82,7 +82,7 @@ class FriendShow extends React.Component {
     });
     
     if (friendAmount > myAmount) {
-      console.log(`friendInfo is ${this.props.friendInfo}`)
+      
       return (
         <div>You owe {this.props.friendInfo?.username} {this.roundIt(friendAmount - myAmount)}</div>
       )
@@ -164,7 +164,7 @@ class FriendShow extends React.Component {
   }
   handleDeleteComment(commentId){
     this.props.destroyComment(commentId).then((res) => {
-      console.log("comment deleted"); 
+      
     })
   }
 
@@ -173,7 +173,7 @@ class FriendShow extends React.Component {
     let expenses = this.props.expenses.map((expense, idx) => {  
       if(expense.expenders?.includes(Number(friendId)) && expense.expenders?.includes(this.props.currentUserId) && (expense.payer_id === this.props.currentUserId || expense.payer_id === Number(this.props.friendId))){ 
         return (
-          <div>
+          <div key={idx + "expense"}>
             <div onClick={() => this.toggleDetails(expense.id)}  className="expense-row">
               <div className="expenses-date">{expense.date_incurred}</div>
               <div className="expenses-description">{expense.description}</div>
@@ -284,7 +284,7 @@ class FriendShow extends React.Component {
             ? ((this.getBalanceNumber() === 0) 
             ? ( 
             <div> 
-              {console.log(this.props.friendInfo)}
+              
               <div className="green-check-wrap"> <img src={window.greenCheck} alt="greenCheck" /> <div>You and {this.props.friendInfo?.username} are all settled.</div></div> 
               </div>
               

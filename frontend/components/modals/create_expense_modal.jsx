@@ -15,7 +15,7 @@ class CreateExpenseModal extends React.Component {
             amount: props.expense.amount,
             date: props.expense.date_incurred
         }
-        console.log(props.expense);
+        
 
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);

@@ -74,9 +74,9 @@ class FriendModal extends React.Component{
                         </div>
                         <ol>
                             {
-                                friendSuggestions.map((email) => { 
+                                friendSuggestions.map((email, idx) => { 
                                     return (
-                                        <li onClick={(e) => this.selectFriendSuggestion(e)}>{email}</li>
+                                        <li key={idx + "email"} onClick={(e) => this.selectFriendSuggestion(e)}>{email}</li>
                                     )
                                 })
                             }                                                     
@@ -103,7 +103,7 @@ class FriendModal extends React.Component{
                         {
 
                             this.props.errors ?
-                                this.props.errors.map(error => <p>{error}</p>)
+                                this.props.errors.map((error, idx) => <p key={idx + "error"}>{error}</p>)
                                 :
                                 ""
                         }

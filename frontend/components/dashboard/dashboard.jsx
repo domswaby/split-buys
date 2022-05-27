@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
     this.props.expenses.forEach((expense) => {
       if(this.props.currentUserId !== expense.payer_id){
          myDebt += (expense.amount / expense.expenders.length);
-        console.log(`I owe ${expense.amount / expense.expenders.length}`)
+        
       }
     })
     return this.roundIt(myDebt);
@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
         amount = expense.amount;
         paidFor = (amount * ((numberOfExpenders - 1) / numberOfExpenders));
         loans += paidFor;
-        console.log(`I'm owed ${paidFor}`)
+        
       }
     })
     return this.roundIt(loans);
@@ -63,15 +63,15 @@ class Dashboard extends React.Component {
       if (expense.expenders.includes(this.props.currentUserId) && expense.expenders.includes(friendId)) {
         if (this.props.currentUserId === expense.payer_id) {
           myAmount += (expense.amount / expense.expenders.length);
-          console.log(`I paid ${myAmount}`)
+          
         }
         if (friendId === expense.payer_id) {
           friendAmount += (expense.amount / expense.expenders.length);
-          console.log(`Friend paid ${friendAmount}`)
+          
         }
       }
 
-      console.log(expense);
+      
     });
 
     return this.roundIt(myAmount - friendAmount);
@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
     }).map((user) => {
         user.balance = this.getBalance(user.id)
         return (
-          <Link to={`/friends/${user.id}`} className="debtor-link">
+          <Link to={`/friends/${user.id}`} className="debtor-link" key={user.id + "debtor"}>
             <div className="debtors">
               <div>{user.username}</div>
               <div>owes you {user.balance}</div>
@@ -105,7 +105,7 @@ class Dashboard extends React.Component {
     }).map((user) => {
       user.balance = this.getBalance(user.id)
       return (
-        <Link to={`/friends/${user.id}`} className="loaner-link">
+        <Link to={`/friends/${user.id}`} className="loaner-link" key={user.id + "loaner"}>
           <div className="loaners">
             <div>{user.username}</div>
             <div>you owe {user.balance}</div>
