@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from './../../../app/assets/images/split-wise-logo.png';
+// import logo from './../../../app/assets/images/split-wise-logo.png';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
                 <div className="signup-comp-wrap">
                     <div className="signup-logo-wrap">
                         <Link to="/">
-                            <img src={logo} alt="logo" />
+                            <img src={window.logo} alt="logo" />
                         </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
