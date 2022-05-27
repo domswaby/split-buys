@@ -1,5 +1,5 @@
 import React from "react";
-import airplane from './../../../app/assets/images/green_airplane.png'; // with import
+// import airplane from './../../../app/assets/images/green_airplane.png'; // with import
 import Airplane from "../svgs/airplane";
 import House from "../svgs/house";
 import Heart from "../svgs/heart";
@@ -36,7 +36,8 @@ const MainWelcome = () => {
                     </div>
                 </div>
                 <div className="main-picture-wrap">
-                    <img src={airplane} alt="green airplane" />
+                    {/* <img src={airplane} alt="green airplane" /> */}
+                    <img src={window.green_airplane} alt="green airplane" />
                 </div>
             </div>
         </div>
