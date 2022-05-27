@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBars } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
+import About from "../about/about";
 
 class RightSidebarFriendBalance extends React.Component{ 
   constructor(props){
@@ -79,6 +80,7 @@ class RightSidebarFriendBalance extends React.Component{
               <h1>YOUR BALANCE</h1>
               {this.props.friendInfo ? this.getBalance() : null}
             </div>
+            <About />
           </div>
         </div>
       </>

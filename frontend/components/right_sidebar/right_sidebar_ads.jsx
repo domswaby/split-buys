@@ -1,4 +1,5 @@
 import React from "react";
+import About from "../about/about";
 
 const RightSidebarAds = () => {
   return (
@@ -14,6 +15,7 @@ const RightSidebarAds = () => {
         </div>
         <p>+ third party apps for</p>
         <p> <a href="">Windows Phone</a></p>
+        <About />
       </div>
     </div>
   )
