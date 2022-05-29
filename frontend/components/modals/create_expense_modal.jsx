@@ -16,7 +16,7 @@ class CreateExpenseModal extends React.Component {
             date: props.expense.date_incurred
         }
         
-
+        this.multiselectRef = React.createRef();
         this.onSelect = this.onSelect.bind(this);
         this.changeDate = this.changeDate.bind(this);
         this.changeDescription = this.changeDescription.bind(this);  
@@ -71,6 +71,10 @@ class CreateExpenseModal extends React.Component {
             payer: e.currentTarget.value
         })
     }
+    resetValues() {
+        // Calling the below method will reset the selected values programatically
+        this.multiselectRef.current.resetSelectedValues();
+    }
 
     handleSubmit() {
         let payer_id = this.props.currentUserId
@@ -102,7 +106,26 @@ class CreateExpenseModal extends React.Component {
             expenseInfo.id = this.props.expense.id; 
         }
         this.props.makeExpense(expenseInfo).then((res) => {
+
             this.props.toggleModal();
+
+            if(this.props.formType === 'create'){
+                let dropdown = document.getElementById('multi-select-component'); 
+                // this.resetValues();
+                dropdown.setAttribute('selectedvalues', JSON.stringify([{username: "You"}]) )
+                dropdown.setAttribute('preselectedvalues', JSON.stringify([{username: "You"}]) )
+                
+                this.setState({
+                    optionTags: [{username: "You"}],
+                    description: "",
+                    payer: "You",
+                    amount: 1,
+                    date: "",
+                    preSelected: [{username: "You"}]
+
+                });
+            }
+
         });
     }
     
@@ -132,11 +155,14 @@ class CreateExpenseModal extends React.Component {
                     </h1>
                     <div className="multi-select-wrap">
                         <Multiselect
+                            id="multi-select-component"
+                            ref={this.multiselectRef}
                             disable={this.props.formType === 'edit' ? true : false}
                             isObject={true}
                             displayValue="username"
                             disablePreSelectedValues={true}
                             selectedValues={[{username: "You"}]}
+                            preSelectedValues={[{username: "You"}]}
                             onKeyPressFn={function noRefCheck() { }}
                             onRemove={this.onRemove}
                             onSearch={function noRefCheck() { }}
@@ -173,7 +199,7 @@ class CreateExpenseModal extends React.Component {
                     </div>
                    
                     <div className="expense-date-wrap">
-                        <input type="date" defaultValue={this.state.date} onChange={this.changeDate}/>
+                        <input type="date" value={this.state.date} onChange={this.changeDate}/>
                     </div>
 
                     <div className="save-cancel-wrap">
