@@ -36,9 +36,15 @@ const Footer = () => {
                         <li>FAQ</li>
                         <li>Terms of Service</li>
                         <li>
-                            <TwitterBird /> 
-                            <Github /> 
-                            <LinkedIn />
+                            <a href="https://twitter.com/dee_swaby" target="_blank">
+                                <TwitterBird /> 
+                            </a>
+                            <a href="https://github.com/domswaby/" target="_blank">
+                                <Github /> 
+                            </a>
+                            <a href="https://www.linkedin.com/in/dominic-swaby-5b43681a5/" target="_blank">
+                                <LinkedIn />
+                            </a>
                         </li>
                     </ul>
                 </div>
