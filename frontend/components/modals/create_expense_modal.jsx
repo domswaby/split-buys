@@ -39,8 +39,6 @@ class CreateExpenseModal extends React.Component {
     }
 
     onSelect(e){
-        
-
         this.setState({
             optionTags: e
         })
@@ -112,9 +110,8 @@ class CreateExpenseModal extends React.Component {
             if(this.props.formType === 'create'){
                 let dropdown = document.getElementById('multi-select-component'); 
                 // this.resetValues();
-                dropdown.setAttribute('selectedvalues', JSON.stringify([{username: "You"}]) )
-                dropdown.setAttribute('preselectedvalues', JSON.stringify([{username: "You"}]) )
-                
+                dropdown.setAttribute('selectedvalues', [{username: "You"}]); 
+        
                 this.setState({
                     optionTags: [{username: "You"}],
                     description: "",
@@ -162,12 +159,11 @@ class CreateExpenseModal extends React.Component {
                             displayValue="username"
                             disablePreSelectedValues={true}
                             selectedValues={[{username: "You"}]}
-                            preSelectedValues={[{username: "You"}]}
                             onKeyPressFn={function noRefCheck() { }}
                             onRemove={this.onRemove}
                             onSearch={function noRefCheck() { }}
                             onSelect={this.onSelect}
-                            options={this.props.friends.concat({ username: "You" }) }
+                            options={[...this.props.friends].concat({ username: "You" }) }
                             placeholder=" and..."
                         />
                     </div>
