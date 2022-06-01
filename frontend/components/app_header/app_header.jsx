@@ -8,7 +8,6 @@ class AppHeader extends React.Component {
 
     constructor(props) {
         super(props);
-        
     }
 
     componentDidMount() {
@@ -32,7 +31,7 @@ class AppHeader extends React.Component {
                             <span>SplitBuys</span>
                         </Link>
                         
-                        <MainDropDownContainer />
+                        <MainDropDownContainer history={this.props.history}/>
                     </header>
                 </div>
             </>

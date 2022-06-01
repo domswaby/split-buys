@@ -7,13 +7,16 @@ import { destroyExpense } from "../../actions/expense_actions";
 import { makeComment } from "../../actions/comment_actions";
 import { destroyComment } from "../../actions/comment_actions";
 
-const mSTP = (state) => ({
-    currentUserId: state.session.id,
-    currentUser: selectUser(state.entities.users, state.session.id),
-    expenses: Object.values(state.entities.expenses),
-    users: Object.values(state.entities.users), 
-    comments: Object.values(state.entities.comments)
-});
+const mSTP = (state) => {
+    
+    return {
+        currentUserId: state.session.id,
+        currentUser: selectUser(state.entities.users, state.session.id),
+        expenses: Object.values(state.entities.expenses),
+        users: Object.values(state.entities.users), 
+        comments: Object.values(state.entities.comments)
+    }
+};
 // add current user 
 // add receive current user action to dispatch 
 // then in compoent did mount check for currentuser dot friends.  

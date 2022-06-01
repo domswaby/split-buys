@@ -16,6 +16,7 @@ class Expenses extends React.Component {
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
+    
   }
 
   toggleModal() {
@@ -101,7 +102,7 @@ class Expenses extends React.Component {
       
     })
   }
-
+  
   render(){
     
       let expenses = this.props.expenses.map((expense, idx) => {
@@ -160,12 +161,12 @@ class Expenses extends React.Component {
                   <div className="comments-wrap">
                     <ul>
                       {
-                        this.props.comments.map((comment) => {
+                        this.props.comments.map((comment, idx) => {
                           
                           if(comment.expense_id === expense.id){
 
                             return (
-                              <li className="comment-item">
+                              <li key={idx} className="comment-item">
                                 <p className="comment-item-username">{this.props.currentUser.username}</p>
                                 <p className="comment-item-body">{comment.body}</p>  
                                 <ImCross onClick={() => this.handleDeleteComment(comment.id)} className="comment-cross"/>
@@ -214,6 +215,7 @@ class Expenses extends React.Component {
           <CreateExpenseModalContainer 
             toggleModal={this.toggleModal}
             showModal={this.state.showModal}
+            history={this.props.history}
           />
        
         </div>

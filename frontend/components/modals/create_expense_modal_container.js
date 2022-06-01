@@ -6,7 +6,7 @@ import { selectUser } from "../../selectors/selectors";
 import { receiveCurrentUser } from "../../actions/session_actions";
 import { makeExpense } from "../../actions/expense_actions";
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
     let dummyExpense = {
         description: "", 
         payer: "You",
@@ -16,7 +16,7 @@ const mSTP = (state) => {
     let optionTags = [
         { username: "You" }
     ]
-    let payer = "You";
+    let payer = "You";  
     
     return {
         errors: state.errors.expenses,

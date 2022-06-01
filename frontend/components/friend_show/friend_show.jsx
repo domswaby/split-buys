@@ -295,6 +295,7 @@ class FriendShow extends React.Component {
         <CreateExpenseModalContainer
           toggleModal={this.toggleModal}
           showModal={this.state.showModal}
+          history={this.props.history}
         />
       </div>
     )

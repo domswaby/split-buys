@@ -9,7 +9,7 @@ const FriendShowContainer = (props) => {
       <div className="app-container">
         <div>
           <LeftSidebarContainer />
-          <FriendShowWrap friendId={props.match.params.id}/>
+          <FriendShowWrap friendId={props.match.params.id} history={props.history}/>
           <RightSidebarFriendBalanceContainer friendId={props.match.params.id} history={history}/>
         </div>
       </div>

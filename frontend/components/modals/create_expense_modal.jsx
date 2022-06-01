@@ -106,12 +106,13 @@ class CreateExpenseModal extends React.Component {
         this.props.makeExpense(expenseInfo).then((res) => {
 
             this.props.toggleModal();
+            
 
             if(this.props.formType === 'create'){
                 let dropdown = document.getElementById('multi-select-component'); 
                 // this.resetValues();
                 dropdown.setAttribute('selectedvalues', [{username: "You"}]); 
-        
+              
                 this.setState({
                     optionTags: [{username: "You"}],
                     description: "",
@@ -121,6 +122,9 @@ class CreateExpenseModal extends React.Component {
                     preSelected: [{username: "You"}]
 
                 });
+               
+                this.props.history.push("/expenses");
+                this.props.history.push("/dashboard");
             }
 
         });
