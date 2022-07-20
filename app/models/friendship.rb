@@ -11,3 +11,4 @@ class Friendship < ApplicationRecord
     class_name: :User 
 
 end
+
