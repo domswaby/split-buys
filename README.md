@@ -29,6 +29,6 @@
 
 <img src="https://user-images.githubusercontent.com/10789682/167150627-aa620690-b94b-42e4-a20a-f65d37e3ad6e.png" alt="friends expenses screenshot" />
 
-### Code Samples
+
 
 
