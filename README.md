@@ -10,7 +10,7 @@
 
 ### About 
 
-  SplitBuys is a Splitwise.com clone which allows you to save and keep track of expenses that you enter in with other people.  You can add friends, create new expenses, edit the expenses, and remove them.  For each expense one payer is delegated, and the others take on a balance owing the payer.  In the dashboard there is a summary of all friends and expenses which have been made. The expenses are displayed in two categories - expenses which the current user owes, and expenses that the current user is owed. Clicking on an expense in the dashboard will take you to the friend's show page.  On the show pages, you can click on each expense to reveal more details about the expense. In the details you can edit the expense.     
+  <a href="https://splitbuys.herokuapp.com/#/" target="_blank">SplitBuys</a> is a Splitwise.com clone which allows you to save and keep track of expenses that you enter in with other people.  You can add friends, create new expenses, edit the expenses, and remove them.  For each expense one payer is delegated, and the others take on a balance owing the payer.  In the dashboard there is a summary of all friends and expenses which have been made. The expenses are displayed in two categories - expenses which the current user owes, and expenses that the current user is owed. Clicking on an expense in the dashboard will take you to the friend's show page.  On the show pages, you can click on each expense to reveal more details about the expense. In the details you can edit the expense.     
 
 ### Tech Stack
 
